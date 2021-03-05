@@ -27,3 +27,6 @@ FOUNDATION_EXPORT const unsigned char HMSVideoVersionString[];
 #import "HMSVideoCapturer.h"
 #import "HMSStreamInfo.h"
 #import "HMSClientConfig.h"
+#import "HMSError.h"
+#import "HMSNetworkQualityInfo.h"
+#import "HMSAudioLevelInfo.h"

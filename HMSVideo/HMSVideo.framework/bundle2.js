@@ -8,7 +8,7 @@ var PayloadType;
     PayloadType[PayloadType["Opus"] = 111] = "Opus";
     PayloadType[PayloadType["VP8"] = 96] = "VP8";
     PayloadType[PayloadType["VP9"] = 98] = "VP9";
-    PayloadType[PayloadType["H264"] = 102] = "H264";
+    PayloadType[PayloadType["H264"] = 97] = "H264";
 })(PayloadType || (PayloadType = {}));
 function rtp(name) {
     switch (name) {
@@ -58,7 +58,7 @@ let WebRTCTransport = /** @class */ (() => {
             const DefaultPayloadTypeOpus = 111;
             const DefaultPayloadTypeVP8 = 96;
             const DefaultPayloadTypeVP9 = 98;
-            const DefaultPayloadTypeH264 = 102;
+            const DefaultPayloadTypeH264 = 97;
 
             var session = sdp_transform_1.parse(sdp);
 
@@ -71,7 +71,7 @@ let WebRTCTransport = /** @class */ (() => {
                 {"payload": payload, "codec": codeName, "rate": 48000, "encoding": 2},
               ];
               var fmtp = [
-                {"payload": payload, "config": "minptime=10;useinbandfec=1"}
+                {"payload": payload, "config": "minptime=10;useinbandfec=1;usedtx=1"}
               ];
 
               session.media[audioIndex].payloads = `${payload}`;
@@ -98,7 +98,7 @@ let WebRTCTransport = /** @class */ (() => {
                 payload = DefaultPayloadTypeVP9;
                 codeName = "VP9";
               } else if (codec.toLowerCase() == 'h264') {
-                payload = 102;
+                payload = 97;
                 codeName = "H264";
               } else {
                 return desc;

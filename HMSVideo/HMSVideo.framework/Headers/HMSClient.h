@@ -15,18 +15,11 @@
 #import "HMSStreamInfo.h"
 #import "HMSClientConfig.h"
 #import "HMSAudioLevelInfo.h"
+#import "HMSNetworkQualityInfo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^HMSStreamResultHandler)(HMSStream * _Nullable stream, NSError * _Nullable error);
-
-typedef NS_ENUM(NSUInteger, HMSVideoConnectionState) {
-    kHMSVideoConnectionStateReady,
-    kHMSVideoConnectionStateConnecting,
-    kHMSVideoConnectionStateConnected,
-    kHMSVideoConnectionStateDisconnected,
-    kHMSVideoConnectionStateFailed
-};
 
 @interface HMSClient : NSObject
 
@@ -38,6 +31,7 @@ typedef NS_ENUM(NSUInteger, HMSVideoConnectionState) {
 @property(nonatomic, copy, nullable) void (^onDisconnect)(NSError *_Nullable);
 @property(nonatomic, copy, nullable) void (^onConnect)(void);
 @property(nonatomic, copy, nullable) void (^onAudioLevelInfo)(NSArray<HMSAudioLevelInfo *> *);
+@property(nonatomic, copy, nullable) void (^onNetworkLevelInfo)(NSArray<HMSNetworkQualityInfo *> *);
 
 @property(nonatomic, readonly) HMSVideoConnectionState connectionState;
 

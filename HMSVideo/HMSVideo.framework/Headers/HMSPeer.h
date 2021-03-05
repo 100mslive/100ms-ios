@@ -16,8 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, readonly) NSString * name;
 @property (nonatomic, copy, readonly) NSString * _Nullable role;
 @property (nonatomic, copy, readonly) NSString * _Nullable authToken;
+@property (nonatomic, copy, readonly) NSString * _Nullable customerDescription;
 
 - (instancetype)initWithName:(NSString *)name authToken:(NSString *)authToken;
+
+- (instancetype)initWithName:(NSString *)name authToken:(NSString *)authToken customerDescription:(NSString *_Nullable)customerDescription;
 
 @end
 

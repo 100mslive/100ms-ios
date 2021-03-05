@@ -43,6 +43,14 @@ typedef NS_ENUM(NSInteger, HMSAnalyticsEventLevel) {
     kHMSAnalyticsEventLevelVerbose
 };
 
+typedef NS_ENUM(NSUInteger, HMSVideoConnectionState) {
+    kHMSVideoConnectionStateReady,
+    kHMSVideoConnectionStateConnecting,
+    kHMSVideoConnectionStateConnected,
+    kHMSVideoConnectionStateDisconnected,
+    kHMSVideoConnectionStateFailed
+};
+
 @protocol HMSLogger <NSObject>
 @property (nonatomic, assign) HMSLogLevel logLevel;
 
