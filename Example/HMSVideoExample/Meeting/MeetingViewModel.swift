@@ -162,8 +162,8 @@ final class MeetingViewModel: NSObject,
                           height: collectionView.frame.size.height - heightInsets)
         }
 
-        if hms.videoTracks.count < 4 {
-            let count = CGFloat(hms.videoTracks.count)
+        if hms.model.count < 4 {
+            let count = CGFloat(hms.model.count)
             return CGSize(width: collectionView.frame.size.width - widthInsets,
                           height: (collectionView.frame.size.height / count) - heightInsets)
         } else {
@@ -180,9 +180,7 @@ final class MeetingViewModel: NSObject,
     }
 
     func switchCamera() {
-        if let capturer = hms.localStream?.videoCapturer {
-            capturer.switchCamera()
-        }
+        hms.localStream?.videoCapturer?.switchCamera()
     }
 
     func switchAudio(isOn: Bool) {

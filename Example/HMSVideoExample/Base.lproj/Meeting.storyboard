@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mjG-Ba-if7">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -17,11 +17,11 @@
             <objects>
                 <viewController id="mjG-Ba-if7" customClass="MeetingViewController" customModule="HMSVideo_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dqf-yv-7Bl">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbh-7g-s3g">
-                                <rect key="frame" x="338" y="44" width="44" height="44"/>
+                                <rect key="frame" x="323" y="44" width="44" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="FBk-xL-BtU"/>
@@ -39,7 +39,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9C-pq-ppt">
-                                <rect key="frame" x="294" y="44" width="44" height="44"/>
+                                <rect key="frame" x="279" y="44" width="44" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="JGd-Pu-Vel"/>
@@ -54,7 +54,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05R-Fu-pzL">
-                                <rect key="frame" x="250" y="44" width="44" height="44"/>
+                                <rect key="frame" x="235" y="44" width="44" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="dsa-av-Xnu"/>
@@ -74,7 +74,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1F-BP-LLz">
-                                <rect key="frame" x="206" y="44" width="44" height="44"/>
+                                <rect key="frame" x="191" y="44" width="44" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="ll8-3i-2Qf"/>
@@ -95,7 +95,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdt-Kd-OJO">
-                                <rect key="frame" x="8" y="44" width="198" height="44"/>
+                                <rect key="frame" x="8" y="44" width="183" height="44"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <state key="normal" title="Room ">
                                     <color key="titleColor" systemColor="linkColor"/>
@@ -109,14 +109,14 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NKq-UE-p7N">
-                                <rect key="frame" x="0.0" y="88" width="390" height="1"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="1"/>
                                 <color key="backgroundColor" systemColor="separatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="RHP-tp-D0r"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DyH-bp-NTF">
-                                <rect key="frame" x="0.0" y="88" width="390" height="678"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="646"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="4" minimumInteritemSpacing="4" id="X0O-qo-onW">
                                     <size key="itemSize" width="128" height="128"/>
@@ -126,18 +126,18 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="Cell" id="0EI-A3-zvS" customClass="VideoCollectionViewCell" customModule="HMSVideo_Example" customModuleProvider="target">
-                                        <rect key="frame" x="4" y="0.0" width="169" height="128"/>
+                                        <rect key="frame" x="4" y="0.0" width="221" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="eIA-rh-Vt1">
-                                            <rect key="frame" x="0.0" y="0.0" width="169" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="221" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="nEX-Q2-mQX" customClass="HMSVideoView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="169" height="128"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="221" height="128"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleAspectFit" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5DJ-Az-o0i">
-                                                    <rect key="frame" x="8" y="80" width="153" height="44"/>
+                                                    <rect key="frame" x="8" y="80" width="205" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i5b-uY-ZDM">
                                                             <rect key="frame" x="8" y="8" width="33" height="28"/>
@@ -185,6 +185,26 @@
                                                                 <action selector="muteTapped:" destination="0EI-A3-zvS" eventType="touchUpInside" id="5Q5-fG-mzD"/>
                                                             </connections>
                                                         </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obx-KY-CNX">
+                                                            <rect key="frame" x="153" y="8" width="44" height="28"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="44" id="pfi-Bu-oot"/>
+                                                            </constraints>
+                                                            <state key="normal" image="video.fill" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="medium">
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                </preferredSymbolConfiguration>
+                                                            </state>
+                                                            <state key="selected" image="video.slash.fill" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="medium">
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                </preferredSymbolConfiguration>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="muteTapped:" destination="0EI-A3-zvS" eventType="touchUpInside" id="cTt-z7-o7U"/>
+                                                                <action selector="stopVideoTapped:" destination="0EI-A3-zvS" eventType="touchUpInside" id="3Dt-vU-D0c"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                     <constraints>
@@ -210,16 +230,17 @@
                                             <outlet property="nameLabel" destination="i5b-uY-ZDM" id="U3V-ov-dqn"/>
                                             <outlet property="pinButton" destination="lU8-bL-ohw" id="BlB-9J-nRH"/>
                                             <outlet property="stackView" destination="5DJ-Az-o0i" id="Ikz-3f-3nA"/>
+                                            <outlet property="stopVideoButton" destination="obx-KY-CNX" id="PZg-Oi-nKt"/>
                                             <outlet property="videoView" destination="nEX-Q2-mQX" id="wdm-Ax-ohZ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Tb2-3p-SS0">
-                                <rect key="frame" x="0.0" y="766" width="390" height="44"/>
+                                <rect key="frame" x="0.0" y="734" width="375" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXn-tX-gSM">
-                                        <rect key="frame" x="8" y="0.0" width="87.666666666666671" height="44"/>
+                                        <rect key="frame" x="8" y="0.0" width="83.666666666666671" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="2r2-nP-Ppa"/>
                                         </constraints>
@@ -238,7 +259,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKQ-0T-b7l">
-                                        <rect key="frame" x="103.66666666666669" y="0.0" width="87.333333333333314" height="44"/>
+                                        <rect key="frame" x="99.666666666666686" y="0.0" width="84" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="gnA-SC-CIG"/>
                                         </constraints>
@@ -257,7 +278,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cxf-bq-abg" customClass="BadgeButton" customModule="HMSVideo_Example" customModuleProvider="target">
-                                        <rect key="frame" x="199" y="0.0" width="87.666666666666686" height="44"/>
+                                        <rect key="frame" x="191.66666666666666" y="0.0" width="83.666666666666657" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="RA3-dL-P1E"/>
                                         </constraints>
@@ -271,7 +292,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dT1-Fg-dAU">
-                                        <rect key="frame" x="294.66666666666669" y="0.0" width="87.333333333333314" height="44"/>
+                                        <rect key="frame" x="283.33333333333331" y="0.0" width="83.666666666666686" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="MxJ-hy-oBa"/>
                                         </constraints>

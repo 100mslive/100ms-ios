@@ -16,7 +16,7 @@ struct Constants {
 //    "https://ms-services-server-token-17sgcgfb18ow.runkit.sh/"
 //    https://100ms-services.vercel.app/api/room_token
 
-    static let endpoint = UserDefaults.standard.string(forKey: socketEndpointKey) ?? "wss://qa-in.100ms.live/ws"
+    static let endpoint = UserDefaults.standard.string(forKey: socketEndpointKey) ?? "wss://prod-in.100ms.live/ws"
 
     static let tokenQuery = UserDefaults.standard.string(forKey: tokenQueryKey) ?? "api/token"
     //    static let getToken = server + "?api=token"
@@ -28,9 +28,9 @@ struct Constants {
 
     static let createRoomURL = server + createRoomQuery
 
-    static let urlEmpty = "Token & Endpoint URLs cannot be nil!"
+    static let tokenKey = "token"
 
-    static let jsonError = "JSON Data parsing error!"
+    static let idKey = "id"
 
     // MARK: - Notifications
 
@@ -46,7 +46,9 @@ struct Constants {
 
     static let pinTapped = NSNotification.Name("PIN_TAPPED")
 
-    static let muteTapped = NSNotification.Name("MUTE_TAPPED")
+    static let mutePeer = NSNotification.Name("MUTE_PEER")
+
+    static let muteALL = NSNotification.Name("MUTE_ALL")
 
     // MARK: - View Constants
 

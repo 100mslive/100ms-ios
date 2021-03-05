@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,13 +26,14 @@
 		EC8E97DA25EBFEC6003A3FCD /* ParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8E97D925EBFEC6003A3FCD /* ParticipantsViewController.swift */; };
 		EC8E97E325EBFF16003A3FCD /* Participants.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8E97E525EBFF16003A3FCD /* Participants.storyboard */; };
 		ECA9BECC25EB6E3B0095C4FD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9BEC925EB6E3B0095C4FD /* SettingsViewController.swift */; };
-		ECCB2A5025F0D928000D8790 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB2A4F25F0D928000D8790 /* VideoModel.swift */; };
+		ECCB2A5025F0D928000D8790 /* PeerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB2A4F25F0D928000D8790 /* PeerState.swift */; };
 		ECDFC34A25F069CA0036DAE7 /* FirebaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDFC34925F069CA0036DAE7 /* FirebaseInteractor.swift */; };
 		ECDFC35025F07AC30036DAE7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECDFC34F25F07AC30036DAE7 /* GoogleService-Info.plist */; };
 		ECE5D2C725ED592200B8D7E4 /* BadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE5D2C625ED592200B8D7E4 /* BadgeButton.swift */; };
 		ECF0C4AB25F138630021537A /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF0C4AA25F138630021537A /* ChatTableViewCell.swift */; };
 		ECF26DA025EBDB5700BFB3B9 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26D9F25EBDB5700BFB3B9 /* ChatViewController.swift */; };
 		ECF26DA925EBDBC300BFB3B9 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECF26DAB25EBDBC300BFB3B9 /* Chat.storyboard */; };
+		ECF2B23F25F28B4E007C84FD /* RoomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF2B23E25F28B4E007C84FD /* RoomService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,7 +82,7 @@
 		EC8E97E425EBFF16003A3FCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Participants.storyboard; sourceTree = "<group>"; };
 		EC8E97E925EBFF18003A3FCD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Participants.strings; sourceTree = "<group>"; };
 		ECA9BEC925EB6E3B0095C4FD /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		ECCB2A4F25F0D928000D8790 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VideoModel.swift; path = Meeting/VideoModel.swift; sourceTree = "<group>"; };
+		ECCB2A4F25F0D928000D8790 /* PeerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PeerState.swift; path = Meeting/PeerState.swift; sourceTree = "<group>"; };
 		ECDEE42B25E7A6AE00DB468F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		ECDFC34925F069CA0036DAE7 /* FirebaseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirebaseInteractor.swift; path = "Supporting Files/FirebaseInteractor.swift"; sourceTree = "<group>"; };
 		ECDFC34F25F07AC30036DAE7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 		ECF26D9F25EBDB5700BFB3B9 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		ECF26DAA25EBDBC300BFB3B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Chat.storyboard; sourceTree = "<group>"; };
 		ECF26DAF25EBDBC500BFB3B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Chat.strings; sourceTree = "<group>"; };
+		ECF2B23E25F28B4E007C84FD /* RoomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoomService.swift; path = Meeting/RoomService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,7 +235,8 @@
 				EC462C9525E95A3200BFF07C /* MeetingViewController.swift */,
 				EC462CAD25E9606100BFF07C /* MeetingViewModel.swift */,
 				EC462CB125E9616400BFF07C /* HMSInteractor.swift */,
-				ECCB2A4F25F0D928000D8790 /* VideoModel.swift */,
+				ECCB2A4F25F0D928000D8790 /* PeerState.swift */,
+				ECF2B23E25F28B4E007C84FD /* RoomService.swift */,
 				EC462C9425E95A3200BFF07C /* VideoCollectionViewCell.swift */,
 				EC462C8725E95A0B00BFF07C /* Meeting.storyboard */,
 				ECF26D9E25EBDB3200BFB3B9 /* Chat */,
@@ -318,7 +321,9 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 5N85PP82A9;
 						LastSwiftMigration = 1160;
+						ProvisioningStyle = Automatic;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -482,13 +487,14 @@
 				EC462C9F25E95A4100BFF07C /* AppDelegate.swift in Sources */,
 				EC462CB225E9616400BFF07C /* HMSInteractor.swift in Sources */,
 				EC462C9125E95A2800BFF07C /* LoginViewController.swift in Sources */,
-				ECCB2A5025F0D928000D8790 /* VideoModel.swift in Sources */,
+				ECCB2A5025F0D928000D8790 /* PeerState.swift in Sources */,
 				EC462CAE25E9606100BFF07C /* MeetingViewModel.swift in Sources */,
 				EC462C9625E95A3200BFF07C /* VideoCollectionViewCell.swift in Sources */,
 				EC462CA025E95A4100BFF07C /* Utilities.swift in Sources */,
 				EC8E97DA25EBFEC6003A3FCD /* ParticipantsViewController.swift in Sources */,
 				ECE5D2C725ED592200B8D7E4 /* BadgeButton.swift in Sources */,
 				EC462C9725E95A3200BFF07C /* MeetingViewController.swift in Sources */,
+				ECF2B23F25F28B4E007C84FD /* RoomService.swift in Sources */,
 				EC462CB825E9629700BFF07C /* Constants.swift in Sources */,
 				ECF26DA025EBDB5700BFB3B9 /* ChatViewController.swift in Sources */,
 				ECF0C4AB25F138630021537A /* ChatTableViewCell.swift in Sources */,
@@ -705,10 +711,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HMSVideoExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = live.100ms.videoapp;
@@ -735,10 +738,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HMSVideoExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = live.100ms.videoapp;
@@ -766,11 +766,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -790,11 +786,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;

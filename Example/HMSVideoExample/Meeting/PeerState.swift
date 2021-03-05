@@ -9,12 +9,12 @@
 import Foundation
 import HMSVideo
 
-class VideoModel {
+class PeerState {
 
     let peer: HMSPeer
 
     let stream: HMSStream
-    
+
     let videoTrack: HMSVideoTrack
 
     var isCurrentSpeaker = false

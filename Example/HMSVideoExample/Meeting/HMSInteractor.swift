@@ -13,44 +13,29 @@ final class HMSInteractor {
 
     // MARK: - Instance Properties
 
-    private let user: String
+    private let updateView: (VideoCellState) -> Void
 
-    private var updateView: (VideoCellState) -> Void
+    private var client: HMSClient!
 
-    private(set) var localPeer: HMSPeer!
-    private(set) var client: HMSClient!
-    private(set) var room: HMSRoom! {
+    private var room: HMSRoom! {
         didSet {
             let pasteboard = UIPasteboard.general
             pasteboard.string = room.roomId
         }
     }
 
-    private(set) var peers = [String: HMSPeer]()
-    private(set) var remoteStreams = [HMSStream]()
-    private(set) var videoTracks = [HMSVideoTrack]()
+    private(set) var localPeer: HMSPeer!
 
-    var model = [VideoModel]()
+    private(set) var peers = [String: HMSPeer]()
+    private var videoTracks = [HMSVideoTrack]()
+
+    var model = [PeerState]()
 
     private(set) var localStream: HMSStream?
-    private(set) var localAudioTrack: HMSAudioTrack?
-    private(set) var localVideoTrack: HMSVideoTrack?
-    private(set) var videoCapturer: HMSVideoCapturer?
 
-    private(set) var speakerPeerID: String? {
-        didSet {
-            let streamer = peers.filter { $0.value.peerId == speakerPeerID }
-            if let streamID = streamer.keys.first {
-                if let track = videoTracks.filter({ $0.streamId == streamID }).first {
-                    if speakerVideoTrack?.trackId != track.trackId {
-                        speakerVideoTrack = track
-                    }
-                }
-            }
-        }
-    }
+    private var videoCapturer: HMSVideoCapturer?
 
-    private(set) var speakerVideoTrack: HMSVideoTrack? {
+    private var speakerVideoTrack: HMSVideoTrack? {
         didSet {
             if let oldValue = oldValue, let speakerVideoTrack = speakerVideoTrack {
 
@@ -66,237 +51,35 @@ final class HMSInteractor {
         }
     }
 
-    private var codec: HMSVideoCodec {
-        let codecString = UserDefaults.standard.string(forKey: Constants.videoCodec) ?? "VP8"
-
-        switch codecString {
-        case "H264":
-            return .H264
-        case "VP9":
-            return .VP9
-        default:
-            return .VP8
-        }
-    }
-
-    private var resolution: HMSVideoResolution {
-        let resolutionString = UserDefaults.standard.string(forKey: Constants.videoResolution) ?? "QHD"
-
-        switch resolutionString {
-        case "QVGA":
-            return .QVGA
-        case "VGA":
-            return .VGA
-        case "HD":
-            return .HD
-        case "Full HD":
-            return .fullHD
-        default:
-            return .QHD
-        }
-    }
+    internal var broadcasts = [[AnyHashable: Any]]()
 
     private var cameraSource = "Front Facing" {
-        willSet {
-            if newValue != cameraSource {
+        didSet {
+            if cameraSource != oldValue {
                 videoCapturer?.switchCamera()
             }
         }
     }
 
-    internal var broadcasts = [[AnyHashable: Any]]()
-
-    private var flow: MeetingFlow
-
     // MARK: - Setup Stream
 
     init(for user: String, in room: String, _ flow: MeetingFlow, _ callback: @escaping (VideoCellState) -> Void) {
 
-        self.user = user
-        self.flow = flow
         self.updateView = callback
 
-        setup(room)
+        RoomService.setup(for: flow, user, room) { [weak self] token, room in
+
+            guard let token = token, let room = room, let strongSelf = self else {
+                print("Error: ", #function)
+                return
+            }
+            strongSelf.connect(user, with: token, in: room)
+        }
 
         observeSettingsUpdated()
     }
 
-    func setup(_ room: String) {
-
-        switch flow {
-        case .join:
-            fetchToken(Constants.endpoint, Constants.getTokenURL, room) { [weak self] token, error in
-
-                guard error == nil, let token = token, let strongSelf = self
-                else {
-                    let error = error ?? CustomError(title: "Fetch Token Error")
-                    NotificationCenter.default.post(name: Constants.hmsError,
-                                                    object: nil,
-                                                    userInfo: ["Error": error])
-                    return
-                }
-                strongSelf.connect(with: token, room)
-            }
-        case .start:
-            createRoom(name: room) { [weak self] _, roomID, error in
-
-                guard error == nil, let roomID = roomID, let strongSelf = self
-                else {
-                    let error = error ?? CustomError(title: "Create Room Error")
-                    NotificationCenter.default.post(name: Constants.hmsError,
-                                                    object: nil,
-                                                    userInfo: ["Error": error])
-                    return
-                }
-
-                strongSelf.fetchToken(Constants.endpoint, Constants.getTokenURL, roomID) { [weak self] token, error in
-                    guard error == nil, let token = token, let strongSelf = self
-                    else {
-                        let error = error ?? CustomError(title: "Fetch Token Error")
-                        NotificationCenter.default.post(name: Constants.hmsError,
-                                                        object: nil,
-                                                        userInfo: ["Error": error])
-                        return
-                    }
-
-                    strongSelf.connect(with: token, roomID)
-                }
-            }
-        }
-    }
-
-    func fetchToken(_ endpoint: String,
-                    _ token: String,
-                    _ roomID: String,
-                    completion: @escaping (String?, Error?) -> Void) {
-
-        guard let endpointURL = URL(string: endpoint),
-              let tokenURL = URL(string: token),
-              let subDomain = endpointURL.host?.components(separatedBy: ".").first
-        else {
-            completion(nil, CustomError(title: Constants.urlEmpty))
-            return
-        }
-
-        let body = [  "room_id": roomID,
-                      "user_name": user,
-                      "role": "guest",
-                      "env": subDomain    ]
-
-        var request = URLRequest(url: tokenURL)
-        request.httpMethod = "POST"
-
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
-        } catch {
-            print(error.localizedDescription)
-            completion(nil, CustomError(title: error.localizedDescription))
-            return
-        }
-
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-
-        URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
-
-            print(#function, response)
-            self?.parseToken(from: data, error: error) { token, error in
-                DispatchQueue.main.async {
-                    completion(token, error)
-                }
-            }
-        }.resume()
-    }
-
-    func parseToken(from data: Data?, error: Error?, completion: @escaping (String?, Error?) -> Void) {
-
-        guard error == nil, let data = data else {
-            let message = error?.localizedDescription ?? "Parse Token Error"
-            completion(nil, CustomError(title: message))
-            return
-        }
-
-        do {
-            if let json = try JSONSerialization.jsonObject(with: data,
-                                                           options: .mutableContainers) as? [String: Any] {
-                if let token = json["token"] as? String {
-                    completion(token, nil)
-                } else {
-                    print(Constants.jsonError)
-                    completion(nil, CustomError(title: Constants.jsonError))
-                }
-            }
-        } catch {
-            print(error.localizedDescription)
-            completion(nil, CustomError(title: error.localizedDescription))
-        }
-    }
-
-    func createRoom(name: String, completion: @escaping (Bool, String?, Error?) -> Void) {
-
-        guard let createRoomURL = URL(string: Constants.createRoomURL)
-        else {
-            completion(false, nil, CustomError(title: "Create Room URL Error"))
-            return
-        }
-
-        let cleanedName = name.replacingOccurrences(of: " ", with: "")
-
-        let body = [
-                "room_id": cleanedName,
-                "user_name": user,
-                "role": "host",
-                "env": "prod-in"
-                ]
-
-        var request = URLRequest(url: createRoomURL)
-        request.httpMethod = "POST"
-
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
-        } catch {
-            print(error.localizedDescription)
-            completion(false, nil, CustomError(title: error.localizedDescription))
-            return
-        }
-
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-
-        URLSession.shared.dataTask(with: request) { [weak self] data, _, error in
-
-            self?.parseRooms(data, error) { isSucces, roomID, error in
-                completion(isSucces, roomID, error)
-            }
-        }.resume()
-    }
-
-    func parseRooms(_ data: Data?, _ error: Error?, completion: (Bool, String?, Error?) -> Void) {
-        guard error == nil, let data = data else {
-            let message = error?.localizedDescription ?? "Parse Create Room Response Error"
-            completion(false, nil, CustomError(title: message))
-            return
-        }
-
-        do {
-            if let json = try JSONSerialization.jsonObject(with: data,
-                                                           options: .mutableContainers) as? [String: Any] {
-                if let roomID = json["id"] as? String {
-                    completion(true, roomID, nil)
-                } else {
-                    print(Constants.jsonError)
-                    completion(false, nil, CustomError(title: Constants.jsonError))
-                }
-            }
-        } catch {
-            print(error.localizedDescription)
-            completion(false, nil, CustomError(title: error.localizedDescription))
-        }
-    }
-
-    // MARK: - Stream Handlers
-
-    func connect(with token: String, _ roomID: String) {
+    func connect(_ user: String, with token: String, in roomID: String) {
 
         localPeer = HMSPeer(name: user, authToken: token)
 
@@ -314,6 +97,13 @@ final class HMSInteractor {
 
         client.connect()
     }
+
+    func setAudioDelay() {
+        let audioPollDelay = UserDefaults.standard.object(forKey: Constants.audioPollDelay) as? Double ?? 3.0
+        client.startAudioLevelMonitor(audioPollDelay)
+    }
+
+    // MARK: - Stream Handlers
 
     func setupCallbacks() {
         client.onPeerJoin = { room, peer in
@@ -393,10 +183,9 @@ final class HMSInteractor {
                 return
             }
 
-            self?.remoteStreams.append(stream)
             self?.videoTracks.append(videoTrack)
 
-            let item = VideoModel(peer, stream, videoTrack)
+            let item = PeerState(peer, stream, videoTrack)
             self?.model.append(item)
             self?.updateView(.insert(index: (self?.model.count ?? 1) - 1))
         }
@@ -437,21 +226,14 @@ final class HMSInteractor {
     func setupLocal(_ stream: HMSStream) {
         localStream = stream
         videoCapturer = stream.videoCapturer
-        localAudioTrack = stream.audioTracks?.first
-        localVideoTrack = stream.videoTracks?.first
 
         if let source = UserDefaults.standard.string(forKey: Constants.defaultVideoSource) {
-            if source == "Rear Facing" {
-                videoCapturer?.switchCamera()
-                cameraSource = "Rear Facing"
-            } else {
-                cameraSource = "Front Facing"
-            }
+            cameraSource = source
         }
 
         videoCapturer?.startCapture()
 
-        if let track = localVideoTrack {
+        if let track = stream.videoTracks?.first {
             videoTracks.append(track)
 
             guard let peer = peers[stream.streamId] else {
@@ -459,18 +241,13 @@ final class HMSInteractor {
                 return
             }
 
-            let item = VideoModel(peer, stream, track)
+            let item = PeerState(peer, stream, track)
             model.append(item)
 
             let lastIndex = model.count > 0 ? model.count : 1
             updateView(.insert(index: lastIndex - 1))
         }
     }
-}
-
-// MARK: - Action Handlers
-
-extension HMSInteractor {
 
     func updateAudio(with levels: [HMSAudioLevelInfo]) {
 
@@ -480,9 +257,29 @@ extension HMSInteractor {
             return
         }
 
-        speakerPeerID = peer.peerId
+        let streamer = peers.filter { $0.value.peerId == peer.peerId }
+        if let streamID = streamer.keys.first {
+            if let track = videoTracks.filter({ $0.streamId == streamID }).first {
+                if speakerVideoTrack?.trackId != track.trackId {
+                    speakerVideoTrack = track
+                }
+            }
+        }
 
         print("Speaker: ", peer.name)
+    }
+
+    // MARK: - Action Handlers
+
+    func send(_ broadcast: [AnyHashable: Any], completion: @escaping () -> Void) {
+
+        client.broadcast(broadcast, room: room) { _, error in
+
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            completion()
+        }
     }
 
     func observeSettingsUpdated() {
@@ -510,30 +307,14 @@ extension HMSInteractor {
             if let source = UserDefaults.standard.string(forKey: Constants.defaultVideoSource) {
                 self?.cameraSource = source
             }
-            
+
             let publishVideo = UserDefaults.standard.object(forKey: Constants.publishVideo) as? Bool ?? true
             self?.localStream?.videoTracks?.first?.enabled = publishVideo
-            
+
             let publishAudio = UserDefaults.standard.object(forKey: Constants.publishAudio) as? Bool ?? true
             self?.localStream?.audioTracks?.first?.enabled = publishAudio
 
             self?.setAudioDelay()
-        }
-    }
-
-    func setAudioDelay() {
-        let audioPollDelay = UserDefaults.standard.object(forKey: Constants.audioPollDelay) as? Double ?? 3.0
-        client.startAudioLevelMonitor(audioPollDelay)
-    }
-
-    func send(_ broadcast: [AnyHashable: Any], completion: @escaping () -> Void) {
-
-        client.broadcast(broadcast, room: room) { _, error in
-
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            completion()
         }
     }
 
@@ -547,5 +328,40 @@ extension HMSInteractor {
         client.leave(room)
 
         client.disconnect()
+    }
+}
+
+// MARK: - Helpers
+
+extension HMSInteractor {
+
+    private var codec: HMSVideoCodec {
+        let codecString = UserDefaults.standard.string(forKey: Constants.videoCodec) ?? "VP8"
+
+        switch codecString {
+        case "H264":
+            return .H264
+        case "VP9":
+            return .VP9
+        default:
+            return .VP8
+        }
+    }
+
+    private var resolution: HMSVideoResolution {
+        let resolutionString = UserDefaults.standard.string(forKey: Constants.videoResolution) ?? "QHD"
+
+        switch resolutionString {
+        case "QVGA":
+            return .QVGA
+        case "VGA":
+            return .VGA
+        case "HD":
+            return .HD
+        case "Full HD":
+            return .fullHD
+        default:
+            return .QHD
+        }
     }
 }

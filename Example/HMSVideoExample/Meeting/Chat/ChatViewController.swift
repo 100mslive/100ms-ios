@@ -16,7 +16,7 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
-    
+
     // MARK: - View Lifecycle
 
     override func viewDidLoad() {
@@ -74,7 +74,7 @@ class ChatViewController: UIViewController {
         _ = NotificationCenter.default.addObserver(forName: Constants.broadcastReceived,
                                                    object: nil,
                                                    queue: .main) { [weak self] _ in
-            
+
             let index = IndexPath(row: (self?.hms?.broadcasts.count ?? 1) - 1, section: 0)
             self?.table.insertRows(at: [index], with: .automatic)
             self?.table.scrollToRow(at: index, at: .top, animated: true)
@@ -114,7 +114,7 @@ extension ChatViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
         guard let chat = hms?.broadcasts[indexPath.row],
               let sender = chat[Constants.chatSenderName] as? String,
               let message = chat[Constants.chatMessage] as? String,
@@ -123,7 +123,7 @@ extension ChatViewController: UITableViewDataSource {
         else {
             return UITableViewCell()
         }
-        
+
         if sender.lowercased() == hms?.localPeer.name.lowercased() {
             cell.nameLabel.textAlignment = .right
             cell.messageLabel.textAlignment = .right
