@@ -26,7 +26,6 @@ final class HMSInteractor {
 
     private(set) var localPeer: HMSPeer!
 
-    private(set) var peers = [String: HMSPeer]()
     private var videoTracks = [HMSVideoTrack]()
 
     var model = [PeerState]()
@@ -172,8 +171,6 @@ final class HMSInteractor {
 
     func subscribe(to room: HMSRoom, _ peer: HMSPeer, with info: HMSStreamInfo) {
 
-        peers[info.streamId] = peer
-
         client.subscribe(info, room: room) { [weak self] (stream, error) in
 
             guard let stream = stream,
@@ -208,8 +205,6 @@ final class HMSInteractor {
             return
         }
 
-        peers[localStream.streamId] = localPeer
-
         let audioPollDelay = userDefaults.object(forKey: Constants.audioPollDelay) as? Double ?? 0.5
         client.startAudioLevelMonitor(audioPollDelay)
 
@@ -236,12 +231,12 @@ final class HMSInteractor {
         if let track = stream.videoTracks?.first {
             videoTracks.append(track)
 
-            guard let peer = peers[stream.streamId] else {
-                print("Error: Could not find local peer!")
-                return
-            }
+//            guard let peer = model.first(where: { $0.stream.streamId == stream.streamId })?.peer else {
+//                print(#function, "Error: Could not find local peer!")
+//                return
+//            }
 
-            let item = PeerState(peer, stream, track)
+            let item = PeerState(localPeer, stream, track)
             model.append(item)
 
             let lastIndex = model.count > 0 ? model.count : 1
@@ -252,21 +247,18 @@ final class HMSInteractor {
     func updateAudio(with levels: [HMSAudioLevelInfo]) {
 
         guard let topLevel = levels.first,
-              let peer = peers[topLevel.streamId]
+            let peerState = model.first(where: { $0.stream.streamId == topLevel.streamId })
         else {
             return
         }
 
-        let streamer = peers.filter { $0.value.peerId == peer.peerId }
-        if let streamID = streamer.keys.first {
-            if let track = videoTracks.filter({ $0.streamId == streamID }).first {
-                if speakerVideoTrack?.trackId != track.trackId {
-                    speakerVideoTrack = track
-                }
+        if let track = videoTracks.filter({ $0.streamId == peerState.stream.streamId }).first {
+            if speakerVideoTrack?.trackId != track.trackId {
+                speakerVideoTrack = track
             }
         }
 
-        print("Speaker: ", peer.name)
+        print("Speaker: ", peerState.peer.name)
     }
 
     // MARK: - Action Handlers

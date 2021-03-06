@@ -16,12 +16,8 @@ class ParticipantsViewController: UIViewController {
     var hms: HMSInteractor?
 
     var peers: [HMSPeer] {
-        var peers = hms?.peers.map { $0.1 } ?? [HMSPeer]()
-        let host = peers.filter { $0.role?.lowercased() == "host" }
-        if peers.count > 0, host.count > 0 {
-            peers.removeAll { $0.role?.lowercased() == "host" }
-            host.forEach { peers.insert($0, at: 0) }
-        }
+        let peers = hms?.model.map { $0.peer }
+            .sorted(by: { $0.name.lowercased() == "host" && $1.name.lowercased() != "host" }) ?? [HMSPeer]()
         return peers
     }
 
