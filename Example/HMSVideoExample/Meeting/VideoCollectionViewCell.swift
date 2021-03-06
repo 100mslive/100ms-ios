@@ -50,6 +50,22 @@ class VideoCollectionViewCell: UICollectionViewCell {
                 self?.muteButton.isSelected = !audioEnabled
             }
         }
+        
+        _ = NotificationCenter.default.addObserver(forName: Constants.localAudioToggled,
+                                                   object: nil,
+                                                   queue: .main) { [weak self] _ in
+            if let audioEnabled = self?.model?.stream.audioTracks?.first?.enabled {
+                self?.muteButton.isSelected = !audioEnabled
+            }
+        }
+        
+        _ = NotificationCenter.default.addObserver(forName: Constants.localVideoToggled,
+                                                   object: nil,
+                                                   queue: .main) { [weak self] _ in
+            if let videoEnabled = self?.model?.stream.videoTracks?.first?.enabled {
+                self?.stopVideoButton.isSelected = !videoEnabled
+            }
+        }
     }
 
     deinit {

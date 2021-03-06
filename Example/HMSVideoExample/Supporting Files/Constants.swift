@@ -51,6 +51,10 @@ struct Constants {
     static let mutePeer = NSNotification.Name("MUTE_PEER")
 
     static let muteALL = NSNotification.Name("MUTE_ALL")
+    
+    static let localVideoToggled = NSNotification.Name("LOCAL_VIDEO_TOGGLED")
+    
+    static let localAudioToggled = NSNotification.Name("LOCAL_AUDIO_TOGGLED")
 
     // MARK: - View Constants
 

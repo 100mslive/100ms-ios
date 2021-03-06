@@ -138,6 +138,10 @@ final class MeetingViewModel: NSObject,
         if let audioEnabled = model.stream.audioTracks?.first?.enabled {
             cell.muteButton.isSelected = !audioEnabled
         }
+        
+        if let videoEnabled = model.stream.videoTracks?.first?.enabled {
+            cell.stopVideoButton.isSelected = !videoEnabled
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -187,12 +191,18 @@ final class MeetingViewModel: NSObject,
         if let audioTrack = hms.localStream?.audioTracks?.first {
             audioTrack.enabled = isOn
         }
+        
+        NotificationCenter.default.post(name: Constants.localAudioToggled, object: nil)
+        print(#function, isOn, hms.localStream?.audioTracks?.first?.enabled as Any)
     }
 
     func switchVideo(isOn: Bool) {
         if let videoTrack = hms.localStream?.videoTracks?.first {
             videoTrack.enabled = isOn
         }
+        
+        NotificationCenter.default.post(name: Constants.localVideoToggled, object: nil)
+        print(#function, isOn, hms.localStream?.videoTracks?.first?.enabled as Any)
     }
 
     func muteRemoteStreams(_ isMuted: Bool) {
