@@ -17,7 +17,7 @@ final class MeetingViewModel: NSObject,
 
     weak var collectionView: UICollectionView?
 
-    private let sectionInsets = UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
+    private let sectionInsets = UIEdgeInsets(top: 2.0, left: 3.0, bottom: 2.0, right: 3.0)
 
     // MARK: - Initializers
 
@@ -159,7 +159,7 @@ final class MeetingViewModel: NSObject,
 
         print(#function, indexPath.item)
 
-        let model = hms.model[indexPath.row]
+        let model = hms.model[indexPath.item]
 
         if model.isPinned {
             return CGSize(width: collectionView.frame.size.width - widthInsets,

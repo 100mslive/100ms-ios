@@ -118,7 +118,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DyH-bp-NTF">
                                 <rect key="frame" x="0.0" y="88" width="375" height="646"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="4" minimumInteritemSpacing="4" id="X0O-qo-onW">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="4" minimumInteritemSpacing="4" id="X0O-qo-onW">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -126,30 +126,30 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="Cell" id="0EI-A3-zvS" customClass="VideoCollectionViewCell" customModule="HMSVideo_Example" customModuleProvider="target">
-                                        <rect key="frame" x="4" y="0.0" width="221" height="128"/>
+                                        <rect key="frame" x="4" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="eIA-rh-Vt1">
-                                            <rect key="frame" x="0.0" y="0.0" width="221" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="nEX-Q2-mQX" customClass="HMSVideoView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="221" height="128"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
-                                                <stackView opaque="NO" contentMode="scaleAspectFit" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5DJ-Az-o0i">
-                                                    <rect key="frame" x="8" y="80" width="205" height="44"/>
+                                                <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="5DJ-Az-o0i">
+                                                    <rect key="frame" x="4" y="80" width="120" height="44"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i5b-uY-ZDM">
-                                                            <rect key="frame" x="8" y="8" width="33" height="28"/>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i5b-uY-ZDM">
+                                                            <rect key="frame" x="8" y="8" width="8" height="28"/>
                                                             <color key="tintColor" systemColor="linkColor"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                             <color key="textColor" systemColor="linkColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lU8-bL-ohw">
-                                                            <rect key="frame" x="49" y="8" width="44" height="28"/>
+                                                            <rect key="frame" x="16" y="8" width="32" height="28"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="44" id="88K-QT-xDp"/>
+                                                                <constraint firstAttribute="width" constant="32" id="88K-QT-xDp"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                             <state key="normal" image="pin.fill" catalog="system">
@@ -167,9 +167,9 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecl-i0-jxF">
-                                                            <rect key="frame" x="101" y="8" width="44" height="28"/>
+                                                            <rect key="frame" x="48" y="8" width="32" height="28"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="44" id="xU5-CX-JeH"/>
+                                                                <constraint firstAttribute="width" constant="32" id="xU5-CX-JeH"/>
                                                             </constraints>
                                                             <state key="normal" image="speaker.wave.2.fill" catalog="system">
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="medium">
@@ -186,9 +186,9 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obx-KY-CNX">
-                                                            <rect key="frame" x="153" y="8" width="44" height="28"/>
+                                                            <rect key="frame" x="80" y="8" width="32" height="28"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="44" id="pfi-Bu-oot"/>
+                                                                <constraint firstAttribute="width" constant="32" id="pfi-Bu-oot"/>
                                                             </constraints>
                                                             <state key="normal" image="video.fill" catalog="system">
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="medium">
@@ -220,7 +220,7 @@
                                                 <constraint firstItem="nEX-Q2-mQX" firstAttribute="leading" secondItem="eIA-rh-Vt1" secondAttribute="leading" id="Yc4-VI-PBE"/>
                                                 <constraint firstItem="5DJ-Az-o0i" firstAttribute="centerX" secondItem="eIA-rh-Vt1" secondAttribute="centerX" id="aBk-Ug-1WD"/>
                                                 <constraint firstAttribute="bottom" secondItem="nEX-Q2-mQX" secondAttribute="bottom" id="ehd-uv-Mt4"/>
-                                                <constraint firstItem="5DJ-Az-o0i" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eIA-rh-Vt1" secondAttribute="leading" constant="8" id="sW5-U2-UCq"/>
+                                                <constraint firstItem="5DJ-Az-o0i" firstAttribute="leading" secondItem="eIA-rh-Vt1" secondAttribute="leading" constant="4" id="sW5-U2-UCq"/>
                                                 <constraint firstItem="nEX-Q2-mQX" firstAttribute="top" secondItem="eIA-rh-Vt1" secondAttribute="top" id="swZ-Nr-YfD"/>
                                             </constraints>
                                         </collectionViewCellContentView>
