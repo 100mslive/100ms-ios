@@ -22,7 +22,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var joinMeetingIDField: UITextField! {
         didSet {
             Utilities.drawCorner(on: joinMeetingIDField)
-            joinMeetingIDField.text = "603786f7d401857f957b400f"
+            joinMeetingIDField.text = Constants.defaultRoomID
         }
     }
 

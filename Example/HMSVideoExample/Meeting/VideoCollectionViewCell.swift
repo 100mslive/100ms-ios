@@ -11,7 +11,7 @@ import HMSVideo
 
 class VideoCollectionViewCell: UICollectionViewCell {
 
-    weak var model: VideoModel?
+    weak var model: PeerState?
 
     @IBOutlet weak var stackView: UIStackView! {
         didSet {
@@ -28,6 +28,8 @@ class VideoCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var videoView: HMSVideoView!
 
+    @IBOutlet weak var stopVideoButton: UIButton!
+
     var isSpeaker = false {
         didSet {
             if isSpeaker {
@@ -38,19 +40,40 @@ class VideoCollectionViewCell: UICollectionViewCell {
         }
     }
 
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+
+        _ = NotificationCenter.default.addObserver(forName: Constants.muteALL,
+                                               object: nil,
+                                               queue: .main) { [weak self] _ in
+            if let audioEnabled = self?.model?.stream.audioTracks?.first?.enabled {
+                self?.muteButton.isSelected = !audioEnabled
+            }
+        }
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     @IBAction func pinTapped(_ sender: UIButton) {
-        model?.isPinned = sender.isSelected
+        print(#function, sender.isSelected, model?.peer.name as Any)
         sender.isSelected = !sender.isSelected
+        model?.isPinned = sender.isSelected
         NotificationCenter.default.post(name: Constants.pinTapped,
                                         object: nil,
-                                        userInfo: [Constants.index: model?.indexPath])
+                                        userInfo: [Constants.index: model?.indexPath as Any])
     }
 
     @IBAction func muteTapped(_ sender: UIButton) {
+        print(#function, sender.isSelected, model?.peer.name as Any)
         model?.stream.audioTracks?.first?.enabled = sender.isSelected
         sender.isSelected = !sender.isSelected
-        NotificationCenter.default.post(name: Constants.muteTapped,
-                                        object: nil,
-                                        userInfo: [Constants.index: model?.indexPath])
+    }
+
+    @IBAction func stopVideoTapped(_ sender: UIButton) {
+        print(#function, sender.isSelected, model?.peer.name as Any, model?.stream.videoTracks?.count as Any)
+        model?.stream.videoTracks?.first?.enabled = sender.isSelected
+        sender.isSelected = !sender.isSelected
     }
 }

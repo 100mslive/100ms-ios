@@ -69,7 +69,7 @@ final class MeetingViewModel: NSObject,
     // MARK: - View Modifiers
 
     func updateView(for state: VideoCellState) {
-        
+
         print(#function, state)
 
         switch state {
@@ -152,7 +152,7 @@ final class MeetingViewModel: NSObject,
 
         let widthInsets = sectionInsets.left + sectionInsets.right
         let heightInsets = sectionInsets.top + sectionInsets.bottom
-        
+
         print(#function, indexPath.item)
 
         let model = hms.model[indexPath.row]
@@ -194,13 +194,14 @@ final class MeetingViewModel: NSObject,
             videoTrack.enabled = isOn
         }
     }
-    
+
     func muteRemoteStreams(_ isMuted: Bool) {
         var indexes = [IndexPath]()
         for (index, model) in hms.model.enumerated() where model.stream.audioTracks?.first?.enabled != isMuted {
             indexes.append(IndexPath(item: index, section: 0))
         }
         hms.model.forEach { $0.stream.audioTracks?.first?.enabled = isMuted }
-        collectionView?.reloadItems(at: indexes)
+
+        NotificationCenter.default.post(name: Constants.muteALL, object: nil)
     }
 }

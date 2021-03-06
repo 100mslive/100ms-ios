@@ -28,6 +28,8 @@ struct Constants {
 
     static let createRoomURL = server + createRoomQuery
 
+    static let defaultRoomID = "603791e9b79bd0da4e589841"
+
     static let tokenKey = "token"
 
     static let idKey = "id"

@@ -146,7 +146,7 @@
                                                             <color key="textColor" systemColor="linkColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lU8-bL-ohw">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lU8-bL-ohw">
                                                             <rect key="frame" x="49" y="8" width="44" height="28"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="44" id="88K-QT-xDp"/>
@@ -154,7 +154,7 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                             <state key="normal" image="pin.fill" catalog="system">
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="medium">
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 </preferredSymbolConfiguration>
                                                             </state>
                                                             <state key="selected" image="pin.slash.fill" catalog="system">
@@ -166,33 +166,33 @@
                                                                 <action selector="pinTapped:" destination="0EI-A3-zvS" eventType="touchUpInside" id="e1o-IA-3IO"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecl-i0-jxF">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecl-i0-jxF">
                                                             <rect key="frame" x="101" y="8" width="44" height="28"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="44" id="xU5-CX-JeH"/>
                                                             </constraints>
-                                                            <state key="normal" image="mic.fill" catalog="system">
+                                                            <state key="normal" image="speaker.wave.2.fill" catalog="system">
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="medium">
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 </preferredSymbolConfiguration>
                                                             </state>
-                                                            <state key="selected" image="mic.slash.fill" catalog="system">
+                                                            <state key="selected" image="speaker.slash.fill" catalog="system">
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="medium">
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 </preferredSymbolConfiguration>
                                                             </state>
                                                             <connections>
                                                                 <action selector="muteTapped:" destination="0EI-A3-zvS" eventType="touchUpInside" id="5Q5-fG-mzD"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obx-KY-CNX">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obx-KY-CNX">
                                                             <rect key="frame" x="153" y="8" width="44" height="28"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="44" id="pfi-Bu-oot"/>
                                                             </constraints>
                                                             <state key="normal" image="video.fill" catalog="system">
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="medium">
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 </preferredSymbolConfiguration>
                                                             </state>
                                                             <state key="selected" image="video.slash.fill" catalog="system">
@@ -201,7 +201,6 @@
                                                                 </preferredSymbolConfiguration>
                                                             </state>
                                                             <connections>
-                                                                <action selector="muteTapped:" destination="0EI-A3-zvS" eventType="touchUpInside" id="cTt-z7-o7U"/>
                                                                 <action selector="stopVideoTapped:" destination="0EI-A3-zvS" eventType="touchUpInside" id="3Dt-vU-D0c"/>
                                                             </connections>
                                                         </button>
@@ -401,6 +400,7 @@
         <image name="rectangle.grid.2x2" catalog="system" width="128" height="99"/>
         <image name="settings" width="256" height="256"/>
         <image name="speaker.slash.fill" catalog="system" width="124" height="128"/>
+        <image name="speaker.wave.2.fill" catalog="system" width="128" height="90"/>
         <image name="speaker.wave.3.fill" catalog="system" width="128" height="86"/>
         <image name="square.bottomhalf.fill" catalog="system" width="128" height="114"/>
         <image name="video.fill" catalog="system" width="128" height="82"/>
