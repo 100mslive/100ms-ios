@@ -70,7 +70,7 @@
                                 <rect key="frame" x="72" y="44" width="270" height="44"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Participants" image="list.bullet.rectangle" catalog="system">
+                                <state key="normal" image="list.bullet.rectangle" catalog="system">
                                     <color key="titleColor" systemColor="labelColor"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="medium">
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
@@ -94,6 +94,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="participantsTitle" destination="P0D-BQ-vaw" id="JlE-re-tty"/>
                         <outlet property="table" destination="5qL-iI-wTq" id="Vqy-4W-MpK"/>
                     </connections>
                 </viewController>

@@ -29,12 +29,24 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var joinMeetingStackView: UIStackView! {
         didSet {
             Utilities.drawCorner(on: joinMeetingStackView)
+            let blurEffect = UIBlurEffect(style: .regular)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.frame = joinMeetingStackView.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            joinMeetingStackView.addSubview(blurEffectView)
+            joinMeetingStackView.sendSubviewToBack(blurEffectView)
         }
     }
 
     @IBOutlet private weak var startMeetingStackView: UIStackView! {
         didSet {
             Utilities.drawCorner(on: startMeetingStackView)
+            let blurEffect = UIBlurEffect(style: .regular)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.frame = startMeetingStackView.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            startMeetingStackView.addSubview(blurEffectView)
+            startMeetingStackView.sendSubviewToBack(blurEffectView)
         }
     }
 

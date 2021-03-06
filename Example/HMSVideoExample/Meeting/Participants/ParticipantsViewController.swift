@@ -11,6 +11,8 @@ import HMSVideo
 
 class ParticipantsViewController: UIViewController {
 
+    @IBOutlet weak var participantsTitle: UIButton!
+
     @IBOutlet weak var table: UITableView!
 
     var hms: HMSInteractor?
@@ -27,6 +29,14 @@ class ParticipantsViewController: UIViewController {
         super.viewDidLoad()
 
         observeParticipants()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        let count = hms?.model.count ?? 0
+        let title = "Participants " + (count > 0 ? "(\(count))" : "")
+        participantsTitle.setTitle(title, for: .normal)
     }
 
     deinit {

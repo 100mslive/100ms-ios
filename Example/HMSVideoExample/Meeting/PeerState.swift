@@ -21,8 +21,6 @@ class PeerState {
 
     var isPinned = false
 
-    var indexPath: IndexPath?
-
     init(_ peer: HMSPeer, _ stream: HMSStream, _ videoTrack: HMSVideoTrack) {
         self.peer = peer
         self.stream = stream

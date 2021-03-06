@@ -50,7 +50,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
                 self?.muteButton.isSelected = !audioEnabled
             }
         }
-        
+
         _ = NotificationCenter.default.addObserver(forName: Constants.localAudioToggled,
                                                    object: nil,
                                                    queue: .main) { [weak self] _ in
@@ -58,7 +58,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
                 self?.muteButton.isSelected = !audioEnabled
             }
         }
-        
+
         _ = NotificationCenter.default.addObserver(forName: Constants.localVideoToggled,
                                                    object: nil,
                                                    queue: .main) { [weak self] _ in
@@ -78,7 +78,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
         model?.isPinned = sender.isSelected
         NotificationCenter.default.post(name: Constants.pinTapped,
                                         object: nil,
-                                        userInfo: [Constants.index: model?.indexPath as Any])
+                                        userInfo: [Constants.peerID: model?.peer.peerId as Any])
     }
 
     @IBAction func muteTapped(_ sender: UIButton) {

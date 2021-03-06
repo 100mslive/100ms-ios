@@ -34,6 +34,10 @@ final class MeetingViewModel: NSObject,
         observeUserActions()
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     func setup(_ collectionView: UICollectionView) {
 
         collectionView.dataSource = self
@@ -44,21 +48,15 @@ final class MeetingViewModel: NSObject,
 
     func observeUserActions() {
 
-        _ = NotificationCenter.default.addObserver(forName: Constants.pinTapped,
+        _ = NotificationCenter.default.addObserver(forName: Constants.updatePinnedView,
                                                    object: nil,
                                                    queue: .main) { [weak self] notification in
 
-            if let index = notification.userInfo?[Constants.index] as? IndexPath {
+            if let indexes = notification.userInfo?[Constants.indexesToBeUpdated] as? [Int] {
 
-                var indexes = [IndexPath]()
-                for counter in 0..<index.item {
-                    indexes.append(IndexPath(item: counter, section: 0))
-                }
-                indexes.append(index)
+                let indexPaths = indexes.map { IndexPath(item: $0, section: 0) }
 
-                self?.hms.model.sort { $0.isPinned && !$1.isPinned }
-
-                self?.collectionView?.reloadItems(at: indexes)
+                self?.collectionView?.reloadItems(at: indexPaths)
 
                 self?.collectionView?.scrollToItem(at: IndexPath(item: 0, section: 0),
                                                    at: .left, animated: true)
@@ -123,8 +121,6 @@ final class MeetingViewModel: NSObject,
 
         let model = hms.model[indexPath.row]
 
-        model.indexPath = indexPath
-
         cell.model = model
 
         cell.videoView.setVideoTrack(model.videoTrack)
@@ -138,7 +134,7 @@ final class MeetingViewModel: NSObject,
         if let audioEnabled = model.stream.audioTracks?.first?.enabled {
             cell.muteButton.isSelected = !audioEnabled
         }
-        
+
         if let videoEnabled = model.stream.videoTracks?.first?.enabled {
             cell.stopVideoButton.isSelected = !videoEnabled
         }
@@ -191,7 +187,7 @@ final class MeetingViewModel: NSObject,
         if let audioTrack = hms.localStream?.audioTracks?.first {
             audioTrack.enabled = isOn
         }
-        
+
         NotificationCenter.default.post(name: Constants.localAudioToggled, object: nil)
         print(#function, isOn, hms.localStream?.audioTracks?.first?.enabled as Any)
     }
@@ -200,7 +196,7 @@ final class MeetingViewModel: NSObject,
         if let videoTrack = hms.localStream?.videoTracks?.first {
             videoTrack.enabled = isOn
         }
-        
+
         NotificationCenter.default.post(name: Constants.localVideoToggled, object: nil)
         print(#function, isOn, hms.localStream?.videoTracks?.first?.enabled as Any)
     }

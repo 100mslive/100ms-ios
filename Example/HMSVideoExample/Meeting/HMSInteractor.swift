@@ -13,6 +13,8 @@ final class HMSInteractor {
 
     // MARK: - Instance Properties
 
+    private(set) var model = [PeerState]()
+
     private let updateView: (VideoCellState) -> Void
 
     private var client: HMSClient!
@@ -26,13 +28,7 @@ final class HMSInteractor {
 
     private(set) var localPeer: HMSPeer!
 
-    private var videoTracks = [HMSVideoTrack]()
-
-    var model = [PeerState]()
-
     private(set) var localStream: HMSStream?
-
-    private var videoCapturer: HMSVideoCapturer?
 
     private var speakerVideoTrack: HMSVideoTrack? {
         didSet {
@@ -55,7 +51,7 @@ final class HMSInteractor {
     private var cameraSource = "Front Facing" {
         didSet {
             if cameraSource != oldValue {
-                videoCapturer?.switchCamera()
+                localStream?.videoCapturer?.switchCamera()
             }
         }
     }
@@ -75,7 +71,11 @@ final class HMSInteractor {
             strongSelf.connect(user, with: token, in: room)
         }
 
-        observeSettingsUpdated()
+        initializeObservers()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     func connect(_ user: String, with token: String, in roomID: String) {
@@ -124,18 +124,13 @@ final class HMSInteractor {
 
             print("onStreamRemove: ", room.roomId, peer.name, info.streamId)
 
-            if let videoTracks = self?.videoTracks {
-
-                for (index, track) in videoTracks.enumerated() where track.streamId == info.streamId {
-                    self?.videoTracks.remove(at: index)
-                }
+            if let model = self?.model {
 
                 var indexes = [Int]()
-                if let model = self?.model {
-                    for (index, item) in model.enumerated() where item.videoTrack.streamId == info.streamId {
-                        self?.model.remove(at: index)
-                        indexes.append(index)
-                    }
+
+                for (index, item) in model.enumerated() where item.videoTrack.streamId == info.streamId {
+                    self?.model.remove(at: index)
+                    indexes.append(index)
                 }
 
                 indexes.forEach { self?.updateView(.delete(index: $0)) }
@@ -180,8 +175,6 @@ final class HMSInteractor {
                 return
             }
 
-            self?.videoTracks.append(videoTrack)
-
             let item = PeerState(peer, stream, videoTrack)
             self?.model.append(item)
             self?.updateView(.insert(index: (self?.model.count ?? 1) - 1))
@@ -220,21 +213,14 @@ final class HMSInteractor {
 
     func setupLocal(_ stream: HMSStream) {
         localStream = stream
-        videoCapturer = stream.videoCapturer
 
         if let source = UserDefaults.standard.string(forKey: Constants.defaultVideoSource) {
             cameraSource = source
         }
 
-        videoCapturer?.startCapture()
+        localStream?.videoCapturer?.startCapture()
 
-        if let track = stream.videoTracks?.first {
-            videoTracks.append(track)
-
-//            guard let peer = model.first(where: { $0.stream.streamId == stream.streamId })?.peer else {
-//                print(#function, "Error: Could not find local peer!")
-//                return
-//            }
+        if let track = stream.videoTracks?.first, let localPeer = localPeer {
 
             let item = PeerState(localPeer, stream, track)
             model.append(item)
@@ -249,13 +235,12 @@ final class HMSInteractor {
         guard let topLevel = levels.first,
             let peerState = model.first(where: { $0.stream.streamId == topLevel.streamId })
         else {
+            print(#function, "Error: Could not find Stream!")
             return
         }
 
-        if let track = videoTracks.filter({ $0.streamId == peerState.stream.streamId }).first {
-            if speakerVideoTrack?.trackId != track.trackId {
-                speakerVideoTrack = track
-            }
+        if speakerVideoTrack?.trackId != peerState.videoTrack.trackId {
+            speakerVideoTrack = peerState.videoTrack
         }
 
         print("Speaker: ", peerState.peer.name)
@@ -272,6 +257,11 @@ final class HMSInteractor {
             }
             completion()
         }
+    }
+
+    func initializeObservers() {
+        observeSettingsUpdated()
+        observePinnedState()
     }
 
     func observeSettingsUpdated() {
@@ -310,12 +300,32 @@ final class HMSInteractor {
         }
     }
 
+    func observePinnedState() {
+        _ = NotificationCenter.default.addObserver(forName: Constants.pinTapped,
+                                                   object: nil,
+                                                   queue: .main) { [weak self] notification in
+
+            if let peerID = notification.userInfo?[Constants.peerID] as? String {
+
+                if let pinnedPeerIndex = self?.model.firstIndex(where: { $0.peer.peerId == peerID }) {
+                    let indexesToBeUpdated = Array(0...pinnedPeerIndex).map { Int($0) }
+
+                    self?.model.sort { $0.isPinned && !$1.isPinned }
+
+                    NotificationCenter.default.post(name: Constants.updatePinnedView,
+                                                    object: nil,
+                                                    userInfo: [ Constants.indexesToBeUpdated: indexesToBeUpdated ])
+                }
+            }
+        }
+    }
+
     func cleanup() {
         guard let client = client else {
             return
         }
 
-        videoCapturer?.stopCapture()
+        localStream?.videoCapturer?.stopCapture()
 
         client.leave(room)
 
