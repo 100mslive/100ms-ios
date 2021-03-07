@@ -50,13 +50,11 @@ struct Constants {
 
     static let updatePinnedView = NSNotification.Name("UPDATE_PINNED_VIEW")
 
-    static let mutePeer = NSNotification.Name("MUTE_PEER")
-
     static let muteALL = NSNotification.Name("MUTE_ALL")
 
-    static let localVideoToggled = NSNotification.Name("LOCAL_VIDEO_TOGGLED")
+    static let peerVideoToggled = NSNotification.Name("LOCAL_VIDEO_TOGGLED")
 
-    static let localAudioToggled = NSNotification.Name("LOCAL_AUDIO_TOGGLED")
+    static let peerAudioToggled = NSNotification.Name("LOCAL_AUDIO_TOGGLED")
 
     // MARK: - View Constants
 

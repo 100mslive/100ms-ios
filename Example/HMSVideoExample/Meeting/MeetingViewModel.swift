@@ -188,7 +188,7 @@ final class MeetingViewModel: NSObject,
             audioTrack.enabled = isOn
         }
 
-        NotificationCenter.default.post(name: Constants.localAudioToggled, object: nil)
+        NotificationCenter.default.post(name: Constants.peerAudioToggled, object: nil)
         print(#function, isOn, hms.localStream?.audioTracks?.first?.enabled as Any)
     }
 
@@ -197,7 +197,7 @@ final class MeetingViewModel: NSObject,
             videoTrack.enabled = isOn
         }
 
-        NotificationCenter.default.post(name: Constants.localVideoToggled, object: nil)
+        NotificationCenter.default.post(name: Constants.peerVideoToggled, object: nil)
         print(#function, isOn, hms.localStream?.videoTracks?.first?.enabled as Any)
     }
 

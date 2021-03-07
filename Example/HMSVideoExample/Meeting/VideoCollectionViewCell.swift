@@ -51,7 +51,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
             }
         }
 
-        _ = NotificationCenter.default.addObserver(forName: Constants.localAudioToggled,
+        _ = NotificationCenter.default.addObserver(forName: Constants.peerAudioToggled,
                                                    object: nil,
                                                    queue: .main) { [weak self] _ in
             if let audioEnabled = self?.model?.stream.audioTracks?.first?.enabled {
@@ -59,7 +59,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
             }
         }
 
-        _ = NotificationCenter.default.addObserver(forName: Constants.localVideoToggled,
+        _ = NotificationCenter.default.addObserver(forName: Constants.peerVideoToggled,
                                                    object: nil,
                                                    queue: .main) { [weak self] _ in
             if let videoEnabled = self?.model?.stream.videoTracks?.first?.enabled {

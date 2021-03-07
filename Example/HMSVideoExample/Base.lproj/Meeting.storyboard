@@ -358,6 +358,7 @@
                         <outlet property="publishAudioButton" destination="hKQ-0T-b7l" id="ubh-Yl-SjS"/>
                         <outlet property="publishVideoButton" destination="qXn-tX-gSM" id="peS-c5-lIf"/>
                         <outlet property="roomNameButton" destination="gdt-Kd-OJO" id="Qlv-ck-6Nf"/>
+                        <outlet property="speakerButton" destination="i1F-BP-LLz" id="7dX-jI-W96"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZE-GK-SnT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

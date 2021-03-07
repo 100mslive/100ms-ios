@@ -32,33 +32,88 @@
                                     <action selector="closeTapped:" destination="NL3-Z8-d19" eventType="touchUpInside" id="pVr-Xh-V1q"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5qL-iI-wTq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="5qL-iI-wTq">
                                 <rect key="frame" x="0.0" y="96" width="414" height="766"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="awX-ZP-BQl" detailTextLabel="sTJ-wr-1V5" style="IBUITableViewCellStyleValue1" id="0r4-27-usk">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="0r4-27-usk" customClass="ParticipantsTableViewCell" customModule="HMSVideo_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0r4-27-usk" id="Emk-gI-Ft5">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="awX-ZP-BQl">
-                                                    <rect key="frame" x="20" y="11" width="35" height="21.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaU-wR-p5M">
+                                                    <rect key="frame" x="20" y="-0.5" width="254" height="44.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sTJ-wr-1V5">
-                                                    <rect key="frame" x="348" y="11" width="46" height="21.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyN-YP-uCb">
+                                                    <rect key="frame" x="368" y="-0.5" width="42" height="44.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ov1-yR-1rF">
+                                                    <rect key="frame" x="322" y="-0.5" width="46" height="44.5"/>
+                                                    <state key="normal" image="speaker.wave.2.fill" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="medium">
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        </preferredSymbolConfiguration>
+                                                    </state>
+                                                    <state key="selected" image="speaker.slash.fill" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="medium">
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        </preferredSymbolConfiguration>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="micButtonTapped:" destination="0r4-27-usk" eventType="touchUpInside" id="MIP-wE-fcZ"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebu-V5-JwX">
+                                                    <rect key="frame" x="274" y="-0.5" width="48" height="44.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="48" id="F1s-ct-mWP"/>
+                                                        <constraint firstAttribute="height" constant="44" id="bC6-FS-4RY"/>
+                                                    </constraints>
+                                                    <state key="normal" image="video.fill" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="medium">
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        </preferredSymbolConfiguration>
+                                                    </state>
+                                                    <state key="selected" image="video.slash.fill" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="medium">
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        </preferredSymbolConfiguration>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="videoButtonTapped:" destination="0r4-27-usk" eventType="touchUpInside" id="xMn-PH-0rR"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="DyN-YP-uCb" secondAttribute="trailing" constant="4" id="0Rj-C8-zs4"/>
+                                                <constraint firstItem="DyN-YP-uCb" firstAttribute="bottom" secondItem="Ov1-yR-1rF" secondAttribute="bottom" id="AXM-TW-HCN"/>
+                                                <constraint firstItem="MaU-wR-p5M" firstAttribute="centerY" secondItem="Emk-gI-Ft5" secondAttribute="centerY" id="EsN-mu-GAL"/>
+                                                <constraint firstItem="Ov1-yR-1rF" firstAttribute="top" secondItem="ebu-V5-JwX" secondAttribute="top" id="RyW-W4-HX1"/>
+                                                <constraint firstItem="Ov1-yR-1rF" firstAttribute="width" secondItem="ebu-V5-JwX" secondAttribute="width" multiplier="0.958333" id="Sey-xg-Dvb"/>
+                                                <constraint firstItem="MaU-wR-p5M" firstAttribute="top" secondItem="ebu-V5-JwX" secondAttribute="top" id="XdA-5n-KXu"/>
+                                                <constraint firstItem="ebu-V5-JwX" firstAttribute="centerY" secondItem="Emk-gI-Ft5" secondAttribute="centerY" id="a3z-4M-Y2f"/>
+                                                <constraint firstItem="MaU-wR-p5M" firstAttribute="leading" secondItem="Emk-gI-Ft5" secondAttribute="leading" constant="20" symbolic="YES" id="bvn-Zi-mCz"/>
+                                                <constraint firstItem="Ov1-yR-1rF" firstAttribute="leading" secondItem="ebu-V5-JwX" secondAttribute="trailing" id="lcF-tg-1je"/>
+                                                <constraint firstItem="Ov1-yR-1rF" firstAttribute="bottom" secondItem="ebu-V5-JwX" secondAttribute="bottom" id="oXU-os-YzZ"/>
+                                                <constraint firstItem="DyN-YP-uCb" firstAttribute="top" secondItem="Ov1-yR-1rF" secondAttribute="top" id="q2A-yf-u00"/>
+                                                <constraint firstItem="ebu-V5-JwX" firstAttribute="leading" secondItem="MaU-wR-p5M" secondAttribute="trailing" id="v9Y-ql-Rzp"/>
+                                                <constraint firstItem="DyN-YP-uCb" firstAttribute="leading" secondItem="Ov1-yR-1rF" secondAttribute="trailing" id="zZl-GF-pW8"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="micButton" destination="Ov1-yR-1rF" id="EnH-2E-Fi0"/>
+                                            <outlet property="nameLabel" destination="MaU-wR-p5M" id="I1B-xZ-N4g"/>
+                                            <outlet property="roleLabel" destination="DyN-YP-uCb" id="Vp0-X0-tbi"/>
+                                            <outlet property="videoButton" destination="ebu-V5-JwX" id="3H1-vn-lNp"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -105,6 +160,10 @@
     </scenes>
     <resources>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
+        <image name="speaker.slash.fill" catalog="system" width="124" height="128"/>
+        <image name="speaker.wave.2.fill" catalog="system" width="128" height="90"/>
+        <image name="video.fill" catalog="system" width="128" height="82"/>
+        <image name="video.slash.fill" catalog="system" width="128" height="106"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

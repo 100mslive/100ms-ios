@@ -17,10 +17,8 @@ class ParticipantsViewController: UIViewController {
 
     var hms: HMSInteractor?
 
-    var peers: [HMSPeer] {
-        let peers = hms?.model.map { $0.peer }
-            .sorted(by: { $0.name.lowercased() == "host" && $1.name.lowercased() != "host" }) ?? [HMSPeer]()
-        return peers
+    var peers: [PeerState]? {
+        hms?.model.sorted(by: { $0.peer.name.lowercased() == "host" && $1.peer.name.lowercased() != "host" })
     }
 
     // MARK: - View Lifecycle
@@ -61,16 +59,28 @@ class ParticipantsViewController: UIViewController {
 extension ParticipantsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        peers.count
+        peers?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.resuseIdentifier, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.resuseIdentifier,
+                                                       for: indexPath) as? ParticipantsTableViewCell else {
+            print(#function, "Error: Could not create Participants Table View Cell")
+            return UITableViewCell()
+        }
 
-        let peer = peers[indexPath.row]
+        if let peerState = peers?[indexPath.row] {
+            
+            cell.peerState = peerState
+            
+            cell.nameLabel.text = peerState.peer.name
+            
+            cell.roleLabel.text = peerState.peer.role?.capitalized ?? "Guest"
+            
+            cell.micButton.isSelected = !(peerState.stream.audioTracks?.first?.enabled ?? true)
 
-        cell.textLabel?.text = peer.name
-        cell.detailTextLabel?.text = peer.role?.capitalized ?? "Guest"
+            cell.videoButton.isSelected = !(peerState.stream.videoTracks?.first?.enabled ?? true)
+        }
 
         return cell
     }

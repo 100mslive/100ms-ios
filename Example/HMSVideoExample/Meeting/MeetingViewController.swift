@@ -16,7 +16,7 @@ final class MeetingViewController: UIViewController {
     internal var user: String!
     internal var roomName: String!
     internal var flow: MeetingFlow!
-
+    
     private var viewModel: MeetingViewModel!
 
     @IBOutlet weak var roomNameButton: UIButton! {
@@ -24,6 +24,8 @@ final class MeetingViewController: UIViewController {
             roomNameButton.setTitle(roomName, for: .normal)
         }
     }
+    
+    @IBOutlet weak var speakerButton: UIButton! 
 
     @IBOutlet private(set) weak var collectionView: UICollectionView!
 
