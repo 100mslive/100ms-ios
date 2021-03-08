@@ -44,19 +44,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaU-wR-p5M">
-                                                    <rect key="frame" x="20" y="-0.5" width="254" height="44.5"/>
+                                                    <rect key="frame" x="20" y="-0.5" width="250" height="44.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyN-YP-uCb">
-                                                    <rect key="frame" x="368" y="-0.5" width="42" height="44.5"/>
+                                                    <rect key="frame" x="364" y="-0.5" width="42" height="44.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ov1-yR-1rF">
-                                                    <rect key="frame" x="322" y="-0.5" width="46" height="44.5"/>
+                                                    <rect key="frame" x="318" y="-0.5" width="46" height="44.5"/>
                                                     <state key="normal" image="speaker.wave.2.fill" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="medium">
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -72,7 +72,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebu-V5-JwX">
-                                                    <rect key="frame" x="274" y="-0.5" width="48" height="44.5"/>
+                                                    <rect key="frame" x="270" y="-0.5" width="48" height="44.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="48" id="F1s-ct-mWP"/>
                                                         <constraint firstAttribute="height" constant="44" id="bC6-FS-4RY"/>
@@ -93,7 +93,7 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="DyN-YP-uCb" secondAttribute="trailing" constant="4" id="0Rj-C8-zs4"/>
+                                                <constraint firstAttribute="trailing" secondItem="DyN-YP-uCb" secondAttribute="trailing" constant="8" id="0Rj-C8-zs4"/>
                                                 <constraint firstItem="DyN-YP-uCb" firstAttribute="bottom" secondItem="Ov1-yR-1rF" secondAttribute="bottom" id="AXM-TW-HCN"/>
                                                 <constraint firstItem="MaU-wR-p5M" firstAttribute="centerY" secondItem="Emk-gI-Ft5" secondAttribute="centerY" id="EsN-mu-GAL"/>
                                                 <constraint firstItem="Ov1-yR-1rF" firstAttribute="top" secondItem="ebu-V5-JwX" secondAttribute="top" id="RyW-W4-HX1"/>

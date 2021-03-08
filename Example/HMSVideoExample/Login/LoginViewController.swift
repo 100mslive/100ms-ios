@@ -132,8 +132,8 @@ final class LoginViewController: UIViewController {
                 let previewPixelType = settings.availablePreviewPhotoPixelFormatTypes.first!
 
                 let previewFormat = [kCVPixelBufferPixelFormatTypeKey as String: previewPixelType,
-                                     kCVPixelBufferWidthKey as String: self.view.frame.size.width,
-                                     kCVPixelBufferHeightKey as String: self.view.frame.size.height] as [String: Any]
+                                     kCVPixelBufferWidthKey as String: view.frame.size.width,
+                                     kCVPixelBufferHeightKey as String: view.frame.size.height] as [String: Any]
                 settings.previewPhotoFormat = previewFormat
 
                 output.capturePhoto(with: settings, delegate: self)

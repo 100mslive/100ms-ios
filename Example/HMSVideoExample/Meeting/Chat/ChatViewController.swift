@@ -55,7 +55,7 @@ class ChatViewController: UIViewController {
               var keyboardFrame = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
         else { return }
 
-        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        keyboardFrame = view.convert(keyboardFrame, from: nil)
 
         var contentInset = table.contentInset
         contentInset.bottom = keyboardFrame.size.height + 30
