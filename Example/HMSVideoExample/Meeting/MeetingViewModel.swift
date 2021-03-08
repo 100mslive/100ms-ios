@@ -17,7 +17,7 @@ final class MeetingViewModel: NSObject,
 
     weak var collectionView: UICollectionView?
 
-    private let sectionInsets = UIEdgeInsets(top: 2.0, left: 3.0, bottom: 2.0, right: 3.0)
+    private let sectionInsets = UIEdgeInsets(top: 2.0, left: 4.0, bottom: 2.0, right: 4.0)
 
     // MARK: - Initializers
 
@@ -138,12 +138,6 @@ final class MeetingViewModel: NSObject,
         if let videoEnabled = model.stream.videoTracks?.first?.enabled {
             cell.stopVideoButton.isSelected = !videoEnabled
         }
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        2
     }
 
     func collectionView(_ collectionView: UICollectionView,

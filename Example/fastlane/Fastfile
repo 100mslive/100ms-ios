@@ -22,9 +22,9 @@ platform :ios do
 
     increment_build_number 
     
-    increment_version_number(
-      bump_type: "patch" 
-    )
+    # increment_version_number(
+    #   bump_type: "patch" 
+    # )
     
     build_app(
       scheme: "HMSVideo_Example",
