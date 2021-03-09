@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 
-class Utilities {
+final class Utilities {
 
     static func applyBorder(on view: UIView, radius: CGFloat = 16) {
         if #available(iOS 11.0, *) {

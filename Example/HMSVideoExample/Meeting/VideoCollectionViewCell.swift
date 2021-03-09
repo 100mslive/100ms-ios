@@ -9,7 +9,7 @@
 import UIKit
 import HMSVideo
 
-class VideoCollectionViewCell: UICollectionViewCell {
+final class VideoCollectionViewCell: UICollectionViewCell {
 
     weak var model: PeerState?
 

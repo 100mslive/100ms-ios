@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ChatViewController: UIViewController {
+final class ChatViewController: UIViewController {
 
     var hms: HMSInteractor?
 
-    @IBOutlet weak var table: UITableView!
-    @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet private weak var table: UITableView!
+    @IBOutlet private weak var stackView: UIStackView!
+    @IBOutlet private weak var textField: UITextField!
+    @IBOutlet private weak var sendButton: UIButton!
 
     // MARK: - View Lifecycle
 
@@ -70,7 +70,7 @@ class ChatViewController: UIViewController {
 
     // MARK: - Action Handlers
 
-    func observeBroadcast() {
+    private func observeBroadcast() {
         _ = NotificationCenter.default.addObserver(forName: Constants.broadcastReceived,
                                                    object: nil,
                                                    queue: .main) { [weak self] _ in
@@ -81,11 +81,11 @@ class ChatViewController: UIViewController {
         }
     }
 
-    @IBAction func closeTapped(_ sender: UIButton) {
+    @IBAction private func closeTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
 
-    @IBAction func sendTapped(_ sender: UIButton) {
+    @IBAction private func sendTapped(_ sender: UIButton) {
 
         if let message = textField.text, !message.isEmpty, let hms = hms {
 

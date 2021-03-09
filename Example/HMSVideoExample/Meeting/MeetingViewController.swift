@@ -19,19 +19,19 @@ final class MeetingViewController: UIViewController {
 
     private var viewModel: MeetingViewModel!
 
-    @IBOutlet weak var roomNameButton: UIButton! {
+    @IBOutlet private weak var roomNameButton: UIButton! {
         didSet {
             roomNameButton.setTitle(roomName, for: .normal)
         }
     }
 
-    @IBOutlet weak var speakerButton: UIButton!
+    @IBOutlet private weak var speakerButton: UIButton!
 
-    @IBOutlet private(set) weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
 
     @IBOutlet private weak var badgeButton: BadgeButton!
 
-    @IBOutlet weak var publishVideoButton: UIButton! {
+    @IBOutlet private weak var publishVideoButton: UIButton! {
         didSet {
             if let publishVideo = UserDefaults.standard.object(forKey: Constants.publishVideo) as? Bool {
                 publishVideoButton.isSelected = !publishVideo
@@ -41,7 +41,7 @@ final class MeetingViewController: UIViewController {
         }
     }
 
-    @IBOutlet weak var publishAudioButton: UIButton! {
+    @IBOutlet private weak var publishAudioButton: UIButton! {
         didSet {
             if let publishAudio = UserDefaults.standard.object(forKey: Constants.publishAudio) as? Bool {
                 publishAudioButton.isSelected = !publishAudio
@@ -79,7 +79,7 @@ final class MeetingViewController: UIViewController {
 
     // MARK: - Action Handlers
 
-    func handleError() {
+    private func handleError() {
         _ = NotificationCenter.default.addObserver(forName: Constants.hmsError,
                                                    object: nil,
                                                    queue: .main) { [weak self] notification in
@@ -99,7 +99,7 @@ final class MeetingViewController: UIViewController {
         }
     }
 
-    func presentAlert(_ message: String) {
+    private func presentAlert(_ message: String) {
         let alertController = UIAlertController(title: "Error",
                                                 message: message,
                                                 preferredStyle: .alert)
@@ -109,7 +109,7 @@ final class MeetingViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 
-    func observeBroadcast() {
+    private func observeBroadcast() {
         _ = NotificationCenter.default.addObserver(forName: Constants.broadcastReceived,
                                                    object: nil,
                                                    queue: .main) { [weak self] _ in
@@ -120,7 +120,7 @@ final class MeetingViewController: UIViewController {
         }
     }
 
-    @IBAction func roomNameTapped(_ sender: UIButton) {
+    @IBAction private func roomNameTapped(_ sender: UIButton) {
         guard let viewController = UIStoryboard(name: Constants.participants, bundle: nil)
                 .instantiateInitialViewController() as? ParticipantsViewController else {
             return
@@ -131,16 +131,16 @@ final class MeetingViewController: UIViewController {
         present(viewController, animated: true)
     }
 
-    @IBAction func muteRemoteStreamsTapped(_ sender: UIButton) {
+    @IBAction private func muteRemoteStreamsTapped(_ sender: UIButton) {
         viewModel.muteRemoteStreams(sender.isSelected)
         sender.isSelected = !sender.isSelected
     }
 
-    @IBAction func switchCameraTapped(_ sender: UIButton) {
+    @IBAction private func switchCameraTapped(_ sender: UIButton) {
         viewModel.switchCamera()
     }
 
-    @IBAction func editSettingsTapped(_ sender: UIButton) {
+    @IBAction private func editSettingsTapped(_ sender: UIButton) {
 
         guard let viewController = UIStoryboard(name: Constants.settings, bundle: nil)
                 .instantiateInitialViewController() as? SettingsViewController
@@ -151,19 +151,19 @@ final class MeetingViewController: UIViewController {
         present(viewController, animated: true)
     }
 
-    @IBAction func videoTapped(_ sender: UIButton) {
+    @IBAction private func videoTapped(_ sender: UIButton) {
         viewModel.switchVideo(isOn: sender.isSelected)
         UserDefaults.standard.set(sender.isSelected, forKey: Constants.publishVideo)
         sender.isSelected = !sender.isSelected
     }
 
-    @IBAction func micTapped(_ sender: UIButton) {
+    @IBAction private func micTapped(_ sender: UIButton) {
         viewModel.switchAudio(isOn: sender.isSelected)
         UserDefaults.standard.set(sender.isSelected, forKey: Constants.publishAudio)
         sender.isSelected = !sender.isSelected
     }
 
-    @IBAction func chatTapped(_ sender: UIButton) {
+    @IBAction private func chatTapped(_ sender: UIButton) {
         guard let viewController = UIStoryboard(name: Constants.chat, bundle: nil)
                 .instantiateInitialViewController() as? ChatViewController else {
             return
@@ -178,7 +178,7 @@ final class MeetingViewController: UIViewController {
         present(viewController, animated: true)
     }
 
-    @IBAction func disconnectTapped(_ sender: UIButton) {
+    @IBAction private func disconnectTapped(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Leave Call",
                                                 message: nil,
                                                 preferredStyle: .alert)

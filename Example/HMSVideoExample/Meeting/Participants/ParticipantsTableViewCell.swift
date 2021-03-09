@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ParticipantsTableViewCell: UITableViewCell {
+final class ParticipantsTableViewCell: UITableViewCell {
 
     weak var peerState: PeerState?
 

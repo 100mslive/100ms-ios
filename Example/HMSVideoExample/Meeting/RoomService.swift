@@ -45,7 +45,7 @@ struct RoomService {
 
     // MARK: - Room Token
 
-    static func getToken(for user: String, _ room: String, completion: @escaping (String?, String?) -> Void) {
+    private static func getToken(for user: String, _ room: String, completion: @escaping (String?, String?) -> Void) {
 
         requestToken(for: user, room) { token, error in
 
@@ -63,7 +63,9 @@ struct RoomService {
         }
     }
 
-    static func requestToken(for user: String, _ roomID: String, completion: @escaping (String?, Error?) -> Void) {
+    private static func requestToken(for user: String,
+                                     _ roomID: String,
+                                     completion: @escaping (String?, Error?) -> Void) {
 
         if let request = createRequest(for: Constants.getTokenURL, user, roomID) {
 
@@ -86,7 +88,9 @@ struct RoomService {
 
     // MARK: - Create Room
 
-    static func createRoom(_ user: String, _ roomName: String, completion: @escaping (String?, Error?) -> Void) {
+    private static func createRoom(_ user: String,
+                                   _ roomName: String,
+                                   completion: @escaping (String?, Error?) -> Void) {
 
         let cleanedRoomName = roomName.replacingOccurrences(of: " ", with: "")
 
@@ -107,7 +111,7 @@ struct RoomService {
 
     // MARK: - Service Helpers
 
-    static func createRequest(for url: String, _ user: String, _ room: String) -> URLRequest? {
+    private static func createRequest(for url: String, _ user: String, _ room: String) -> URLRequest? {
 
         guard let url = URL(string: url),
             let endpointURL = URL(string: Constants.endpoint),
@@ -138,7 +142,7 @@ struct RoomService {
         return request
     }
 
-    static func parseResponse(_ data: Data, for key: String) -> (String?, Error?) {
+    private static func parseResponse(_ data: Data, for key: String) -> (String?, Error?) {
         do {
             if let json = try JSONSerialization.jsonObject(with: data,
                                                            options: .mutableContainers) as? [String: Any] {

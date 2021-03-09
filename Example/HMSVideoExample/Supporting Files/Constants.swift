@@ -33,7 +33,7 @@ struct Constants {
     static let tokenKey = "token"
 
     static let idKey = "id"
-    
+
     static let roomIDKey = "roomID"
 
     // MARK: - Notifications

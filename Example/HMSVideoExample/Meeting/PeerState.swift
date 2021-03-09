@@ -9,7 +9,7 @@
 import Foundation
 import HMSVideo
 
-class PeerState {
+final class PeerState {
 
     let peer: HMSPeer
 

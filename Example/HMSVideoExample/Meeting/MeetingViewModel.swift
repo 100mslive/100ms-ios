@@ -15,7 +15,7 @@ final class MeetingViewModel: NSObject,
 
     private(set) var hms: HMSInteractor!
 
-    weak var collectionView: UICollectionView?
+    private weak var collectionView: UICollectionView?
 
     private let sectionInsets = UIEdgeInsets(top: 2.0, left: 4.0, bottom: 2.0, right: 4.0)
 
@@ -38,7 +38,7 @@ final class MeetingViewModel: NSObject,
         NotificationCenter.default.removeObserver(self)
     }
 
-    func setup(_ collectionView: UICollectionView) {
+    private func setup(_ collectionView: UICollectionView) {
 
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -46,7 +46,7 @@ final class MeetingViewModel: NSObject,
         self.collectionView = collectionView
     }
 
-    func observeUserActions() {
+    private func observeUserActions() {
 
         _ = NotificationCenter.default.addObserver(forName: Constants.updatePinnedView,
                                                    object: nil,
@@ -66,7 +66,7 @@ final class MeetingViewModel: NSObject,
 
     // MARK: - View Modifiers
 
-    func updateView(for state: VideoCellState) {
+    private func updateView(for state: VideoCellState) {
 
         print(#function, state)
 
@@ -117,7 +117,7 @@ final class MeetingViewModel: NSObject,
         return cell
     }
 
-    func updateCell(at indexPath: IndexPath, for cell: VideoCollectionViewCell) {
+    private func updateCell(at indexPath: IndexPath, for cell: VideoCollectionViewCell) {
 
         let model = hms.model[indexPath.row]
 

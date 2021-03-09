@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BadgeButton: UIButton {
+final class BadgeButton: UIButton {
 
     var badgeLabel = UILabel()
 

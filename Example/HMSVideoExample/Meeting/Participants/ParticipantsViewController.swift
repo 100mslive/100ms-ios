@@ -9,11 +9,11 @@
 import UIKit
 import HMSVideo
 
-class ParticipantsViewController: UIViewController {
+final class ParticipantsViewController: UIViewController {
 
-    @IBOutlet weak var participantsTitle: UIButton!
+    @IBOutlet private weak var participantsTitle: UIButton!
 
-    @IBOutlet weak var table: UITableView!
+    @IBOutlet private  weak var table: UITableView!
 
     var hms: HMSInteractor?
 
@@ -43,7 +43,7 @@ class ParticipantsViewController: UIViewController {
 
     // MARK: - Action Handlers
 
-    func observeParticipants() {
+    private func observeParticipants() {
         _ = NotificationCenter.default.addObserver(forName: Constants.peersUpdated,
                                                    object: nil,
                                                    queue: .main) { [weak self] _ in
@@ -51,7 +51,7 @@ class ParticipantsViewController: UIViewController {
         }
     }
 
-    @IBAction func closeTapped(_ sender: UIButton) {
+    @IBAction private func closeTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
 }

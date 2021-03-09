@@ -73,7 +73,7 @@ final class LoginViewController: UIViewController {
         }
     }
 
-    @IBOutlet weak var cameraPreview: UIView!
+    @IBOutlet private weak var cameraPreview: UIView!
 
     private var session: AVCaptureSession?
     private var input: AVCaptureDeviceInput?
@@ -87,7 +87,7 @@ final class LoginViewController: UIViewController {
 
         setupCameraPreview()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         joinMeetingIDField.text = UserDefaults.standard.string(forKey: Constants.roomIDKey) ?? Constants.defaultRoomID
@@ -111,7 +111,7 @@ final class LoginViewController: UIViewController {
 
     // MARK: - View Modifiers
 
-    func setupCameraPreview() {
+    private func setupCameraPreview() {
 
         session = AVCaptureSession()
         output = AVCapturePhotoOutput()
@@ -145,7 +145,7 @@ final class LoginViewController: UIViewController {
         }
     }
 
-    func getDevice(position: AVCaptureDevice.Position) -> AVCaptureDevice? {
+    private func getDevice(position: AVCaptureDevice.Position) -> AVCaptureDevice? {
         let devices = AVCaptureDevice.devices()
         for device in devices {
             let deviceConverted = device
@@ -156,7 +156,7 @@ final class LoginViewController: UIViewController {
         return nil
     }
 
-    func updateCameraView() {
+    private func updateCameraView() {
         let orientation = UIApplication.shared.statusBarOrientation
         let videoOrientation = AVCaptureVideoOrientation(rawValue: orientation.rawValue) ?? .portrait
         previewLayer?.connection?.videoOrientation = videoOrientation
@@ -165,11 +165,11 @@ final class LoginViewController: UIViewController {
 
     // MARK: - Action Handlers
 
-    @objc func dismissKeyboard(_ sender: Any) {
+    @objc private func dismissKeyboard(_ sender: Any) {
         joinMeetingIDField.resignFirstResponder()
     }
 
-    @IBAction func cameraTapped(_ sender: UIButton) {
+    @IBAction private func cameraTapped(_ sender: UIButton) {
 
         UserDefaults.standard.set(sender.isSelected, forKey: Constants.publishVideo)
         sender.isSelected = !sender.isSelected
@@ -189,17 +189,17 @@ final class LoginViewController: UIViewController {
         }
     }
 
-    @IBAction func micTapped(_ sender: UIButton) {
+    @IBAction private func micTapped(_ sender: UIButton) {
         AVAudioSession.sharedInstance().requestRecordPermission { _ in }
         UserDefaults.standard.set(sender.isSelected, forKey: Constants.publishAudio)
         sender.isSelected = !sender.isSelected
     }
 
-    @IBAction private  func startMeetingTapped(_ sender: UIButton) {
+    @IBAction private func startMeetingTapped(_ sender: UIButton) {
         showInputAlert(flow: sender.tag == 0 ? .join : .start)
     }
 
-    func showInputAlert(flow: MeetingFlow) {
+    private func showInputAlert(flow: MeetingFlow) {
 
         let title: String
         var message: String?
@@ -241,7 +241,7 @@ final class LoginViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 
-    func handleActions(for alertController: UIAlertController, in flow: MeetingFlow) {
+    private func handleActions(for alertController: UIAlertController, in flow: MeetingFlow) {
         var room: String
 
         if flow == .join {
@@ -279,7 +279,7 @@ final class LoginViewController: UIViewController {
         navigationController?.pushViewController(viewController, animated: true)
     }
 
-    func showErrorAlert(with message: String) {
+    private func showErrorAlert(with message: String) {
         let alertController = UIAlertController(title: "Alert",
                                                 message: message,
                                                 preferredStyle: .alert)
@@ -289,7 +289,7 @@ final class LoginViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 
-    func save(_ name: String, _ room: String, _ meeting: String? = nil) {
+    private func save(_ name: String, _ room: String, _ meeting: String? = nil) {
         let userDefaults = UserDefaults.standard
 
         userDefaults.set(name, forKey: Constants.defaultName)
@@ -300,7 +300,7 @@ final class LoginViewController: UIViewController {
         }
     }
 
-    @IBAction func settingsTapped(_ sender: UIButton) {
+    @IBAction private func settingsTapped(_ sender: UIButton) {
         guard let viewController = UIStoryboard(name: Constants.settings, bundle: nil)
                 .instantiateInitialViewController() as? SettingsViewController
         else {

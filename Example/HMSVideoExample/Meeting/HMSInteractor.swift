@@ -79,7 +79,7 @@ final class HMSInteractor {
         NotificationCenter.default.removeObserver(self)
     }
 
-    func connect(_ user: String, with token: String, in roomID: String) {
+    private func connect(_ user: String, with token: String, in roomID: String) {
 
         localPeer = HMSPeer(name: user, authToken: token)
 
@@ -98,14 +98,14 @@ final class HMSInteractor {
         client.connect()
     }
 
-    func setAudioDelay() {
+    private func setAudioDelay() {
         let audioPollDelay = UserDefaults.standard.object(forKey: Constants.audioPollDelay) as? Double ?? 3.0
         client.startAudioLevelMonitor(audioPollDelay)
     }
 
     // MARK: - Stream Handlers
 
-    func setupCallbacks() {
+    private func setupCallbacks() {
         client.onPeerJoin = { room, peer in
             print("onPeerJoin: ", room.roomId, peer.name)
             NotificationCenter.default.post(name: Constants.peersUpdated, object: nil)
@@ -165,7 +165,7 @@ final class HMSInteractor {
         }
     }
 
-    func subscribe(to room: HMSRoom, _ peer: HMSPeer, with info: HMSStreamInfo) {
+    private func subscribe(to room: HMSRoom, _ peer: HMSPeer, with info: HMSStreamInfo) {
 
         client.subscribe(info, room: room) { [weak self] (stream, error) in
 
@@ -182,7 +182,7 @@ final class HMSInteractor {
         }
     }
 
-    func publish() {
+    private func publish() {
 
         let userDefaults = UserDefaults.standard
 
@@ -212,7 +212,7 @@ final class HMSInteractor {
         }
     }
 
-    func setupLocal(_ stream: HMSStream) {
+    private func setupLocal(_ stream: HMSStream) {
         localStream = stream
 
         if let source = UserDefaults.standard.string(forKey: Constants.defaultVideoSource) {
@@ -231,7 +231,7 @@ final class HMSInteractor {
         }
     }
 
-    func updateAudio(with levels: [HMSAudioLevelInfo]) {
+    private func updateAudio(with levels: [HMSAudioLevelInfo]) {
 
         guard let topLevel = levels.first,
             let peerState = model.first(where: { $0.stream.streamId == topLevel.streamId })
@@ -260,12 +260,12 @@ final class HMSInteractor {
         }
     }
 
-    func initializeObservers() {
+    private func initializeObservers() {
         observeSettingsUpdated()
         observePinnedState()
     }
 
-    func observeSettingsUpdated() {
+    private func observeSettingsUpdated() {
         _ = NotificationCenter.default.addObserver(forName: Constants.settingsUpdated,
                                                    object: nil,
                                                    queue: .main) { [weak self] _ in
@@ -301,7 +301,7 @@ final class HMSInteractor {
         }
     }
 
-    func observePinnedState() {
+    private func observePinnedState() {
         _ = NotificationCenter.default.addObserver(forName: Constants.pinTapped,
                                                    object: nil,
                                                    queue: .main) { [weak self] notification in

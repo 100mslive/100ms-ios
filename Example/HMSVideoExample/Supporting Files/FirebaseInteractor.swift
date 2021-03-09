@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class FirebaseInteractor {
+final class FirebaseInteractor {
 
     @discardableResult init() {
         FirebaseApp.configure()
