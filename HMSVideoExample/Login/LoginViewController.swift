@@ -87,7 +87,7 @@ final class LoginViewController: UIViewController {
 
         setupCameraPreview()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         joinMeetingIDField.text = UserDefaults.standard.string(forKey: Constants.roomIDKey) ?? Constants.defaultRoomID
