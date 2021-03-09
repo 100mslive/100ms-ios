@@ -33,7 +33,7 @@ PODS:
   - GoogleUtilities/UserDefaults (7.2.2):
     - GoogleUtilities/Logger
   - GoogleWebRTC (1.1.31999)
-  - HMSVideo (0.10.1):
+  - HMSVideo (0.10.2):
     - GoogleWebRTC (= 1.1.31999)
   - nanopb (2.30907.0):
     - nanopb/decode (= 2.30907.0)
@@ -69,7 +69,7 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 1024b1a4dfbd7a0e92cb20d7e0a6f1fb66b449a4
   GoogleUtilities: 31c5b01f978a70c6cff2afc6272b3f1921614b43
   GoogleWebRTC: b39a78c4f5cc6b0323415b9233db03a2faa7b0f0
-  HMSVideo: c4426f9dbf65251626eb17b56bc9e56f4dfedfac
+  HMSVideo: d8ea448e60d766359f3bc46af025fcab40f6dcfd
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
