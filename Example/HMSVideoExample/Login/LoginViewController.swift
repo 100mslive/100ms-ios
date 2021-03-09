@@ -87,7 +87,7 @@ final class LoginViewController: UIViewController {
 
         setupCameraPreview()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         joinMeetingIDField.text = UserDefaults.standard.string(forKey: Constants.roomIDKey) ?? Constants.defaultRoomID
@@ -147,7 +147,6 @@ final class LoginViewController: UIViewController {
 
     func getDevice(position: AVCaptureDevice.Position) -> AVCaptureDevice? {
         let devices = AVCaptureDevice.devices()
-//        let devices = AVCaptureDevice.DiscoverySession
         for device in devices {
             let deviceConverted = device
             if deviceConverted.position == position {

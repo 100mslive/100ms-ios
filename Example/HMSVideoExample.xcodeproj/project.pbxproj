@@ -48,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0244AC5843648F6E5DA71878 /* HMSVideo.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HMSVideo.podspec; path = ../HMSVideo.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		14CAFAB81EB7F870B9E6C3BC /* Pods-HMSVideo_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSVideo_Tests.release.xcconfig"; path = "Target Support Files/Pods-HMSVideo_Tests/Pods-HMSVideo_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		2521E98CB2584195FC9F8014 /* Pods-HMSVideo_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSVideo_Tests.debug.xcconfig"; path = "Target Support Files/Pods-HMSVideo_Tests/Pods-HMSVideo_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		368FE729C29E66B75B83DFE0 /* Pods-HMSVideo_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSVideo_Example.debug.xcconfig"; path = "Target Support Files/Pods-HMSVideo_Example/Pods-HMSVideo_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -60,6 +61,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		9360531DA4B170754E7D94BF /* Pods-HMSVideo_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSVideo_Example.release.xcconfig"; path = "Target Support Files/Pods-HMSVideo_Example/Pods-HMSVideo_Example.release.xcconfig"; sourceTree = "<group>"; };
+		BADB1198BD96E24E9BFFB40B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EC02581425EB7479001293C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		EC02581925EB747D001293C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Settings.strings; sourceTree = "<group>"; };
 		EC462C8425E95A0600BFF07C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Login.strings; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		EC8E97E925EBFF18003A3FCD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Participants.strings; sourceTree = "<group>"; };
 		ECA9BEC925EB6E3B0095C4FD /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		ECCB2A4F25F0D928000D8790 /* PeerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PeerState.swift; path = Meeting/PeerState.swift; sourceTree = "<group>"; };
+		ECDEE42B25E7A6AE00DB468F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		ECDFC34925F069CA0036DAE7 /* FirebaseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirebaseInteractor.swift; path = "Supporting Files/FirebaseInteractor.swift"; sourceTree = "<group>"; };
 		ECDFC34F25F07AC30036DAE7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ECE5D2C625ED592200B8D7E4 /* BadgeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeButton.swift; sourceTree = "<group>"; };
@@ -125,7 +128,8 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				607FACD21AFB9204008FA782 /* HMSVideoExample */,
+				607FACF51AFB993E008FA782 /* Podspec Metadata */,
+				607FACD21AFB9204008FA782 /* Example for HMSVideo */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				E7ED908DAB0C4CF7C5F6BE6F /* Pods */,
@@ -142,7 +146,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		607FACD21AFB9204008FA782 /* HMSVideoExample */ = {
+		607FACD21AFB9204008FA782 /* Example for HMSVideo */ = {
 			isa = PBXGroup;
 			children = (
 				ECDEE43325E7A76700DB468F /* Login */,
@@ -151,6 +155,7 @@
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				ECDFC34F25F07AC30036DAE7 /* GoogleService-Info.plist */,
 			);
+			name = "Example for HMSVideo";
 			path = HMSVideoExample;
 			sourceTree = "<group>";
 		};
@@ -184,6 +189,16 @@
 				607FACEA1AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				0244AC5843648F6E5DA71878 /* HMSVideo.podspec */,
+				BADB1198BD96E24E9BFFB40B /* README.md */,
+				ECDEE42B25E7A6AE00DB468F /* LICENSE */,
+			);
+			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
 		E7ED908DAB0C4CF7C5F6BE6F /* Pods */ = {
@@ -417,7 +432,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HMSVideo_Example/Pods-HMSVideo_Example-frameworks.sh",
 				"${PODS_ROOT}/GoogleWebRTC/Frameworks/frameworks/WebRTC.framework",
-				"${PODS_ROOT}/HMSVideo/HMSVideo/HMSVideo.framework",
+				"${PODS_ROOT}/../../HMSVideo/HMSVideo.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (

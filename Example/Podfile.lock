@@ -44,7 +44,7 @@ PODS:
 
 DEPENDENCIES:
   - Firebase/Crashlytics
-  - HMSVideo
+  - HMSVideo (from `../`)
 
 SPEC REPOS:
   trunk:
@@ -56,9 +56,12 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleUtilities
     - GoogleWebRTC
-    - HMSVideo
     - nanopb
     - PromisesObjC
+
+EXTERNAL SOURCES:
+  HMSVideo:
+    :path: "../"
 
 SPEC CHECKSUMS:
   Firebase: cd2ab85eec8170dc260186159f21072ecb679ad5
@@ -69,10 +72,10 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 1024b1a4dfbd7a0e92cb20d7e0a6f1fb66b449a4
   GoogleUtilities: 31c5b01f978a70c6cff2afc6272b3f1921614b43
   GoogleWebRTC: b39a78c4f5cc6b0323415b9233db03a2faa7b0f0
-  HMSVideo: d8ea448e60d766359f3bc46af025fcab40f6dcfd
+  HMSVideo: bd99848c92d248fc3551e84bfd8de75049a99639
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
-PODFILE CHECKSUM: 61cab866ca64407ef8bfdac9914455d3207a99ce
+PODFILE CHECKSUM: 99ea11b931d7083f670fda2e96313125554facb3
 
 COCOAPODS: 1.10.1

@@ -1,0 +1,6 @@
+framework module HMSVideo {
+  umbrella header "HMSVideo.h"
+
+  export *
+  module * { export * }
+}
