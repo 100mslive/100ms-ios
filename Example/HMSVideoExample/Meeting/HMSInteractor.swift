@@ -23,6 +23,7 @@ final class HMSInteractor {
         didSet {
             let pasteboard = UIPasteboard.general
             pasteboard.string = room.roomId
+            UserDefaults.standard.set(room.roomId, forKey: Constants.roomIDKey)
         }
     }
 

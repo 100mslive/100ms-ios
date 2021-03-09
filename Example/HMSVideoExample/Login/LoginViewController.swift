@@ -22,7 +22,6 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var joinMeetingIDField: UITextField! {
         didSet {
             Utilities.drawCorner(on: joinMeetingIDField)
-            joinMeetingIDField.text = Constants.defaultRoomID
         }
     }
 
@@ -87,6 +86,11 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         setupCameraPreview()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        joinMeetingIDField.text = UserDefaults.standard.string(forKey: Constants.roomIDKey) ?? Constants.defaultRoomID
     }
 
     override func viewDidLayoutSubviews() {
