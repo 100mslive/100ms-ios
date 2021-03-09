@@ -16,7 +16,7 @@ final class MeetingViewController: UIViewController {
     internal var user: String!
     internal var roomName: String!
     internal var flow: MeetingFlow!
-    
+
     private var viewModel: MeetingViewModel!
 
     @IBOutlet weak var roomNameButton: UIButton! {
@@ -24,8 +24,8 @@ final class MeetingViewController: UIViewController {
             roomNameButton.setTitle(roomName, for: .normal)
         }
     }
-    
-    @IBOutlet weak var speakerButton: UIButton! 
+
+    @IBOutlet weak var speakerButton: UIButton!
 
     @IBOutlet private(set) weak var collectionView: UICollectionView!
 
@@ -129,11 +129,6 @@ final class MeetingViewController: UIViewController {
         viewController.hms = viewModel.hms
 
         present(viewController, animated: true)
-    }
-
-    @IBAction func switchLayoutTapped(_ sender: UIButton) {
-
-//        sender.isSelected = !sender.isSelected
     }
 
     @IBAction func muteRemoteStreamsTapped(_ sender: UIButton) {

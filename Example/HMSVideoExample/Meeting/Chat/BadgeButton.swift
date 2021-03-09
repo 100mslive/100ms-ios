@@ -47,6 +47,11 @@ class BadgeButton: UIButton {
         addBadgeToButon(badge: nil)
     }
 
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.addBadgeToButon(badge: nil)
+    }
+
     func addBadgeToButon(badge: String?) {
         badgeLabel.text = badge
         badgeLabel.textColor = badgeTextColor
@@ -77,10 +82,5 @@ class BadgeButton: UIButton {
         badgeLabel.layer.masksToBounds = true
         addSubview(badgeLabel)
         badgeLabel.isHidden = badge != nil ? false : true
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.addBadgeToButon(badge: nil)
     }
 }

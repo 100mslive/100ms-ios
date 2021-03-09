@@ -261,9 +261,9 @@
 			isa = PBXGroup;
 			children = (
 				ECF26D9F25EBDB5700BFB3B9 /* ChatViewController.swift */,
-				ECF26DAB25EBDBC300BFB3B9 /* Chat.storyboard */,
-				ECE5D2C625ED592200B8D7E4 /* BadgeButton.swift */,
 				ECF0C4AA25F138630021537A /* ChatTableViewCell.swift */,
+				ECE5D2C625ED592200B8D7E4 /* BadgeButton.swift */,
+				ECF26DAB25EBDBC300BFB3B9 /* Chat.storyboard */,
 			);
 			name = Chat;
 			path = Meeting/Chat;

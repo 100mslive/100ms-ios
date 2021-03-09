@@ -70,13 +70,13 @@ extension ParticipantsViewController: UITableViewDataSource {
         }
 
         if let peerState = peers?[indexPath.row] {
-            
+
             cell.peerState = peerState
-            
+
             cell.nameLabel.text = peerState.peer.name
-            
+
             cell.roleLabel.text = peerState.peer.role?.capitalized ?? "Guest"
-            
+
             cell.micButton.isSelected = !(peerState.stream.audioTracks?.first?.enabled ?? true)
 
             cell.videoButton.isSelected = !(peerState.stream.videoTracks?.first?.enabled ?? true)
@@ -84,8 +84,4 @@ extension ParticipantsViewController: UITableViewDataSource {
 
         return cell
     }
-}
-
-extension ParticipantsViewController: UITableViewDelegate {
-
 }
