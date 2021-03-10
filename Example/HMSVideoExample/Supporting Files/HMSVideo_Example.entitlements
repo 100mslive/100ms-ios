@@ -5,7 +5,6 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:qa.100ms.live</string>
-		<string>applinks:staging-in.100ms.live</string>
 		<string>applinks:prod.100ms.live</string>
 	</array>
 </dict>
