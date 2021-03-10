@@ -6,6 +6,7 @@ target 'HMSVideo_Example' do
   pod 'HMSVideo', :path => '../'
   
   pod 'Firebase/Crashlytics'
+  pod 'Firebase/AppDistribution'
 
   target 'HMSVideo_Tests' do
     inherit! :search_paths
