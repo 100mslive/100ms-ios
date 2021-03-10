@@ -8,6 +8,7 @@
 
 import UIKit
 import HMSVideo
+import QuartzCore
 
 final class VideoCollectionViewCell: UICollectionViewCell {
 
@@ -29,6 +30,12 @@ final class VideoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var videoView: HMSVideoView!
 
     @IBOutlet weak var stopVideoButton: UIButton!
+
+    @IBOutlet weak var avatarLabel: UILabel! {
+        didSet {
+            avatarLabel.layer.cornerRadius = 54
+        }
+    }
 
     var isSpeaker = false {
         didSet {
@@ -64,6 +71,7 @@ final class VideoCollectionViewCell: UICollectionViewCell {
                                                    queue: .main) { [weak self] _ in
             if let videoEnabled = self?.model?.stream.videoTracks?.first?.enabled {
                 self?.stopVideoButton.isSelected = !videoEnabled
+                self?.avatarLabel.isHidden = videoEnabled
             }
         }
     }
@@ -90,6 +98,7 @@ final class VideoCollectionViewCell: UICollectionViewCell {
     @IBAction func stopVideoTapped(_ sender: UIButton) {
         print(#function, sender.isSelected, model?.peer.name as Any, model?.stream.videoTracks?.count as Any)
         model?.stream.videoTracks?.first?.enabled = sender.isSelected
+        avatarLabel.isHidden = sender.isSelected
         sender.isSelected = !sender.isSelected
     }
 }

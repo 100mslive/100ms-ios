@@ -137,7 +137,12 @@ final class MeetingViewModel: NSObject,
 
         if let videoEnabled = model.stream.videoTracks?.first?.enabled {
             cell.stopVideoButton.isSelected = !videoEnabled
+            cell.avatarLabel.isHidden = videoEnabled
+        } else {
+            cell.avatarLabel.isHidden = false
         }
+        
+        cell.avatarLabel.text = Utilities.getAvatarName(from: model.peer.name)
     }
 
     func collectionView(_ collectionView: UICollectionView,
