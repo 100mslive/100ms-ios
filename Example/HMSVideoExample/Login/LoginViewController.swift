@@ -117,7 +117,7 @@ final class LoginViewController: UIViewController {
 
         session = AVCaptureSession()
         output = AVCapturePhotoOutput()
-        if let camera = getDevice(position: .front) {
+        if let camera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) {
             do {
                 input = try AVCaptureDeviceInput(device: camera)
             } catch let error as NSError {
@@ -145,17 +145,6 @@ final class LoginViewController: UIViewController {
                 output.capturePhoto(with: settings, delegate: self)
             }
         }
-    }
-
-    private func getDevice(position: AVCaptureDevice.Position) -> AVCaptureDevice? {
-        let devices = AVCaptureDevice.devices()
-        for device in devices {
-            let deviceConverted = device
-            if deviceConverted.position == position {
-                return deviceConverted
-            }
-        }
-        return nil
     }
 
     private func updateCameraView() {
