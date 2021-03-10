@@ -113,9 +113,7 @@ struct RoomService {
 
     private static func createRequest(for url: String, _ user: String, _ room: String) -> URLRequest? {
 
-        guard let url = URL(string: url),
-            let endpointURL = URL(string: Constants.endpoint),
-            let subDomain = endpointURL.host?.components(separatedBy: ".").first
+        guard let url = URL(string: url)
         else {
             print("Error: ", #function, "Get Token & Socket Endpoint URLs are incorrect")
             return nil
@@ -124,10 +122,14 @@ struct RoomService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
 
+        let env = Utilities.getEnv(from: Constants.endpoint)
+
         let body = [  "room_id": room,
                       "user_name": user,
                       "role": "guest",
-                      "env": subDomain  ]
+                      "env": env  ]
+
+        print(#function, "URL: ", url, "\nBody: ", body)
 
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
@@ -146,6 +148,9 @@ struct RoomService {
         do {
             if let json = try JSONSerialization.jsonObject(with: data,
                                                            options: .mutableContainers) as? [String: Any] {
+
+                print(#function, "JSON: ", json)
+
                 if let value = json[key] as? String {
                     return (value, nil)
                 } else {

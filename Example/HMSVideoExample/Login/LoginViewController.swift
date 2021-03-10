@@ -169,8 +169,12 @@ final class LoginViewController: UIViewController {
 
             self.joinMeetingIDField.text = roomID
 
-            let socketEndpoint = "wss://\(endpoint)/ws"
-            UserDefaults.standard.set(socketEndpoint, forKey: Constants.socketEndpointKey)
+            let socketEndpoint = Utilities.getEndpoint(from: endpoint)
+
+            print(#function, "Socket endpoint set from DeepLink: ", socketEndpoint)
+
+            UserDefaults.standard.set(socketEndpoint,
+                                      forKey: Constants.socketEndpointKey)
 
             self.showInputAlert(flow: .join)
         }

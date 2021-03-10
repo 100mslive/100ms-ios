@@ -36,6 +36,8 @@ struct Constants {
 
     static let roomIDKey = "roomID"
 
+    static let hostKey = "host"
+
     // MARK: - Notifications
 
     static let hmsError = NSNotification.Name("HMS_ERROR")

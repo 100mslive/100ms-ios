@@ -39,6 +39,26 @@ final class Utilities {
         view.layer.cornerRadius = 16
         view.layer.masksToBounds = true
     }
+
+    static func getEndpoint(from endpoint: String) -> String {
+
+        let env = getEnv(from: endpoint)
+
+        return "wss://\(env).100ms.live/ws"
+    }
+
+    static func getEnv(from endpoint: String) -> String {
+
+        let env: String
+
+        if endpoint.contains("qa") {
+            env = "qa-in"
+        } else {
+            env = "prod-in"
+        }
+
+        return env
+    }
 }
 
 protocol ErrorProtocol: LocalizedError {
