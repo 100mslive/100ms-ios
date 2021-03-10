@@ -19,11 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        let view = UIView(frame: window?.frame ?? CGRect(x: 0, y: 0, width: Int.max, height: Int.max))
-        view.backgroundColor = .black
-        view.tag = 1
-        window?.rootViewController?.view.addSubview(view)
-        window?.rootViewController?.view.bringSubviewToFront(view)
+        if let window = window {
+            let view = UIView(frame: window.frame)
+            view.backgroundColor = .black
+            view.tag = 1
+            window.rootViewController?.view.addSubview(view)
+            window.rootViewController?.view.bringSubviewToFront(view)
+        }
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
