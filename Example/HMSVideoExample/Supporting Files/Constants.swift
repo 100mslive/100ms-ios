@@ -58,6 +58,10 @@ struct Constants {
 
     static let peerAudioToggled = NSNotification.Name("LOCAL_AUDIO_TOGGLED")
 
+    static let deeplinkTapped = NSNotification.Name("DEEPLINK_TAPPED")
+
+    static let appInBackground = NSNotification.Name("APP_BACKGROUND")
+
     // MARK: - View Constants
 
     static let meeting = "Meeting"

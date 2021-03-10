@@ -4,9 +4,9 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:qa-in.100ms.live</string>
+		<string>applinks:qa.100ms.live</string>
 		<string>applinks:staging-in.100ms.live</string>
-		<string>applinks:prod-in.100ms.live</string>
+		<string>applinks:prod.100ms.live</string>
 	</array>
 </dict>
 </plist>

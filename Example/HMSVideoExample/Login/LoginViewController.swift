@@ -86,6 +86,8 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         setupCameraPreview()
+
+        observeNotifications()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -164,6 +166,26 @@ final class LoginViewController: UIViewController {
     }
 
     // MARK: - Action Handlers
+
+    func observeNotifications() {
+        _ = NotificationCenter.default.addObserver(forName: Constants.deeplinkTapped,
+                                                   object: nil,
+                                                   queue: .main) { notification in
+            guard let info = notification.userInfo,
+                  let roomID = info[Constants.roomIDKey] as? String,
+                  let endpoint = info[Constants.hostKey] as? String else {
+                print(#function, "Error: Could not find correct Deep link URL")
+                return
+            }
+
+            self.joinMeetingIDField.text = roomID
+
+            let socketEndpoint = "wss://\(endpoint)/ws"
+            UserDefaults.standard.set(socketEndpoint, forKey: Constants.socketEndpointKey)
+
+            self.showInputAlert(flow: .join)
+        }
+    }
 
     @objc private func dismissKeyboard(_ sender: Any) {
         joinMeetingIDField.resignFirstResponder()

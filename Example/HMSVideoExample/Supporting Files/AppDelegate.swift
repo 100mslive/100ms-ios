@@ -32,4 +32,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    func application(_ application: UIApplication,
+                     continue userActivity: NSUserActivity,
+                     restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+            let incomingURL = userActivity.webpageURL,
+            let components = NSURLComponents(url: incomingURL, resolvingAgainstBaseURL: true),
+            let params = components.queryItems,
+            let host = components.host else {
+            print(#function, "Error: Could not get correct URL!")
+            return false
+        }
+
+        if let roomID = params.first(where: { $0.name == "room" })?.value {
+            let userInfo = [    Constants.roomIDKey: roomID,
+                                Constants.hostKey: host ]
+
+            NotificationCenter.default.post(name: Constants.deeplinkTapped, object: nil, userInfo: userInfo)
+            return true
+        }
+        return false
+    }
 }
