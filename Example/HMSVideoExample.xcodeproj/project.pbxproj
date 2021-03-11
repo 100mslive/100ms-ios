@@ -16,19 +16,19 @@
 		EC462C9125E95A2800BFF07C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC462C9025E95A2800BFF07C /* LoginViewController.swift */; };
 		EC462C9625E95A3200BFF07C /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC462C9425E95A3200BFF07C /* VideoCollectionViewCell.swift */; };
 		EC462C9725E95A3200BFF07C /* MeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC462C9525E95A3200BFF07C /* MeetingViewController.swift */; };
-		EC462C9F25E95A4100BFF07C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC462C9C25E95A4100BFF07C /* AppDelegate.swift */; };
-		EC462CA025E95A4100BFF07C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC462C9D25E95A4100BFF07C /* Utilities.swift */; };
-		EC462CA125E95A4100BFF07C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC462C9E25E95A4100BFF07C /* Images.xcassets */; };
 		EC462CAE25E9606100BFF07C /* MeetingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC462CAD25E9606100BFF07C /* MeetingViewModel.swift */; };
 		EC462CB225E9616400BFF07C /* HMSInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC462CB125E9616400BFF07C /* HMSInteractor.swift */; };
-		EC462CB825E9629700BFF07C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC462CB725E9629700BFF07C /* Constants.swift */; };
 		EC5C8C7F25F4C7B2004474B5 /* ParticipantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5C8C7E25F4C7B2004474B5 /* ParticipantsTableViewCell.swift */; };
-		EC8C4ADA25EA4CDF00E90469 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8C4ADC25EA4CDF00E90469 /* LaunchScreen.storyboard */; };
+		EC77907D25FA43C2009566FE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC77907225FA43C2009566FE /* Constants.swift */; };
+		EC77907E25FA43C2009566FE /* FirebaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC77907325FA43C2009566FE /* FirebaseInteractor.swift */; };
+		EC77908025FA43C2009566FE /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC77907625FA43C2009566FE /* Utilities.swift */; };
+		EC77908125FA43C2009566FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC77907725FA43C2009566FE /* LaunchScreen.storyboard */; };
+		EC77908225FA43C2009566FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC77907925FA43C2009566FE /* Images.xcassets */; };
+		EC77908325FA43C2009566FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC77907A25FA43C2009566FE /* AppDelegate.swift */; };
 		EC8E97DA25EBFEC6003A3FCD /* ParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8E97D925EBFEC6003A3FCD /* ParticipantsViewController.swift */; };
 		EC8E97E325EBFF16003A3FCD /* Participants.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8E97E525EBFF16003A3FCD /* Participants.storyboard */; };
 		ECA9BECC25EB6E3B0095C4FD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9BEC925EB6E3B0095C4FD /* SettingsViewController.swift */; };
 		ECCB2A5025F0D928000D8790 /* PeerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB2A4F25F0D928000D8790 /* PeerState.swift */; };
-		ECDFC34A25F069CA0036DAE7 /* FirebaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDFC34925F069CA0036DAE7 /* FirebaseInteractor.swift */; };
 		ECDFC35025F07AC30036DAE7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECDFC34F25F07AC30036DAE7 /* GoogleService-Info.plist */; };
 		ECE5D2C725ED592200B8D7E4 /* BadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE5D2C625ED592200B8D7E4 /* BadgeButton.swift */; };
 		ECF0C4AB25F138630021537A /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF0C4AA25F138630021537A /* ChatTableViewCell.swift */; };
@@ -55,7 +55,6 @@
 		461E2E39FF6A82057145B78F /* libPods-HMSVideo_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HMSVideo_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EB9722B556F1E4A407C60A5 /* libPods-HMSVideo_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HMSVideo_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* HMSVideo_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMSVideo_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* HMSVideo_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HMSVideo_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,23 +69,23 @@
 		EC462C9025E95A2800BFF07C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Login/LoginViewController.swift; sourceTree = "<group>"; };
 		EC462C9425E95A3200BFF07C /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoCollectionViewCell.swift; path = Meeting/VideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		EC462C9525E95A3200BFF07C /* MeetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeetingViewController.swift; path = Meeting/MeetingViewController.swift; sourceTree = "<group>"; };
-		EC462C9C25E95A4100BFF07C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Supporting Files/AppDelegate.swift"; sourceTree = "<group>"; };
-		EC462C9D25E95A4100BFF07C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = "Supporting Files/Utilities.swift"; sourceTree = "<group>"; };
-		EC462C9E25E95A4100BFF07C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Supporting Files/Images.xcassets"; sourceTree = "<group>"; };
-		EC462CA825E95BC100BFF07C /* HMSVideo_Example.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = HMSVideo_Example.entitlements; path = "Supporting Files/HMSVideo_Example.entitlements"; sourceTree = "<group>"; };
 		EC462CAD25E9606100BFF07C /* MeetingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MeetingViewModel.swift; path = Meeting/MeetingViewModel.swift; sourceTree = "<group>"; };
 		EC462CB125E9616400BFF07C /* HMSInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HMSInteractor.swift; path = Meeting/HMSInteractor.swift; sourceTree = "<group>"; };
-		EC462CB725E9629700BFF07C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "Supporting Files/Constants.swift"; sourceTree = "<group>"; };
 		EC5C8C7E25F4C7B2004474B5 /* ParticipantsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsTableViewCell.swift; sourceTree = "<group>"; };
-		EC8C4ADB25EA4CDF00E90469 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		EC8C4AE025EA4CE100E90469 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		EC77907225FA43C2009566FE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EC77907325FA43C2009566FE /* FirebaseInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseInteractor.swift; sourceTree = "<group>"; };
+		EC77907625FA43C2009566FE /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		EC77907825FA43C2009566FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EC77907925FA43C2009566FE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EC77907A25FA43C2009566FE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EC77907B25FA43C2009566FE /* HMSVideo_Example.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = HMSVideo_Example.entitlements; sourceTree = "<group>"; };
+		EC77908725FA43DA009566FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EC8E97D925EBFEC6003A3FCD /* ParticipantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsViewController.swift; sourceTree = "<group>"; };
 		EC8E97E425EBFF16003A3FCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Participants.storyboard; sourceTree = "<group>"; };
 		EC8E97E925EBFF18003A3FCD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Participants.strings; sourceTree = "<group>"; };
 		ECA9BEC925EB6E3B0095C4FD /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		ECCB2A4F25F0D928000D8790 /* PeerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PeerState.swift; path = Meeting/PeerState.swift; sourceTree = "<group>"; };
 		ECDEE42B25E7A6AE00DB468F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		ECDFC34925F069CA0036DAE7 /* FirebaseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirebaseInteractor.swift; path = "Supporting Files/FirebaseInteractor.swift"; sourceTree = "<group>"; };
 		ECDFC34F25F07AC30036DAE7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ECE5D2C625ED592200B8D7E4 /* BadgeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeButton.swift; sourceTree = "<group>"; };
 		ECF0C4AA25F138630021537A /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		ECF26DAA25EBDBC300BFB3B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Chat.storyboard; sourceTree = "<group>"; };
 		ECF26DAF25EBDBC500BFB3B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Chat.strings; sourceTree = "<group>"; };
 		ECF2B23E25F28B4E007C84FD /* RoomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoomService.swift; path = Meeting/RoomService.swift; sourceTree = "<group>"; };
+		ECFF3B9F25FA449900707349 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,26 +152,11 @@
 				ECDEE43325E7A76700DB468F /* Login */,
 				ECDEE42C25E7A6C500DB468F /* Meeting */,
 				ECA9BEC425EB6E3B0095C4FD /* Settings */,
-				607FACD31AFB9204008FA782 /* Supporting Files */,
+				EC77907125FA43C2009566FE /* SupportingFiles */,
 				ECDFC34F25F07AC30036DAE7 /* GoogleService-Info.plist */,
 			);
 			name = "Example for HMSVideo";
 			path = HMSVideoExample;
-			sourceTree = "<group>";
-		};
-		607FACD31AFB9204008FA782 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				EC462C9C25E95A4100BFF07C /* AppDelegate.swift */,
-				EC462CB725E9629700BFF07C /* Constants.swift */,
-				EC462C9D25E95A4100BFF07C /* Utilities.swift */,
-				ECDFC34925F069CA0036DAE7 /* FirebaseInteractor.swift */,
-				EC462C9E25E95A4100BFF07C /* Images.xcassets */,
-				607FACD41AFB9204008FA782 /* Info.plist */,
-				EC462CA825E95BC100BFF07C /* HMSVideo_Example.entitlements */,
-				EC8C4ADC25EA4CDF00E90469 /* LaunchScreen.storyboard */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		607FACE81AFB9204008FA782 /* Tests */ = {
@@ -210,6 +195,21 @@
 				14CAFAB81EB7F870B9E6C3BC /* Pods-HMSVideo_Tests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		EC77907125FA43C2009566FE /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				EC77907225FA43C2009566FE /* Constants.swift */,
+				EC77907325FA43C2009566FE /* FirebaseInteractor.swift */,
+				EC77907625FA43C2009566FE /* Utilities.swift */,
+				EC77907725FA43C2009566FE /* LaunchScreen.storyboard */,
+				EC77907925FA43C2009566FE /* Images.xcassets */,
+				EC77907A25FA43C2009566FE /* AppDelegate.swift */,
+				EC77907B25FA43C2009566FE /* HMSVideo_Example.entitlements */,
+				ECFF3B9F25FA449900707349 /* Info.plist */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		EC8E97D825EBFEB5003A3FCD /* Participants */ = {
@@ -297,10 +297,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "HMSVideo_Tests" */;
 			buildPhases = (
-				2E158C8A64C6DF508B5F0718 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
+				2E158C8A64C6DF508B5F0718 /* [CP] Check Pods Manifest.lock */,
 			);
 			buildRules = (
 			);
@@ -359,13 +359,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC77908225FA43C2009566FE /* Images.xcassets in Resources */,
 				EC8E97E325EBFF16003A3FCD /* Participants.storyboard in Resources */,
+				EC77908125FA43C2009566FE /* LaunchScreen.storyboard in Resources */,
 				ECDFC35025F07AC30036DAE7 /* GoogleService-Info.plist in Resources */,
 				ECF26DA925EBDBC300BFB3B9 /* Chat.storyboard in Resources */,
 				607FACDB1AFB9204008FA782 /* Login.storyboard in Resources */,
-				EC462CA125E95A4100BFF07C /* Images.xcassets in Resources */,
 				EC02581325EB7479001293C2 /* Settings.storyboard in Resources */,
-				EC8C4ADA25EA4CDF00E90469 /* LaunchScreen.storyboard in Resources */,
 				EC462C8525E95A0B00BFF07C /* Meeting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,22 +487,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC462C9F25E95A4100BFF07C /* AppDelegate.swift in Sources */,
 				EC462CB225E9616400BFF07C /* HMSInteractor.swift in Sources */,
 				EC462C9125E95A2800BFF07C /* LoginViewController.swift in Sources */,
+				EC77907E25FA43C2009566FE /* FirebaseInteractor.swift in Sources */,
 				ECCB2A5025F0D928000D8790 /* PeerState.swift in Sources */,
 				EC462CAE25E9606100BFF07C /* MeetingViewModel.swift in Sources */,
 				EC462C9625E95A3200BFF07C /* VideoCollectionViewCell.swift in Sources */,
-				EC462CA025E95A4100BFF07C /* Utilities.swift in Sources */,
+				EC77908025FA43C2009566FE /* Utilities.swift in Sources */,
 				EC8E97DA25EBFEC6003A3FCD /* ParticipantsViewController.swift in Sources */,
 				ECE5D2C725ED592200B8D7E4 /* BadgeButton.swift in Sources */,
 				EC462C9725E95A3200BFF07C /* MeetingViewController.swift in Sources */,
 				ECF2B23F25F28B4E007C84FD /* RoomService.swift in Sources */,
-				EC462CB825E9629700BFF07C /* Constants.swift in Sources */,
 				ECF26DA025EBDB5700BFB3B9 /* ChatViewController.swift in Sources */,
 				ECF0C4AB25F138630021537A /* ChatTableViewCell.swift in Sources */,
-				ECDFC34A25F069CA0036DAE7 /* FirebaseInteractor.swift in Sources */,
+				EC77907D25FA43C2009566FE /* Constants.swift in Sources */,
 				EC5C8C7F25F4C7B2004474B5 /* ParticipantsTableViewCell.swift in Sources */,
+				EC77908325FA43C2009566FE /* AppDelegate.swift in Sources */,
 				ECA9BECC25EB6E3B0095C4FD /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,14 +553,13 @@
 			name = Meeting.storyboard;
 			sourceTree = "<group>";
 		};
-		EC8C4ADC25EA4CDF00E90469 /* LaunchScreen.storyboard */ = {
+		EC77907725FA43C2009566FE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EC8C4ADB25EA4CDF00E90469 /* Base */,
-				EC8C4AE025EA4CE100E90469 /* en */,
+				EC77907825FA43C2009566FE /* Base */,
+				EC77908725FA43DA009566FE /* en */,
 			);
 			name = LaunchScreen.storyboard;
-			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		EC8E97E525EBFF16003A3FCD /* Participants.storyboard */ = {
@@ -706,13 +705,13 @@
 			baseConfigurationReference = 368FE729C29E66B75B83DFE0 /* Pods-HMSVideo_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "HMSVideoExample/Supporting Files/HMSVideo_Example.entitlements";
+				CODE_SIGN_ENTITLEMENTS = HMSVideoExample/SupportingFiles/HMSVideo_Example.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 5N85PP82A9;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = HMSVideoExample/Info.plist;
+				INFOPLIST_FILE = HMSVideoExample/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.0;
@@ -733,13 +732,13 @@
 			baseConfigurationReference = 9360531DA4B170754E7D94BF /* Pods-HMSVideo_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "HMSVideoExample/Supporting Files/HMSVideo_Example.entitlements";
+				CODE_SIGN_ENTITLEMENTS = HMSVideoExample/SupportingFiles/HMSVideo_Example.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 5N85PP82A9;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = HMSVideoExample/Info.plist;
+				INFOPLIST_FILE = HMSVideoExample/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.0;

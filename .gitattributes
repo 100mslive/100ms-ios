@@ -1,0 +1,4 @@
+Example/HMSVideoExample/GoogleService-Info.plist filter=git-crypt diff=git-crypt
+Example/fastlane/Fastfile filter=git-crypt diff=git-crypt
+Example/HMSVideoExample/SupportingFiles/HMSVideo_Example.entitlements filter=git-crypt diff=git-crypt
+Example/HMSVideoExample/SupportingFiles/Constants.swift filter=git-crypt diff=git-crypt
