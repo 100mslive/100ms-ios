@@ -15,13 +15,13 @@ final class PeerState {
 
     let stream: HMSStream
 
-    let videoTrack: HMSVideoTrack
+    let videoTrack: HMSVideoTrack?
 
     var isCurrentSpeaker = false
 
     var isPinned = false
 
-    init(_ peer: HMSPeer, _ stream: HMSStream, _ videoTrack: HMSVideoTrack) {
+    init(_ peer: HMSPeer, _ stream: HMSStream, _ videoTrack: HMSVideoTrack?) {
         self.peer = peer
         self.stream = stream
         self.videoTrack = videoTrack

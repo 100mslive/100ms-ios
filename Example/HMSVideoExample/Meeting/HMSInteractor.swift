@@ -35,8 +35,8 @@ final class HMSInteractor {
         didSet {
             if let oldValue = oldValue, let speakerVideoTrack = speakerVideoTrack {
 
-                if let oldIndex = model.firstIndex(where: { $0.videoTrack.trackId == oldValue.trackId }),
-                   let newIndex = model.firstIndex(where: { $0.videoTrack.trackId == speakerVideoTrack.trackId }) {
+                if let oldIndex = model.firstIndex(where: { $0.videoTrack?.trackId == oldValue.trackId }),
+                   let newIndex = model.firstIndex(where: { $0.videoTrack?.trackId == speakerVideoTrack.trackId }) {
                     if oldIndex != newIndex {
                         model[oldIndex].isCurrentSpeaker = false
                         model[newIndex].isCurrentSpeaker = true
@@ -107,29 +107,29 @@ final class HMSInteractor {
 
     private func setupCallbacks() {
         client.onPeerJoin = { room, peer in
-            print("onPeerJoin: ", room.roomId, peer.name)
+            print(#function, "onPeerJoin: ", room.roomId, peer.name)
             NotificationCenter.default.post(name: Constants.peersUpdated, object: nil)
         }
 
         client.onPeerLeave = { room, peer in
-            print("onPeerLeave: ", room.roomId, peer.name)
+            print(#function, "onPeerLeave: ", room.roomId, peer.name)
             NotificationCenter.default.post(name: Constants.peersUpdated, object: nil)
         }
 
         client.onStreamAdd = { [weak self] room, peer, info in
-            print("onStreamAdd: ", room.roomId, peer.name, info.streamId)
+            print(#function, "onStreamAdd: ", room.roomId, peer.name, info.streamId)
             self?.subscribe(to: room, peer, with: info)
         }
 
         client.onStreamRemove = { [weak self] room, peer, info in
 
-            print("onStreamRemove: ", room.roomId, peer.name, info.streamId)
+            print(#function, "onStreamRemove: ", room.roomId, peer.name, info.streamId)
 
             if let model = self?.model {
 
                 var indexes = [Int]()
 
-                for (index, item) in model.enumerated() where item.videoTrack.streamId == info.streamId {
+                for (index, item) in model.enumerated() where item.videoTrack?.streamId == info.streamId {
                     self?.model.remove(at: index)
                     indexes.append(index)
                 }
@@ -139,19 +139,22 @@ final class HMSInteractor {
         }
 
         client.onBroadcast = { [weak self] room, peer, data in
-            print("onBroadcast: ", room.roomId, peer.peerId, data)
+            print(#function, "onBroadcast: ", room.roomId, peer.peerId, data)
             self?.broadcasts.append(data)
             NotificationCenter.default.post(name: Constants.broadcastReceived, object: nil)
         }
 
         client.onConnect = { [weak self] in
+            print(#function, "onConnect invoked")
             self?.client.join((self?.room)!) { isSuccess, error in
-                print("client.join: ", isSuccess, error ?? "No Error")
+                print(#function, "client.join: ", isSuccess, error ?? "No Error")
                 self?.publish()
             }
         }
 
         client.onDisconnect = { error in
+
+            print(#function, "onDisconnect invoked with error: ", error as Any)
 
             let message = error?.localizedDescription ?? "Client disconnected!"
 
@@ -168,6 +171,8 @@ final class HMSInteractor {
     private func subscribe(to room: HMSRoom, _ peer: HMSPeer, with info: HMSStreamInfo) {
 
         client.subscribe(info, room: room) { [weak self] (stream, error) in
+
+            print(#function, "client.subscribe callback: ", stream ?? "Error: No Stream!", error ?? "No error")
 
             guard let stream = stream,
                   let videoTrack = stream.videoTracks?.first
@@ -221,9 +226,9 @@ final class HMSInteractor {
 
         localStream?.videoCapturer?.startCapture()
 
-        if let track = stream.videoTracks?.first, let localPeer = localPeer {
+        if let localPeer = localPeer {
 
-            let item = PeerState(localPeer, stream, track)
+            let item = PeerState(localPeer, stream, stream.videoTracks?.first)
             model.append(item)
 
             let lastIndex = model.count > 0 ? model.count : 1
@@ -240,7 +245,7 @@ final class HMSInteractor {
             return
         }
 
-        if speakerVideoTrack?.trackId != peerState.videoTrack.trackId {
+        if speakerVideoTrack?.trackId != peerState.videoTrack?.trackId {
             speakerVideoTrack = peerState.videoTrack
         }
 
