@@ -59,25 +59,25 @@ final class Utilities {
 
         return env
     }
-    
+
     static func getAvatarName(from name: String) -> String {
         let words = name.components(separatedBy: " ")
-        
+
         var avatar = ""
-        
+
         for (index, word) in words.enumerated() where index < 2 {
             if let character = word.first {
                 avatar += "\(character)"
             }
         }
-        
+
         if avatar.count == 1 {
             let trimmedName = "\(name.dropFirst())"
             if let nextCharacter = trimmedName.first {
                 avatar += "\(nextCharacter)"
             }
         }
-        
+
         return avatar.uppercased()
     }
 }

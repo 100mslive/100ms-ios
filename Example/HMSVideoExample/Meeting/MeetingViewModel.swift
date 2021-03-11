@@ -140,8 +140,9 @@ final class MeetingViewModel: NSObject,
             cell.avatarLabel.isHidden = videoEnabled
         } else {
             cell.avatarLabel.isHidden = false
+            cell.stopVideoButton.isSelected = true
         }
-        
+
         cell.avatarLabel.text = Utilities.getAvatarName(from: model.peer.name)
     }
 
