@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -29,7 +30,12 @@
                                     <constraint firstAttribute="width" constant="44" id="p6q-Md-1Sb"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
-                                <state key="normal" image="settings"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="gear" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="large" weight="bold">
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                    </preferredSymbolConfiguration>
+                                </state>
                                 <connections>
                                     <action selector="settingsTapped:" destination="SMR-Mj-Sg7" eventType="touchUpInside" id="12j-ki-Uzh"/>
                                 </connections>
@@ -248,9 +254,9 @@
     <resources>
         <image name="100ms-logo" width="7052" height="2130"/>
         <image name="arrow.up.right.video" catalog="system" width="128" height="83"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="mic.circle.fill" catalog="system" width="128" height="121"/>
         <image name="mic.slash.fill" catalog="system" width="108" height="128"/>
-        <image name="settings" width="256" height="256"/>
         <image name="video.badge.plus" catalog="system" width="128" height="90"/>
         <image name="video.fill" catalog="system" width="128" height="82"/>
         <image name="video.slash.fill" catalog="system" width="128" height="106"/>
