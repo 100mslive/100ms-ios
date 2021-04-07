@@ -148,10 +148,11 @@ final class LoginViewController: UIViewController {
     }
 
     private func updateCameraView() {
-        let orientation = UIApplication.shared.statusBarOrientation
-        let videoOrientation = AVCaptureVideoOrientation(rawValue: orientation.rawValue) ?? .portrait
-        previewLayer?.connection?.videoOrientation = videoOrientation
-        previewLayer?.frame = cameraPreview.bounds
+        if let orientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation {
+            let videoOrientation = AVCaptureVideoOrientation(rawValue: orientation.rawValue) ?? .portrait
+            previewLayer?.connection?.videoOrientation = videoOrientation
+            previewLayer?.frame = cameraPreview.bounds
+        }
     }
 
     // MARK: - Action Handlers

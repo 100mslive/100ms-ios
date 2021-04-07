@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1834003D3A8F8163B24FC5DE /* libPods-HMSKitExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 114294703A7FD694DF367AF1 /* libPods-HMSKitExampleTests.a */; };
+		1CA0269F1E77EE18FF0E1A2F /* libPods-HMSKitExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F522665894583FCB8356CD /* libPods-HMSKitExample.a */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		79B6DF033646820B25327338 /* libPods-HMSKitExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9E8F84180A2E35A56DC3DB /* libPods-HMSKitExample.a */; };
+		84320CACB9F9C4E5D823A18C /* libPods-HMSKitExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB6A29A3F02E439CF4C5D3E5 /* libPods-HMSKitExampleTests.a */; };
 		EC8CEE71261E297F002DC12E /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEE40261E297F002DC12E /* Settings.storyboard */; };
 		EC8CEE72261E297F002DC12E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8CEE42261E297F002DC12E /* SettingsViewController.swift */; };
 		EC8CEE76261E297F002DC12E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEE48261E297F002DC12E /* Login.storyboard */; };
@@ -49,16 +49,16 @@
 
 /* Begin PBXFileReference section */
 		0244AC5843648F6E5DA71878 /* HMSKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HMSKit.podspec; path = ../HMSKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		114294703A7FD694DF367AF1 /* libPods-HMSKitExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HMSKitExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3991E0947B12A0F9E84E1ADB /* Pods-HMSKitExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExample.debug.xcconfig"; path = "Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* HMSKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMSKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACE51AFB9204008FA782 /* HMSKitExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HMSKitExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		60A89979A8316D24EDB85278 /* Pods-HMSKitExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-HMSKitExampleTests/Pods-HMSKitExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		6E9E8F84180A2E35A56DC3DB /* libPods-HMSKitExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HMSKitExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		734B1D7A6C1764B998A1C53C /* Pods-HMSKitExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExample.release.xcconfig"; path = "Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample.release.xcconfig"; sourceTree = "<group>"; };
 		BADB1198BD96E24E9BFFB40B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		BB6A29A3F02E439CF4C5D3E5 /* libPods-HMSKitExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HMSKitExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2F522665894583FCB8356CD /* libPods-HMSKitExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HMSKitExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E0A8D04907FE37A898BFF6 /* Pods-HMSKitExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExampleTests.release.xcconfig"; path = "Target Support Files/Pods-HMSKitExampleTests/Pods-HMSKitExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		EC7807E7261E2B1C0021903D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EC8CEE41261E297F002DC12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79B6DF033646820B25327338 /* libPods-HMSKitExample.a in Frameworks */,
+				1CA0269F1E77EE18FF0E1A2F /* libPods-HMSKitExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1834003D3A8F8163B24FC5DE /* libPods-HMSKitExampleTests.a in Frameworks */,
+				84320CACB9F9C4E5D823A18C /* libPods-HMSKitExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,8 +119,8 @@
 		1041C860E962BA7C1E0CA76C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6E9E8F84180A2E35A56DC3DB /* libPods-HMSKitExample.a */,
-				114294703A7FD694DF367AF1 /* libPods-HMSKitExampleTests.a */,
+				C2F522665894583FCB8356CD /* libPods-HMSKitExample.a */,
+				BB6A29A3F02E439CF4C5D3E5 /* libPods-HMSKitExampleTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -632,7 +632,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -687,7 +687,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -709,14 +709,16 @@
 				DEVELOPMENT_TEAM = 5N85PP82A9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HMSKitExample/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = live.100ms.videoapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -736,14 +738,16 @@
 				DEVELOPMENT_TEAM = 5N85PP82A9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HMSKitExample/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = live.100ms.videoapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -766,6 +770,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -787,6 +792,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
