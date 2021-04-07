@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'HMSVideo'
+  s.name             = 'HMSKit'
   s.version          = '0.10.2'
   s.summary          = 'HMSVideo Videoconferencing iOS SDK'
 
@@ -23,9 +23,9 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '10.0'
   s.cocoapods_version = '>= 1.7.5'
 
-  s.source_files = 'HMSVideo/HMSVideo.framework/Headers/*.h'
-  s.public_header_files = 'HMSVideo/HMSVideo.framework/Headers/*.h'
-  s.vendored_frameworks = 'HMSVideo/HMSVideo.framework'
+  s.source_files = 'HMSKit/HMSKit.framework/Headers/*.h'
+  s.public_header_files = 'HMSKit/HMSKit.framework/Headers/*.h'
+  s.vendored_frameworks = 'HMSKit/HMSKit.framework'
   
   s.dependency 'GoogleWebRTC', '1.1.31999'
   s.pod_target_xcconfig = {
