@@ -14,7 +14,7 @@
         <!--Settings View Controller-->
         <scene sceneID="1uv-1g-kNd">
             <objects>
-                <viewController id="YWG-tV-MYB" customClass="SettingsViewController" customModule="HMSVideo_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YWG-tV-MYB" customClass="SettingsViewController" customModule="HMSKitExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7cH-vJ-OmX">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

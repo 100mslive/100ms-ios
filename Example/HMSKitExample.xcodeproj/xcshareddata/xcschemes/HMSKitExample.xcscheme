@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "HMSVideo_Example.app"
-               BlueprintName = "HMSVideo_Example"
-               ReferencedContainer = "container:HMSVideoExample.xcodeproj">
+               BuildableName = "HMSKitExample.app"
+               BlueprintName = "HMSKitExample"
+               ReferencedContainer = "container:HMSKitExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "HMSVideo_Tests.xctest"
-               BlueprintName = "HMSVideo_Tests"
-               ReferencedContainer = "container:HMSVideoExample.xcodeproj">
+               BuildableName = "HMSKitExampleTests.xctest"
+               BlueprintName = "HMSKitExampleTests"
+               ReferencedContainer = "container:HMSKitExample.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "HMSVideo_Example.app"
-            BlueprintName = "HMSVideo_Example"
-            ReferencedContainer = "container:HMSVideoExample.xcodeproj">
+            BuildableName = "HMSKitExample.app"
+            BlueprintName = "HMSKitExample"
+            ReferencedContainer = "container:HMSKitExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "HMSVideo_Example.app"
-            BlueprintName = "HMSVideo_Example"
-            ReferencedContainer = "container:HMSVideoExample.xcodeproj">
+            BuildableName = "HMSKitExample.app"
+            BlueprintName = "HMSKitExample"
+            ReferencedContainer = "container:HMSKitExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

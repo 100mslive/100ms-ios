@@ -2,13 +2,13 @@
 
 platform :ios, '10.0'
 
-target 'HMSVideo_Example' do
+target 'HMSKitExample' do
   pod 'HMSVideo'#, :path => '../'
   
   pod 'Firebase/Crashlytics'
   pod 'Firebase/AppDistribution'
 
-  target 'HMSVideo_Tests' do
+  target 'HMSKitExampleTests' do
     inherit! :search_paths
   end
 end
