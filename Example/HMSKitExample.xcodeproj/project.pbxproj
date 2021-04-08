@@ -3,13 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1E28659413CAFC3DAD8A961C /* Pods_HMSKitExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D064520306FF7CC64F2AA023 /* Pods_HMSKitExample.framework */; };
 		585726A459AD0DEC7AD4D796 /* Pods_HMSKitExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D881C71E5D380A0D9A6AD6E /* Pods_HMSKitExampleTests.framework */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		EC84DD0B261EF9AD000E065D /* HMSKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC84DD0A261EF9AD000E065D /* HMSKit.xcframework */; };
+		EC84DD0C261EF9AD000E065D /* HMSKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC84DD0A261EF9AD000E065D /* HMSKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC8CEE71261E297F002DC12E /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEE40261E297F002DC12E /* Settings.storyboard */; };
 		EC8CEE72261E297F002DC12E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8CEE42261E297F002DC12E /* SettingsViewController.swift */; };
 		EC8CEE76261E297F002DC12E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEE48261E297F002DC12E /* Login.storyboard */; };
@@ -47,6 +49,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EC84DD0D261EF9AD000E065D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EC84DD0C261EF9AD000E065D /* HMSKit.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0244AC5843648F6E5DA71878 /* HMSKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HMSKit.podspec; path = ../HMSKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3991E0947B12A0F9E84E1ADB /* Pods-HMSKitExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExample.debug.xcconfig"; path = "../../../../Pods/Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -61,6 +77,7 @@
 		D064520306FF7CC64F2AA023 /* Pods_HMSKitExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HMSKitExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E0A8D04907FE37A898BFF6 /* Pods-HMSKitExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExampleTests.release.xcconfig"; path = "../../../../Pods/Target Support Files/Pods-HMSKitExampleTests/Pods-HMSKitExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		EC7807E7261E2B1C0021903D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		EC84DD0A261EF9AD000E065D /* HMSKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = HMSKit.xcframework; path = ../../../output/XCFramework/HMSKit.xcframework; sourceTree = "<group>"; };
 		EC8CEE41261E297F002DC12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		EC8CEE42261E297F002DC12E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EC8CEE47261E297F002DC12E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -104,6 +121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E28659413CAFC3DAD8A961C /* Pods_HMSKitExample.framework in Frameworks */,
+				EC84DD0B261EF9AD000E065D /* HMSKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +139,7 @@
 		1041C860E962BA7C1E0CA76C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC84DD0A261EF9AD000E065D /* HMSKit.xcframework */,
 				D064520306FF7CC64F2AA023 /* Pods_HMSKitExample.framework */,
 				5D881C71E5D380A0D9A6AD6E /* Pods_HMSKitExampleTests.framework */,
 			);
@@ -284,6 +303,7 @@
 				A083901B2A3103E58EAE7EEF /* [CP] Embed Pods Frameworks */,
 				ECC8B03E25E948D200792944 /* ShellScript */,
 				EC6E6CF625EC9AD60011DC67 /* ShellScript */,
+				EC84DD0D261EF9AD000E065D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -729,7 +749,8 @@
 				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -750,7 +771,10 @@
 				INFOPLIST_FILE = HMSKitExample/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = live.100ms.videoapp;
@@ -782,7 +806,10 @@
 				INFOPLIST_FILE = HMSKitExample/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = live.100ms.videoapp;
@@ -814,7 +841,11 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -836,7 +867,11 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;

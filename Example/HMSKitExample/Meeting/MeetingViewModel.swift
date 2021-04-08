@@ -26,8 +26,8 @@ final class MeetingViewModel: NSObject,
 
         super.init()
 
-        interactor = HMSInteractor(for: user, in: room, flow) { [weak self] state in
-            self?.updateView(for: state)
+        interactor = HMSInteractor(for: user, in: room, flow) { [weak self] in
+            self?.updateView()
         }
 
         setup(collectionView)
@@ -67,36 +67,38 @@ final class MeetingViewModel: NSObject,
 
     // MARK: - View Modifiers
 
-    private func updateView(for state: VideoCellState) {
+    private func updateView() {
 
-        print(#function, state)
+        print(#function)
 
-        switch state {
+        collectionView?.reloadData()
 
-        case .insert(let index):
-
-            print(#function, index)
-            collectionView?.insertItems(at: [IndexPath(item: index, section: 0)])
-
-        case .delete(let index):
-
-            print(#function, index)
-            collectionView?.deleteItems(at: [IndexPath(item: index, section: 0)])
-
-        case .refresh(let indexes):
-
-            print(#function, indexes)
-
-            let oldIndex = IndexPath(item: indexes.0, section: 0)
-            let newIndex = IndexPath(item: indexes.1, section: 0)
-
-            if let oldCell = collectionView?.cellForItem(at: oldIndex) as? VideoCollectionViewCell {
-                oldCell.isSpeaker = false
-            }
-            if let newCell = collectionView?.cellForItem(at: newIndex) as? VideoCollectionViewCell {
-                newCell.isSpeaker = true
-            }
-        }
+//        switch state {
+//
+//        case .insert(let index):
+//
+//            print(#function, index)
+//            collectionView?.insertItems(at: [IndexPath(item: index, section: 0)])
+//
+//        case .delete(let index):
+//
+//            print(#function, index)
+//            collectionView?.deleteItems(at: [IndexPath(item: index, section: 0)])
+//
+//        case .refresh(let indexes):
+//
+//            print(#function, indexes)
+//
+//            let oldIndex = IndexPath(item: indexes.0, section: 0)
+//            let newIndex = IndexPath(item: indexes.1, section: 0)
+//
+//            if let oldCell = collectionView?.cellForItem(at: oldIndex) as? VideoCollectionViewCell {
+//                oldCell.isSpeaker = false
+//            }
+//            if let newCell = collectionView?.cellForItem(at: newIndex) as? VideoCollectionViewCell {
+//                newCell.isSpeaker = true
+//            }
+//        }
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

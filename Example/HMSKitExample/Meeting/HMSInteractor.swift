@@ -15,12 +15,12 @@ final class HMSInteractor: HMSUpdateProtocol {
 
     // MARK: - Instance Properties
 
-    private let updateView: (VideoCellState) -> Void
+    private let updateView: () -> Void
 
 
     // MARK: - Setup Stream
 
-    init(for user: String, in room: String, _ flow: MeetingFlow, _ callback: @escaping (VideoCellState) -> Void) {
+    init(for user: String, in room: String, _ flow: MeetingFlow, _ callback: @escaping () -> Void) {
 
         self.updateView = callback
 
@@ -44,19 +44,19 @@ final class HMSInteractor: HMSUpdateProtocol {
     // MARK: - HMS Update Callbacks
 
     func on(join room: HMSRoom) {
-
+        updateView()
     }
 
     func on(room: HMSRoom, update: HMSRoomUpdate) {
-
+        updateView()
     }
 
     func on(peer: HMSPeer, update: HMSPeerUpdate) {
-
+        updateView()
     }
 
     func on(error: HMSError) {
-
+        updateView()
     }
 
     func on(message: HMSMessage) {
