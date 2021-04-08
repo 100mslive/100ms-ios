@@ -1,0 +1,181 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name HMSKit
+import Foundation
+@_exported import HMSKit
+import HMSKit_Private
+import Swift
+@objc @_hasMissingDesignatedInitializers @objcMembers public class HMSPeer : ObjectiveC.NSObject {
+  @objc public var name: Swift.String
+  @objc final public let isLocal: Swift.Bool
+  @objc final public let customerUserID: Swift.String?
+  @objc final public let customerDescription: Swift.String?
+  @objc public var audioTrack: HMSKit.HMSAudioTrack?
+  @objc public var videoTrack: HMSKit.HMSVideoTrack?
+  @objc public var auxiliaryTracks: [HMSKit.HMSTrack]?
+  @objc public var role: HMSKit.HMSRole
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers public class HMSNetworkQuality : ObjectiveC.NSObject {
+  @objc final public let peer: HMSKit.HMSPeer
+  public var incomingAvailableBitrate: Swift.Int?
+  public var outgoingAvailableBitrate: Swift.Int?
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc public enum HMSMessageType : Swift.Int {
+  case chat
+  case startTyping
+  case stopTyping
+  case roleChange
+  case file
+  case raisedHand
+  case dismissedRaisedHand
+  case toggleAudio
+  case toggleVideo
+  case roomStarted
+  case roomWillEnd
+  case roomDidEnd
+  case quizShared
+  case pollShared
+  case pluginStarted
+  case pluginEnded
+  case data
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum HMSRoomUpdate : Swift.Int {
+  case peerAdded
+  case peerRemoved
+  case peerKnocked
+  case roomTypeChanged
+  case metaDataUpdated
+  case screenShareStarted
+  case screenShareStopped
+  case defaultUpdate
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers public class HMSRoom : ObjectiveC.NSObject {
+  @objc final public let id: Swift.String
+  @objc final public let name: Swift.String
+  @objc final public let metaData: Swift.String?
+  @objc public var peers: [HMSKit.HMSPeer]
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers public class HMSMessage : ObjectiveC.NSObject {
+  @objc final public let sender: Swift.String
+  @objc final public let receiver: Swift.String?
+  @objc final public let time: Foundation.Date
+  @objc final public let type: HMSKit.HMSMessageType
+  @objc final public let message: Swift.String?
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class HMSUtilities : ObjectiveC.NSObject {
+  @objc public func getDevices() -> [HMSKit.HMSDevice]
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers public class HMSRole : ObjectiveC.NSObject {
+  @objc public var name: Swift.String
+  @objc public var mode: HMSKit.HMSMode
+  @objc public var priority: Swift.Int
+  @objc public var metaData: Swift.String?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum HMSMode : Swift.Int {
+  case publishAndSubscribe
+  case onlySubscribe
+  case onlyPublish
+  case auto
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @objcMembers public class HMSConfig : ObjectiveC.NSObject {
+  @objc final public let userName: Swift.String
+  @objc final public let userID: Swift.String
+  @objc final public let roomID: Swift.String
+  @objc final public let authToken: Swift.String
+  @objc final public let endPoint: Swift.String
+  @objc final public let joiningMode: HMSKit.HMSMode
+  @objc final public let shouldSkipPIIEvents: Swift.Bool
+  @objc final public let metaData: Swift.String?
+  @objc public init(userName: Swift.String = "iOS User", userID: Swift.String, roomID: Swift.String, authToken: Swift.String, endPoint: Swift.String, joiningMode: HMSKit.HMSMode = .publishAndSubscribe, shouldSkipPIIEvents: Swift.Bool = false, metaData: Swift.String? = nil)
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc public protocol HMSUpdateProtocol {
+  @objc var hms: HMSKit.HMS { get set }
+  @objc(onJoin:) func on(join room: HMSKit.HMSRoom)
+  @objc(onRoom:update:) func on(room: HMSKit.HMSRoom, update: HMSKit.HMSRoomUpdate)
+  @objc(onPeer:update:) func on(peer: HMSKit.HMSPeer, update: HMSKit.HMSPeerUpdate)
+  @objc(onError:) func on(error: HMSKit.HMSError)
+  @objc(onMessage:) func on(message: HMSKit.HMSMessage)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers public class HMS : ObjectiveC.NSObject {
+  @objc public func join(config: HMSKit.HMSConfig, delegate: HMSKit.HMSUpdateProtocol)
+  @objc public func leave()
+  @objc public var localPeer: HMSKit.HMSPeer? {
+    @objc get
+  }
+  @objc public var room: HMSKit.HMSRoom? {
+    @objc get
+  }
+  @objc public func send(message: HMSKit.HMSMessage)
+  @objc public func startScreenShare()
+  @objc public func stopScreenShare()
+  @objc public static func build(block: ((HMSKit.HMS) -> Swift.Void)? = nil) -> HMSKit.HMS
+  @objc public var logLevel: HMSKit.HMSLogLevel {
+    @objc get
+    @objc set
+  }
+  @objc public var analyticsLevel: HMSKit.HMSAnalyticsEventLevel {
+    @objc get
+    @objc set
+  }
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class HMSDevice : ObjectiveC.NSObject {
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc public enum HMSPeerUpdate : Swift.Int {
+  case videoTrackAdded
+  case videoTrackRemoved
+  case audioTrackAdded
+  case audioTrackRemoved
+  case audioToggled
+  case videoToggled
+  case roleUpdated
+  case defaultUpdate
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension HMSKit.HMSMessageType : Swift.Equatable {}
+extension HMSKit.HMSMessageType : Swift.Hashable {}
+extension HMSKit.HMSMessageType : Swift.RawRepresentable {}
+extension HMSKit.HMSRoomUpdate : Swift.Equatable {}
+extension HMSKit.HMSRoomUpdate : Swift.Hashable {}
+extension HMSKit.HMSRoomUpdate : Swift.RawRepresentable {}
+extension HMSKit.HMSMode : Swift.Equatable {}
+extension HMSKit.HMSMode : Swift.Hashable {}
+extension HMSKit.HMSMode : Swift.RawRepresentable {}
+extension HMSKit.HMSPeerUpdate : Swift.Equatable {}
+extension HMSKit.HMSPeerUpdate : Swift.Hashable {}
+extension HMSKit.HMSPeerUpdate : Swift.RawRepresentable {}

@@ -1,0 +1,11 @@
+framework module HMSKit {
+  umbrella header "HMSKit.h"
+
+  export *
+  module * { export * }
+}
+
+module HMSKit.Swift {
+    header "HMSKit-Swift.h"
+    requires objc
+}

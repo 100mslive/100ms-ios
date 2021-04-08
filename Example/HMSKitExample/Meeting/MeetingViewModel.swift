@@ -210,7 +210,7 @@ final class MeetingViewModel: NSObject,
     func muteRemoteStreams(_ isMuted: Bool) {
 
         if let peers = interactor.hms.room?.peers {
-            for (index, peer) in peers.enumerated() where peer.audioTrack?.enabled != isMuted {
+            for peer in peers where peer.audioTrack?.enabled != isMuted {
                 peer.audioTrack?.enabled = isMuted
             }
         }
