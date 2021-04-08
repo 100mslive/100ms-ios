@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		195349A1CDB2E8FD5FD2749E /* libPods-HMSKitExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F1A16ABA5AC6BD809AE8AF /* libPods-HMSKitExample.a */; };
+		3F6868EB0553F19C80609045 /* Pods_HMSKitExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3F7D40C426D1B9EC68FF72 /* Pods_HMSKitExample.framework */; };
+		45957B60231B980F881D556D /* Pods_HMSKitExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA856A26DFD7A8E6FA79688 /* Pods_HMSKitExampleTests.framework */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		EC8836B0261F1EB10098E9BD /* HMSKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8836AF261F1EB10098E9BD /* HMSKit.xcframework */; };
-		EC8836B1261F1EB10098E9BD /* HMSKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC8836AF261F1EB10098E9BD /* HMSKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC8CEE71261E297F002DC12E /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEE40261E297F002DC12E /* Settings.storyboard */; };
 		EC8CEE72261E297F002DC12E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8CEE42261E297F002DC12E /* SettingsViewController.swift */; };
 		EC8CEE76261E297F002DC12E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEE48261E297F002DC12E /* Login.storyboard */; };
@@ -35,7 +34,6 @@
 		EC8CEE8D261E297F002DC12E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8CEE6B261E297F002DC12E /* AppDelegate.swift */; };
 		EC8CEE8F261E297F002DC12E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8CEE6F261E297F002DC12E /* LoginViewController.swift */; };
 		ECA64EF2261E2FCB0077C25A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEE47261E297F002DC12E /* GoogleService-Info.plist */; };
-		ECDEB15535D44B60E5439A21 /* libPods-HMSKitExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 481DBD446985938558C748B4 /* libPods-HMSKitExampleTests.a */; };
 		ECF4919C261EED6100E54400 /* Token.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF4919B261EED6100E54400 /* Token.m */; };
 /* End PBXBuildFile section */
 
@@ -49,35 +47,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		EC8836AC261F1EA30098E9BD /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				EC8836B1261F1EB10098E9BD /* HMSKit.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		0244AC5843648F6E5DA71878 /* HMSKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HMSKit.podspec; path = ../HMSKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		3991E0947B12A0F9E84E1ADB /* Pods-HMSKitExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExample.debug.xcconfig"; path = "Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample.debug.xcconfig"; sourceTree = "<group>"; };
-		481DBD446985938558C748B4 /* libPods-HMSKitExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HMSKitExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C3F7D40C426D1B9EC68FF72 /* Pods_HMSKitExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HMSKitExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3991E0947B12A0F9E84E1ADB /* Pods-HMSKitExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExample.debug.xcconfig"; path = "../../../../Pods/Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* HMSKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMSKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACE51AFB9204008FA782 /* HMSKitExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HMSKitExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		60A89979A8316D24EDB85278 /* Pods-HMSKitExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-HMSKitExampleTests/Pods-HMSKitExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		734B1D7A6C1764B998A1C53C /* Pods-HMSKitExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExample.release.xcconfig"; path = "Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample.release.xcconfig"; sourceTree = "<group>"; };
+		60A89979A8316D24EDB85278 /* Pods-HMSKitExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExampleTests.debug.xcconfig"; path = "../../../../Pods/Target Support Files/Pods-HMSKitExampleTests/Pods-HMSKitExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		734B1D7A6C1764B998A1C53C /* Pods-HMSKitExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExample.release.xcconfig"; path = "../../../../Pods/Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample.release.xcconfig"; sourceTree = "<group>"; };
 		BADB1198BD96E24E9BFFB40B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		D8F1A16ABA5AC6BD809AE8AF /* libPods-HMSKitExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HMSKitExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9E0A8D04907FE37A898BFF6 /* Pods-HMSKitExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExampleTests.release.xcconfig"; path = "Target Support Files/Pods-HMSKitExampleTests/Pods-HMSKitExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		E9E0A8D04907FE37A898BFF6 /* Pods-HMSKitExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExampleTests.release.xcconfig"; path = "../../../../Pods/Target Support Files/Pods-HMSKitExampleTests/Pods-HMSKitExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		EC7807E7261E2B1C0021903D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		EC8836AF261F1EB10098E9BD /* HMSKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = HMSKit.xcframework; path = ../HMSKit/HMSKit.xcframework; sourceTree = "<group>"; };
 		EC8CEE41261E297F002DC12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		EC8CEE42261E297F002DC12E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EC8CEE47261E297F002DC12E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -113,6 +95,7 @@
 		ECF49199261EED6100E54400 /* HMSKitExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMSKitExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		ECF4919A261EED6100E54400 /* Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
 		ECF4919B261EED6100E54400 /* Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Token.m; sourceTree = "<group>"; };
+		FBA856A26DFD7A8E6FA79688 /* Pods_HMSKitExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HMSKitExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC8836B0261F1EB10098E9BD /* HMSKit.xcframework in Frameworks */,
-				195349A1CDB2E8FD5FD2749E /* libPods-HMSKitExample.a in Frameworks */,
+				3F6868EB0553F19C80609045 /* Pods_HMSKitExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECDEB15535D44B60E5439A21 /* libPods-HMSKitExampleTests.a in Frameworks */,
+				45957B60231B980F881D556D /* Pods_HMSKitExampleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,9 +121,8 @@
 		1041C860E962BA7C1E0CA76C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EC8836AF261F1EB10098E9BD /* HMSKit.xcframework */,
-				D8F1A16ABA5AC6BD809AE8AF /* libPods-HMSKitExample.a */,
-				481DBD446985938558C748B4 /* libPods-HMSKitExampleTests.a */,
+				0C3F7D40C426D1B9EC68FF72 /* Pods_HMSKitExample.framework */,
+				FBA856A26DFD7A8E6FA79688 /* Pods_HMSKitExampleTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -303,7 +284,6 @@
 				A083901B2A3103E58EAE7EEF /* [CP] Embed Pods Frameworks */,
 				ECC8B03E25E948D200792944 /* ShellScript */,
 				EC6E6CF625EC9AD60011DC67 /* ShellScript */,
-				EC8836AC261F1EA30098E9BD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -453,12 +433,34 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample-frameworks.sh",
 				"${PODS_ROOT}/GoogleWebRTC/Frameworks/frameworks/WebRTC.framework",
-				"${PODS_ROOT}/HMSVideo/HMSVideo/HMSVideo.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCore-iOS13.0/FirebaseCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics-iOS13.0/FirebaseCoreDiagnostics.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCrashlytics-iOS13.0/FirebaseCrashlytics.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseInstallations-iOS13.0/FirebaseInstallations.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleDataTransport-iOS13.0/GoogleDataTransport.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-54e75ca4/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC-iOS13.0/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb-iOS13.0/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/Base64-iOS13.0/Base64.framework",
+				"${BUILT_PRODUCTS_DIR}/JWT-iOS13.0/JWT.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseAppDistribution/FirebaseAppDistribution.framework",
+				"${PODS_ROOT}/HMSKit/HMSKit/HMSKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HMSVideo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreDiagnostics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCrashlytics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseInstallations.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleDataTransport.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Base64.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWT.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAppDistribution.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HMSKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -715,8 +717,7 @@
 				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -737,10 +738,7 @@
 				INFOPLIST_FILE = HMSKitExample/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = live.100ms.videoapp;
@@ -772,10 +770,7 @@
 				INFOPLIST_FILE = HMSKitExample/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = live.100ms.videoapp;
@@ -807,11 +802,7 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -833,11 +824,7 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
