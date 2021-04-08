@@ -3,10 +3,12 @@
 platform :ios, '13.0'
 
 target 'HMSKitExample' do
-  pod 'HMSVideo'#, :path => '../'
+  # pod 'HMSVideo'#, :path => '../'
+  pod 'HMSKit', :git => 'https://github.com/100mslive/100ms-ios.git', :branch => 'usingSDK2.0'
   
   pod 'Firebase/Crashlytics'
   pod 'Firebase/AppDistribution'
+  pod 'JWT'
 
   target 'HMSKitExampleTests' do
     inherit! :search_paths

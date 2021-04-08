@@ -1,4 +1,5 @@
 PODS:
+  - Base64 (1.1.2)
   - Firebase/AppDistribution (7.10.0):
     - Firebase/CoreOnly
     - FirebaseAppDistribution (~> 7.10.0-beta)
@@ -55,8 +56,10 @@ PODS:
   - GoogleUtilities/UserDefaults (7.3.1):
     - GoogleUtilities/Logger
   - GoogleWebRTC (1.1.31999)
-  - HMSVideo (0.10.4):
+  - HMSKit (0.10.2):
     - GoogleWebRTC (= 1.1.31999)
+  - JWT (2.2.0):
+    - Base64 (~> 1.1.2)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
@@ -67,10 +70,12 @@ PODS:
 DEPENDENCIES:
   - Firebase/AppDistribution
   - Firebase/Crashlytics
-  - HMSVideo
+  - HMSKit (from `https://github.com/100mslive/100ms-ios.git`, branch `usingSDK2.0`)
+  - JWT
 
 SPEC REPOS:
   trunk:
+    - Base64
     - Firebase
     - FirebaseAppDistribution
     - FirebaseCore
@@ -80,11 +85,22 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleUtilities
     - GoogleWebRTC
-    - HMSVideo
+    - JWT
     - nanopb
     - PromisesObjC
 
+EXTERNAL SOURCES:
+  HMSKit:
+    :branch: usingSDK2.0
+    :git: https://github.com/100mslive/100ms-ios.git
+
+CHECKOUT OPTIONS:
+  HMSKit:
+    :commit: b46b4504f25be2d830c74ad1a0e596728d39a009
+    :git: https://github.com/100mslive/100ms-ios.git
+
 SPEC CHECKSUMS:
+  Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   Firebase: fffddd0bab8677d07376538365faa93ff3889b39
   FirebaseAppDistribution: 9cf70e48677948d8f0a641559c5a7ea4fe4a62f6
   FirebaseCore: ec566d917b2195fc2610aeb148dae99f57a788f9
@@ -94,10 +110,11 @@ SPEC CHECKSUMS:
   GoogleDataTransport: cd9db2180fcecd8da1b561aea31e3e56cf834aa7
   GoogleUtilities: e1d9ed4e544fc32a93e00e721400cbc3f377200d
   GoogleWebRTC: b39a78c4f5cc6b0323415b9233db03a2faa7b0f0
-  HMSVideo: df52812d62f78ad779d793c802c41ff418f7a4d2
+  HMSKit: 5202da5540ce36cc89a2e8b5c4b19706f9b39b1e
+  JWT: cf73c0ab0dac762df3de8a3f1164352089d97780
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
-PODFILE CHECKSUM: 8c89bad39898bc41539b35306cc5ec5214624dee
+PODFILE CHECKSUM: aa059cdbdc231a5af290292419a6fca835272ec7
 
 COCOAPODS: 1.10.1
