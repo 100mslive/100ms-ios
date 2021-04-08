@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import HMSVideo
+import HMSKit
 import MediaPlayer
 
 final class MeetingViewController: UIViewController {
@@ -126,8 +126,6 @@ final class MeetingViewController: UIViewController {
             return
         }
 
-        viewController.hms = viewModel.hms
-
         present(viewController, animated: true)
     }
 
@@ -168,8 +166,6 @@ final class MeetingViewController: UIViewController {
                 .instantiateInitialViewController() as? ChatViewController else {
             return
         }
-
-        viewController.hms = viewModel.hms
 
         chatBadgeCount = 0
 

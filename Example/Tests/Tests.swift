@@ -1,5 +1,5 @@
 import XCTest
-import HMSVideo
+import HMSKit
 
 class Tests: XCTestCase {
 

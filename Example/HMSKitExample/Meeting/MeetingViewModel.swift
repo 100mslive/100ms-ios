@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import HMSKit
 
 final class MeetingViewModel: NSObject,
                               UICollectionViewDataSource,
                               UICollectionViewDelegate,
                               UICollectionViewDelegateFlowLayout {
 
-    private(set) var hms: HMSInteractor!
+    private(set) var interactor: HMSInteractor!
 
     private weak var collectionView: UICollectionView?
 
@@ -25,7 +26,7 @@ final class MeetingViewModel: NSObject,
 
         super.init()
 
-        hms = HMSInteractor(for: user, in: room, flow) { [weak self] state in
+        interactor = HMSInteractor(for: user, in: room, flow) { [weak self] state in
             self?.updateView(for: state)
         }
 
@@ -99,7 +100,7 @@ final class MeetingViewModel: NSObject,
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        hms.model.count
+        interactor.hms.room?.peers.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -107,7 +108,8 @@ final class MeetingViewModel: NSObject,
 
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.resuseIdentifier,
                                                             for: indexPath) as? VideoCollectionViewCell,
-               indexPath.item < hms.model.count
+              let count = interactor.hms.room?.peers.count,
+              indexPath.item < count
         else {
             return UICollectionViewCell()
         }
@@ -119,31 +121,30 @@ final class MeetingViewModel: NSObject,
 
     private func updateCell(at indexPath: IndexPath, for cell: VideoCollectionViewCell) {
 
-        let model = hms.model[indexPath.row]
+        if let peer = interactor.hms.room?.peers[indexPath.row] {
 
-        cell.model = model
+            cell.videoView.setVideoTrack(peer.videoTrack)
 
-        cell.videoView.setVideoTrack(model.videoTrack)
+            cell.nameLabel.text = peer.name
 
-        cell.nameLabel.text = model.peer.name
+    //        cell.isSpeaker = model.isCurrentSpeaker
 
-        cell.isSpeaker = model.isCurrentSpeaker
+    //        cell.pinButton.isSelected = model.isPinned
 
-        cell.pinButton.isSelected = model.isPinned
+            if let audioEnabled = peer.audioTrack?.enabled {
+                cell.muteButton.isSelected = !audioEnabled
+            }
 
-        if let audioEnabled = model.stream.audioTracks?.first?.enabled {
-            cell.muteButton.isSelected = !audioEnabled
+            if let videoEnabled = peer.videoTrack?.enabled {
+                cell.stopVideoButton.isSelected = !videoEnabled
+                cell.avatarLabel.isHidden = videoEnabled
+            } else {
+                cell.avatarLabel.isHidden = false
+                cell.stopVideoButton.isSelected = true
+            }
+
+            cell.avatarLabel.text = Utilities.getAvatarName(from: peer.name)
         }
-
-        if let videoEnabled = model.stream.videoTracks?.first?.enabled {
-            cell.stopVideoButton.isSelected = !videoEnabled
-            cell.avatarLabel.isHidden = videoEnabled
-        } else {
-            cell.avatarLabel.isHidden = false
-            cell.stopVideoButton.isSelected = true
-        }
-
-        cell.avatarLabel.text = Utilities.getAvatarName(from: model.peer.name)
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -155,59 +156,63 @@ final class MeetingViewModel: NSObject,
 
         print(#function, indexPath.item)
 
-        let model = hms.model[indexPath.item]
+//        if let peer = interactor.hms.room?.peers[indexPath.item] {
+//            if model.isPinned {
+//                return CGSize(width: collectionView.frame.size.width - widthInsets,
+//                              height: collectionView.frame.size.height - heightInsets)
+//            }
 
-        if model.isPinned {
-            return CGSize(width: collectionView.frame.size.width - widthInsets,
-                          height: collectionView.frame.size.height - heightInsets)
-        }
+            if let count = interactor.hms.room?.peers.count {
+                if count < 4 {
+                    let count = CGFloat(count)
+                    return CGSize(width: collectionView.frame.size.width - widthInsets,
+                                  height: (collectionView.frame.size.height / count) - heightInsets)
+                }
+            }
 
-        if hms.model.count < 4 {
-            let count = CGFloat(hms.model.count)
-            return CGSize(width: collectionView.frame.size.width - widthInsets,
-                          height: (collectionView.frame.size.height / count) - heightInsets)
-        } else {
             let rows = UserDefaults.standard.object(forKey: Constants.maximumRows) as? CGFloat ?? 2.0
             return CGSize(width: (collectionView.frame.size.width / 2) - widthInsets,
                           height: (collectionView.frame.size.height / rows) - heightInsets)
-        }
+
+//        }
     }
 
     // MARK: - Action Handlers
 
     func cleanup() {
-        hms.cleanup()
+//        hms.cleanup()
     }
 
     func switchCamera() {
-        hms.localStream?.videoCapturer?.switchCamera()
+//        hms.localStream?.videoCapturer?.switchCamera()
     }
 
     func switchAudio(isOn: Bool) {
-        if let audioTrack = hms.localStream?.audioTracks?.first {
+        if let audioTrack = interactor.hms.localPeer?.audioTrack {
             audioTrack.enabled = isOn
+            print(#function, isOn, audioTrack.enabled as Any)
         }
 
         NotificationCenter.default.post(name: Constants.peerAudioToggled, object: nil)
-        print(#function, isOn, hms.localStream?.audioTracks?.first?.enabled as Any)
     }
 
     func switchVideo(isOn: Bool) {
-        if let videoTrack = hms.localStream?.videoTracks?.first {
+        if let videoTrack = interactor.hms.localPeer?.videoTrack {
             videoTrack.enabled = isOn
+            print(#function, isOn, videoTrack.enabled as Any)
         }
 
         NotificationCenter.default.post(name: Constants.peerVideoToggled, object: nil)
-        print(#function, isOn, hms.localStream?.videoTracks?.first?.enabled as Any)
     }
 
     func muteRemoteStreams(_ isMuted: Bool) {
-        var indexes = [IndexPath]()
-        for (index, model) in hms.model.enumerated() where model.stream.audioTracks?.first?.enabled != isMuted {
-            indexes.append(IndexPath(item: index, section: 0))
-        }
-        hms.model.forEach { $0.stream.audioTracks?.first?.enabled = isMuted }
 
+        if let peers = interactor.hms.room?.peers {
+            for (index, peer) in peers.enumerated() where peer.audioTrack?.enabled != isMuted {
+                peer.audioTrack?.enabled = isMuted
+            }
+        }
+        
         NotificationCenter.default.post(name: Constants.muteALL, object: nil)
     }
 }
