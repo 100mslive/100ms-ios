@@ -9,13 +9,15 @@
 import Foundation
 import HMSKit
 
+var globalIsPinned = false
+
 extension HMSPeer {
     var isPinned: Bool {
         get {
-            return self.isPinned
+            return globalIsPinned
         }
         set {
-            self.isPinned = newValue
+            globalIsPinned = newValue
         }
     }
 }

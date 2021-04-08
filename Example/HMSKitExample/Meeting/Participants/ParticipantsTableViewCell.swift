@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import HMSKit
 
 final class ParticipantsTableViewCell: UITableViewCell {
 
-//    weak var peerState: PeerState?
+    weak var peer: HMSPeer?
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var roleLabel: UILabel!
@@ -18,14 +19,14 @@ final class ParticipantsTableViewCell: UITableViewCell {
     @IBOutlet weak var micButton: UIButton!
 
     @IBAction func micButtonTapped(_ sender: UIButton) {
-//        peerState?.stream.audioTracks?.first?.enabled = sender.isSelected
-//        sender.isSelected = !sender.isSelected
-//        NotificationCenter.default.post(name: Constants.peerAudioToggled, object: nil)
+        peer?.audioTrack?.enabled = sender.isSelected
+        sender.isSelected = !sender.isSelected
+        NotificationCenter.default.post(name: Constants.peerAudioToggled, object: nil)
     }
 
     @IBAction func videoButtonTapped(_ sender: UIButton) {
-//        peerState?.stream.videoTracks?.first?.enabled = sender.isSelected
-//        sender.isSelected = !sender.isSelected
-//        NotificationCenter.default.post(name: Constants.peerVideoToggled, object: nil)
+        peer?.videoTrack?.enabled = sender.isSelected
+        sender.isSelected = !sender.isSelected
+        NotificationCenter.default.post(name: Constants.peerVideoToggled, object: nil)
     }
 }

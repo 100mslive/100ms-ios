@@ -126,6 +126,8 @@ final class MeetingViewController: UIViewController {
             return
         }
 
+        viewController.interactor = viewModel.interactor
+
         present(viewController, animated: true)
     }
 

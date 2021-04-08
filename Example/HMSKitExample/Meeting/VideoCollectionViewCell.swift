@@ -12,7 +12,7 @@ import QuartzCore
 
 final class VideoCollectionViewCell: UICollectionViewCell {
 
-    var peer: HMSPeer?
+    weak var peer: HMSPeer?
 
     @IBOutlet weak var stackView: UIStackView! {
         didSet {

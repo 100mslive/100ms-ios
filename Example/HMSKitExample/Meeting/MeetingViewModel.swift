@@ -189,7 +189,9 @@ final class MeetingViewModel: NSObject,
     }
 
     func switchCamera() {
-//        hms.localStream?.videoCapturer?.switchCamera()
+        if let track = interactor.hms.localPeer?.videoTrack as? HMSLocalVideoTrack {
+            track.switchCamera()
+        }
     }
 
     func switchAudio(isOn: Bool) {
