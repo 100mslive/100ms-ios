@@ -12,6 +12,8 @@ import QuartzCore
 
 final class VideoCollectionViewCell: UICollectionViewCell {
 
+    var peer: HMSPeer?
+
     @IBOutlet weak var stackView: UIStackView! {
         didSet {
             Utilities.applyBorder(on: stackView)
@@ -79,24 +81,24 @@ final class VideoCollectionViewCell: UICollectionViewCell {
     }
 
     @IBAction func pinTapped(_ sender: UIButton) {
-//        print(#function, sender.isSelected, model?.peer.name as Any)
-//        sender.isSelected = !sender.isSelected
-//        model?.isPinned = sender.isSelected
-//        NotificationCenter.default.post(name: Constants.pinTapped,
-//                                        object: nil,
-//                                        userInfo: [Constants.peerID: model?.peer.peerId as Any])
+        print(#function, sender.isSelected, peer?.name as Any)
+        sender.isSelected = !sender.isSelected
+        peer?.isPinned = sender.isSelected
+        NotificationCenter.default.post(name: Constants.pinTapped,
+                                        object: nil,
+                                        userInfo: [Constants.peerID: peer?.customerUserID as Any])
     }
 
     @IBAction func muteTapped(_ sender: UIButton) {
-//        print(#function, sender.isSelected, model?.peer.name as Any)
-//        model?.stream.audioTracks?.first?.enabled = sender.isSelected
-//        sender.isSelected = !sender.isSelected
+        print(#function, sender.isSelected, peer?.name as Any)
+        peer?.audioTrack?.enabled = sender.isSelected
+        sender.isSelected = !sender.isSelected
     }
 
     @IBAction func stopVideoTapped(_ sender: UIButton) {
-//        print(#function, sender.isSelected, model?.peer.name as Any, model?.stream.videoTracks?.count as Any)
-//        model?.stream.videoTracks?.first?.enabled = sender.isSelected
-//        avatarLabel.isHidden = sender.isSelected
-//        sender.isSelected = !sender.isSelected
+        print(#function, sender.isSelected, peer?.name as Any)
+        peer?.videoTrack?.enabled = sender.isSelected
+        avatarLabel.isHidden = sender.isSelected
+        sender.isSelected = !sender.isSelected
     }
 }

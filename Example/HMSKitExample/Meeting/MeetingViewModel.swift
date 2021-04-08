@@ -53,15 +53,17 @@ final class MeetingViewModel: NSObject,
                                                    object: nil,
                                                    queue: .main) { [weak self] notification in
 
-            if let indexes = notification.userInfo?[Constants.indexesToBeUpdated] as? [Int] {
+            self?.collectionView?.reloadData()
 
-                let indexPaths = indexes.map { IndexPath(item: $0, section: 0) }
-
-                self?.collectionView?.reloadItems(at: indexPaths)
-
-                self?.collectionView?.scrollToItem(at: IndexPath(item: 0, section: 0),
-                                                   at: .left, animated: true)
-            }
+//            if let indexes = notification.userInfo?[Constants.indexesToBeUpdated] as? [Int] {
+//
+//                let indexPaths = indexes.map { IndexPath(item: $0, section: 0) }
+//
+//                self?.collectionView?.reloadItems(at: indexPaths)
+//
+//                self?.collectionView?.scrollToItem(at: IndexPath(item: 0, section: 0),
+//                                                   at: .left, animated: true)
+//            }
         }
     }
 
@@ -125,13 +127,15 @@ final class MeetingViewModel: NSObject,
 
         if let peer = interactor.hms.room?.peers[indexPath.row] {
 
+            cell.peer = peer
+
             cell.videoView.setVideoTrack(peer.videoTrack)
 
             cell.nameLabel.text = peer.name
 
     //        cell.isSpeaker = model.isCurrentSpeaker
 
-    //        cell.pinButton.isSelected = model.isPinned
+            cell.pinButton.isSelected = peer.isPinned
 
             if let audioEnabled = peer.audioTrack?.enabled {
                 cell.muteButton.isSelected = !audioEnabled
@@ -158,25 +162,24 @@ final class MeetingViewModel: NSObject,
 
         print(#function, indexPath.item)
 
-//        if let peer = interactor.hms.room?.peers[indexPath.item] {
-//            if model.isPinned {
-//                return CGSize(width: collectionView.frame.size.width - widthInsets,
-//                              height: collectionView.frame.size.height - heightInsets)
-//            }
-
-            if let count = interactor.hms.room?.peers.count {
-                if count < 4 {
-                    let count = CGFloat(count)
-                    return CGSize(width: collectionView.frame.size.width - widthInsets,
-                                  height: (collectionView.frame.size.height / count) - heightInsets)
-                }
+        if let peer = interactor.hms.room?.peers[indexPath.item] {
+            if peer.isPinned {
+                return CGSize(width: collectionView.frame.size.width - widthInsets,
+                              height: collectionView.frame.size.height - heightInsets)
             }
+        }
 
-            let rows = UserDefaults.standard.object(forKey: Constants.maximumRows) as? CGFloat ?? 2.0
-            return CGSize(width: (collectionView.frame.size.width / 2) - widthInsets,
-                          height: (collectionView.frame.size.height / rows) - heightInsets)
+        if let count = interactor.hms.room?.peers.count {
+            if count < 4 {
+                let count = CGFloat(count)
+                return CGSize(width: collectionView.frame.size.width - widthInsets,
+                              height: (collectionView.frame.size.height / count) - heightInsets)
+            }
+        }
 
-//        }
+        let rows = UserDefaults.standard.object(forKey: Constants.maximumRows) as? CGFloat ?? 2.0
+        return CGSize(width: (collectionView.frame.size.width / 2) - widthInsets,
+                      height: (collectionView.frame.size.height / rows) - heightInsets)
     }
 
     // MARK: - Action Handlers

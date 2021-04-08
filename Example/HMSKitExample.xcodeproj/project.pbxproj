@@ -34,6 +34,7 @@
 		EC8CEE8D261E297F002DC12E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8CEE6B261E297F002DC12E /* AppDelegate.swift */; };
 		EC8CEE8F261E297F002DC12E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8CEE6F261E297F002DC12E /* LoginViewController.swift */; };
 		ECA64EF2261E2FCB0077C25A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEE47261E297F002DC12E /* GoogleService-Info.plist */; };
+		ECE1EE42261F277700C8B0B1 /* HMSPeer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE1EE41261F277700C8B0B1 /* HMSPeer+.swift */; };
 		ECF4919C261EED6100E54400 /* Token.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF4919B261EED6100E54400 /* Token.m */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 		ECD4C309261E2BAE00C62563 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Chat.strings; sourceTree = "<group>"; };
 		ECD4C30C261E2BCE00C62563 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Settings.strings; sourceTree = "<group>"; };
 		ECDEE42B25E7A6AE00DB468F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		ECE1EE41261F277700C8B0B1 /* HMSPeer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HMSPeer+.swift"; sourceTree = "<group>"; };
 		ECF49199261EED6100E54400 /* HMSKitExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMSKitExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		ECF4919A261EED6100E54400 /* Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
 		ECF4919B261EED6100E54400 /* Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Token.m; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				EC8CEE4D261E297F002DC12E /* HMSInteractor.swift */,
 				EC8CEE5F261E297F002DC12E /* RoomService.swift */,
 				EC8CEE60261E297F002DC12E /* VideoCollectionViewCell.swift */,
+				ECE1EE41261F277700C8B0B1 /* HMSPeer+.swift */,
 				EC8CEE4A261E297F002DC12E /* Meeting.storyboard */,
 				EC8CEE55261E297F002DC12E /* Chat */,
 				EC8CEE4E261E297F002DC12E /* Participants */,
@@ -524,6 +527,7 @@
 				EC8CEE7A261E297F002DC12E /* ParticipantsViewController.swift in Sources */,
 				EC8CEE7F261E297F002DC12E /* ChatTableViewCell.swift in Sources */,
 				EC8CEE8F261E297F002DC12E /* LoginViewController.swift in Sources */,
+				ECE1EE42261F277700C8B0B1 /* HMSPeer+.swift in Sources */,
 				EC8CEE7D261E297F002DC12E /* ChatViewController.swift in Sources */,
 				EC8CEE82261E297F002DC12E /* MeetingViewController.swift in Sources */,
 				EC8CEE7B261E297F002DC12E /* ParticipantsTableViewCell.swift in Sources */,
