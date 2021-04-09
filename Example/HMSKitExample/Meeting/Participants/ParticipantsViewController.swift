@@ -15,7 +15,7 @@ final class ParticipantsViewController: UIViewController {
 
     @IBOutlet private  weak var table: UITableView!
 
-    var interactor: HMSInteractor?
+    var interactor: HMSKitInteractor?
 
 //    var peers: [PeerState]? {
 //        hms?.model.sorted(by: { $0.peer.name.lowercased() == "host" && $1.peer.name.lowercased() != "host" })
@@ -32,7 +32,7 @@ final class ParticipantsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        let count = interactor?.hms.room?.peers.count ?? 0
+        let count = interactor?.hms?.room?.peers.count ?? 0
         let title = "Participants " + (count > 0 ? "(\(count))" : "")
         participantsTitle.setTitle(title, for: .normal)
     }
@@ -59,7 +59,7 @@ final class ParticipantsViewController: UIViewController {
 extension ParticipantsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        interactor?.hms.room?.peers.count ?? 0
+        interactor?.hms?.room?.peers.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,7 +69,7 @@ extension ParticipantsViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        if let peer = interactor?.hms.room?.peers[indexPath.row] {
+        if let peer = interactor?.hms?.room?.peers[indexPath.row] {
 
             cell.peer = peer
 

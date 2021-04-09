@@ -9,9 +9,9 @@
 import Foundation
 import HMSKit
 
-final class HMSInteractor: HMSUpdateProtocol {
+final class HMSKitInteractor: HMSUpdateProtocol {
 
-    internal var hms: HMS
+    internal var hms: HMS?
 
     // MARK: - Instance Properties
 
@@ -37,7 +37,7 @@ final class HMSInteractor: HMSUpdateProtocol {
                                authToken: token,
                                endPoint: "wss://webrtcv3.100ms.live:8443/ws")
 
-        hms.join(config: config, delegate: self)
+        hms?.join(config: config, delegate: self)
     }
 
     
@@ -52,6 +52,10 @@ final class HMSInteractor: HMSUpdateProtocol {
     }
 
     func on(peer: HMSPeer, update: HMSPeerUpdate) {
+        updateView()
+    }
+
+    func on(track: HMSTrack, update: HMSTrackUpdate, for peer: HMSPeer) {
         updateView()
     }
 

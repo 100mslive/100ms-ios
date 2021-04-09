@@ -14,7 +14,7 @@ final class MeetingViewModel: NSObject,
                               UICollectionViewDelegate,
                               UICollectionViewDelegateFlowLayout {
 
-    private(set) var interactor: HMSInteractor!
+    private(set) var interactor: HMSKitInteractor!
 
     private weak var collectionView: UICollectionView?
 
@@ -26,7 +26,7 @@ final class MeetingViewModel: NSObject,
 
         super.init()
 
-        interactor = HMSInteractor(for: user, in: room, flow) { [weak self] in
+        interactor = HMSKitInteractor(for: user, in: room, flow) { [weak self] in
             self?.updateView()
         }
 
@@ -104,7 +104,7 @@ final class MeetingViewModel: NSObject,
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        interactor.hms.room?.peers.count ?? 0
+        interactor.hms?.room?.peers.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -112,7 +112,7 @@ final class MeetingViewModel: NSObject,
 
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.resuseIdentifier,
                                                             for: indexPath) as? VideoCollectionViewCell,
-              let count = interactor.hms.room?.peers.count,
+              let count = interactor.hms?.room?.peers.count,
               indexPath.item < count
         else {
             return UICollectionViewCell()
@@ -125,7 +125,7 @@ final class MeetingViewModel: NSObject,
 
     private func updateCell(at indexPath: IndexPath, for cell: VideoCollectionViewCell) {
 
-        if let peer = interactor.hms.room?.peers[indexPath.row] {
+        if let peer = interactor.hms?.room?.peers[indexPath.row] {
 
             cell.peer = peer
 
@@ -162,14 +162,14 @@ final class MeetingViewModel: NSObject,
 
         print(#function, indexPath.item)
 
-        if let peer = interactor.hms.room?.peers[indexPath.item] {
+        if let peer = interactor.hms?.room?.peers[indexPath.item] {
             if peer.isPinned {
                 return CGSize(width: collectionView.frame.size.width - widthInsets,
                               height: collectionView.frame.size.height - heightInsets)
             }
         }
 
-        if let count = interactor.hms.room?.peers.count {
+        if let count = interactor.hms?.room?.peers.count {
             if count < 4 {
                 let count = CGFloat(count)
                 return CGSize(width: collectionView.frame.size.width - widthInsets,
@@ -185,17 +185,19 @@ final class MeetingViewModel: NSObject,
     // MARK: - Action Handlers
 
     func cleanup() {
-        interactor.hms.leave()
+        interactor.hms?.leave()
+        interactor.hms = nil
+        interactor = nil
     }
 
     func switchCamera() {
-        if let track = interactor.hms.localPeer?.videoTrack as? HMSLocalVideoTrack {
+        if let track = interactor.hms?.localPeer?.videoTrack as? HMSLocalVideoTrack {
             track.switchCamera()
         }
     }
 
     func switchAudio(isOn: Bool) {
-        if let audioTrack = interactor.hms.localPeer?.audioTrack {
+        if let audioTrack = interactor.hms?.localPeer?.audioTrack {
             audioTrack.enabled = isOn
             print(#function, isOn, audioTrack.enabled as Any)
         }
@@ -204,7 +206,7 @@ final class MeetingViewModel: NSObject,
     }
 
     func switchVideo(isOn: Bool) {
-        if let videoTrack = interactor.hms.localPeer?.videoTrack {
+        if let videoTrack = interactor.hms?.localPeer?.videoTrack {
             videoTrack.enabled = isOn
             print(#function, isOn, videoTrack.enabled as Any)
         }
@@ -214,7 +216,7 @@ final class MeetingViewModel: NSObject,
 
     func muteRemoteStreams(_ isMuted: Bool) {
 
-        if let peers = interactor.hms.room?.peers {
+        if let peers = interactor.hms?.room?.peers {
             for peer in peers where peer.audioTrack?.enabled != isMuted {
                 peer.audioTrack?.enabled = isMuted
             }

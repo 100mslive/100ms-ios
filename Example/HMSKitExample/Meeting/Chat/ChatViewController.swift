@@ -10,7 +10,7 @@ import UIKit
 
 final class ChatViewController: UIViewController {
 
-    var interactor: HMSInteractor?
+    var interactor: HMSKitInteractor?
 
     @IBOutlet private weak var table: UITableView!
     @IBOutlet private weak var stackView: UIStackView!
@@ -30,7 +30,7 @@ final class ChatViewController: UIViewController {
         observeBroadcast()
         handleKeyboard()
     }
-//
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         textField.becomeFirstResponder()
@@ -68,81 +68,82 @@ final class ChatViewController: UIViewController {
         table.contentInset = contentInset
     }
 
-//    // MARK: - Action Handlers
-//
-//    private func observeBroadcast() {
-//        _ = NotificationCenter.default.addObserver(forName: Constants.broadcastReceived,
-//                                                   object: nil,
-//                                                   queue: .main) { [weak self] _ in
-//
-//            let index = IndexPath(row: (self?.hms?.broadcasts.count ?? 1) - 1, section: 0)
+    // MARK: - Action Handlers
+
+    private func observeBroadcast() {
+        _ = NotificationCenter.default.addObserver(forName: Constants.broadcastReceived,
+                                                   object: nil,
+                                                   queue: .main) { [weak self] _ in
+
+            self?.table.reloadData()
+//            let index = IndexPath(row: (self?.interactor?.hms?.broadcasts.count ?? 1) - 1, section: 0)
 //            self?.table.insertRows(at: [index], with: .automatic)
 //            self?.table.scrollToRow(at: index, at: .top, animated: true)
-//        }
-//    }
-//
-//    @IBAction private func closeTapped(_ sender: UIButton) {
-//        dismiss(animated: true)
-//    }
-//
-//    @IBAction private func sendTapped(_ sender: UIButton) {
-//
-//        if let message = textField.text, !message.isEmpty, let hms = hms {
-//
-//            sender.isEnabled = false
-//
-//            let broadcast = [ Constants.chatSenderName: hms.localPeer.name,
-//                              Constants.chatMessage: message ]
-//
-//            hms.send(broadcast) { [weak self] in
-//
-//                sender.isEnabled = true
-//                self?.textField.text = nil
-//                hms.broadcasts.append(broadcast)
-//                let index = IndexPath(row: hms.broadcasts.count - 1, section: 0)
-//                self?.table.insertRows(at: [index], with: .automatic)
-//                self?.table.scrollToRow(at: index, at: .top, animated: true)
-//            }
-//        }
-//    }
+        }
+    }
+
+    @IBAction private func closeTapped(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+
+    @IBAction private func sendTapped(_ sender: UIButton) {
+
+        if let message = textField.text, !message.isEmpty, let hms = hms {
+
+            sender.isEnabled = false
+
+            let broadcast = [ Constants.chatSenderName: hms.localPeer.name,
+                              Constants.chatMessage: message ]
+
+            hms.send(broadcast) { [weak self] in
+
+                sender.isEnabled = true
+                self?.textField.text = nil
+                hms.broadcasts.append(broadcast)
+                let index = IndexPath(row: hms.broadcasts.count - 1, section: 0)
+                self?.table.insertRows(at: [index], with: .automatic)
+                self?.table.scrollToRow(at: index, at: .top, animated: true)
+            }
+        }
+    }
 }
 
-//extension ChatViewController: UITableViewDataSource {
+extension ChatViewController: UITableViewDataSource {
 
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        hms?.broadcasts.count ?? 0
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        guard let chat = hms?.broadcasts[indexPath.row],
-//              let sender = chat[Constants.chatSenderName] as? String,
-//              let message = chat[Constants.chatMessage] as? String,
-//              let cell = tableView.dequeueReusableCell(withIdentifier: Constants.resuseIdentifier,
-//                                                       for: indexPath) as? ChatTableViewCell
-//        else {
-//            return UITableViewCell()
-//        }
-//
-//        if sender.lowercased() == hms?.localPeer.name.lowercased() {
-//            cell.nameLabel.textAlignment = .right
-//            cell.messageLabel.textAlignment = .right
-//        } else {
-//            cell.nameLabel.textAlignment = .left
-//            cell.messageLabel.textAlignment = .left
-//        }
-//
-//        cell.nameLabel.text = sender
-//        cell.messageLabel.text = message
-//
-//        return cell
-//    }
-//}
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        hms?.broadcasts.count ?? 0
+    }
 
-//extension ChatViewController: UITextFieldDelegate {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        sendTapped(sendButton)
-//        return true
-//    }
-//}
+        guard let chat = hms?.broadcasts[indexPath.row],
+              let sender = chat[Constants.chatSenderName] as? String,
+              let message = chat[Constants.chatMessage] as? String,
+              let cell = tableView.dequeueReusableCell(withIdentifier: Constants.resuseIdentifier,
+                                                       for: indexPath) as? ChatTableViewCell
+        else {
+            return UITableViewCell()
+        }
+
+        if sender.lowercased() == hms?.localPeer.name.lowercased() {
+            cell.nameLabel.textAlignment = .right
+            cell.messageLabel.textAlignment = .right
+        } else {
+            cell.nameLabel.textAlignment = .left
+            cell.messageLabel.textAlignment = .left
+        }
+
+        cell.nameLabel.text = sender
+        cell.messageLabel.text = message
+
+        return cell
+    }
+}
+
+extension ChatViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        sendTapped(sendButton)
+        return true
+    }
+}

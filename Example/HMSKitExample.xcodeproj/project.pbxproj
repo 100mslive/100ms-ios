@@ -14,7 +14,7 @@
 		EC8CEE72261E297F002DC12E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8CEE42261E297F002DC12E /* SettingsViewController.swift */; };
 		EC8CEE76261E297F002DC12E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEE48261E297F002DC12E /* Login.storyboard */; };
 		EC8CEE77261E297F002DC12E /* Meeting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEE4A261E297F002DC12E /* Meeting.storyboard */; };
-		EC8CEE78261E297F002DC12E /* HMSInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8CEE4D261E297F002DC12E /* HMSInteractor.swift */; };
+		EC8CEE78261E297F002DC12E /* HMSKitInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8CEE4D261E297F002DC12E /* HMSKitInteractor.swift */; };
 		EC8CEE7A261E297F002DC12E /* ParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8CEE51261E297F002DC12E /* ParticipantsViewController.swift */; };
 		EC8CEE7B261E297F002DC12E /* ParticipantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8CEE52261E297F002DC12E /* ParticipantsTableViewCell.swift */; };
 		EC8CEE7C261E297F002DC12E /* Participants.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEE53261E297F002DC12E /* Participants.storyboard */; };
@@ -66,7 +66,7 @@
 		EC8CEE47261E297F002DC12E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC8CEE49261E297F002DC12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		EC8CEE4B261E297F002DC12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Meeting.storyboard; sourceTree = "<group>"; };
-		EC8CEE4D261E297F002DC12E /* HMSInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMSInteractor.swift; sourceTree = "<group>"; };
+		EC8CEE4D261E297F002DC12E /* HMSKitInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMSKitInteractor.swift; sourceTree = "<group>"; };
 		EC8CEE51261E297F002DC12E /* ParticipantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantsViewController.swift; sourceTree = "<group>"; };
 		EC8CEE52261E297F002DC12E /* ParticipantsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantsTableViewCell.swift; sourceTree = "<group>"; };
 		EC8CEE54261E297F002DC12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Participants.storyboard; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 			children = (
 				EC8CEE5D261E297F002DC12E /* MeetingViewController.swift */,
 				EC8CEE61261E297F002DC12E /* MeetingViewModel.swift */,
-				EC8CEE4D261E297F002DC12E /* HMSInteractor.swift */,
+				EC8CEE4D261E297F002DC12E /* HMSKitInteractor.swift */,
 				EC8CEE5F261E297F002DC12E /* RoomService.swift */,
 				EC8CEE60261E297F002DC12E /* VideoCollectionViewCell.swift */,
 				ECE1EE41261F277700C8B0B1 /* HMSPeer+.swift */,
@@ -519,7 +519,7 @@
 				EC8CEE8A261E297F002DC12E /* Utilities.swift in Sources */,
 				EC8CEE86261E297F002DC12E /* MeetingViewModel.swift in Sources */,
 				ECF4919C261EED6100E54400 /* Token.m in Sources */,
-				EC8CEE78261E297F002DC12E /* HMSInteractor.swift in Sources */,
+				EC8CEE78261E297F002DC12E /* HMSKitInteractor.swift in Sources */,
 				EC8CEE81261E297F002DC12E /* BadgeButton.swift in Sources */,
 				EC8CEE8D261E297F002DC12E /* AppDelegate.swift in Sources */,
 				EC8CEE84261E297F002DC12E /* RoomService.swift in Sources */,
