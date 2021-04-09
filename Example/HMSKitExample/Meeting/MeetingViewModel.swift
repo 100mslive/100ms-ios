@@ -185,7 +185,7 @@ final class MeetingViewModel: NSObject,
     // MARK: - Action Handlers
 
     func cleanup() {
-//        hms.cleanup()
+        interactor.hms.leave()
     }
 
     func switchCamera() {
