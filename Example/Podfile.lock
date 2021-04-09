@@ -96,7 +96,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   HMSKit:
-    :commit: b46b4504f25be2d830c74ad1a0e596728d39a009
+    :commit: 9148dc8cfcb5f454c077ae156558a38d0875dd33
     :git: https://github.com/100mslive/100ms-ios.git
 
 SPEC CHECKSUMS:
