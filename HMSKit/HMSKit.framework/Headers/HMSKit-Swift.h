@@ -269,6 +269,7 @@ SWIFT_CLASS("_TtC6HMSKit10HMSMessage")
 @property (nonatomic, readonly, copy) NSDate * _Nonnull time;
 @property (nonatomic, readonly) enum HMSMessageType type;
 @property (nonatomic, readonly, copy) NSString * _Nullable message;
+- (nonnull instancetype)initWithSender:(NSString * _Nonnull)sender receiver:(NSString * _Nullable)receiver time:(NSDate * _Nonnull)time type:(enum HMSMessageType)type message:(NSString * _Nullable)message OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -328,14 +329,12 @@ SWIFT_CLASS("_TtC6HMSKit7HMSPeer")
 @end
 
 typedef SWIFT_ENUM(NSInteger, HMSPeerUpdate, open) {
-  HMSPeerUpdateVideoTrackAdded = 0,
-  HMSPeerUpdateVideoTrackRemoved = 1,
-  HMSPeerUpdateAudioTrackAdded = 2,
-  HMSPeerUpdateAudioTrackRemoved = 3,
-  HMSPeerUpdateAudioToggled = 4,
-  HMSPeerUpdateVideoToggled = 5,
-  HMSPeerUpdateRoleUpdated = 6,
-  HMSPeerUpdateDefaultUpdate = 7,
+  HMSPeerUpdatePeerJoined = 0,
+  HMSPeerUpdatePeerLeft = 1,
+  HMSPeerUpdateAudioToggled = 2,
+  HMSPeerUpdateVideoToggled = 3,
+  HMSPeerUpdateRoleUpdated = 4,
+  HMSPeerUpdatePeerKnocked = 5,
 };
 
 
@@ -361,24 +360,27 @@ SWIFT_CLASS("_TtC6HMSKit7HMSRoom")
 @end
 
 typedef SWIFT_ENUM(NSInteger, HMSRoomUpdate, open) {
-  HMSRoomUpdatePeerAdded = 0,
-  HMSRoomUpdatePeerRemoved = 1,
-  HMSRoomUpdatePeerKnocked = 2,
-  HMSRoomUpdateRoomTypeChanged = 3,
-  HMSRoomUpdateMetaDataUpdated = 4,
-  HMSRoomUpdateScreenShareStarted = 5,
-  HMSRoomUpdateScreenShareStopped = 6,
-  HMSRoomUpdateDefaultUpdate = 7,
+  HMSRoomUpdateRoomTypeChanged = 0,
+  HMSRoomUpdateMetaDataUpdated = 1,
+};
+
+typedef SWIFT_ENUM(NSInteger, HMSTrackUpdate, open) {
+  HMSTrackUpdateTrackAdded = 0,
+  HMSTrackUpdateTrackRemove = 1,
+  HMSTrackUpdateTrackMuted = 2,
+  HMSTrackUpdateTrackUnmuted = 3,
+  HMSTrackUpdateTrackDescriptionChanged = 4,
 };
 
 @class HMSError;
 
 SWIFT_PROTOCOL("_TtP6HMSKit17HMSUpdateProtocol_")
 @protocol HMSUpdateProtocol
-@property (nonatomic, strong) HMS * _Nonnull hms;
+@property (nonatomic, strong) HMS * _Nullable hms;
 - (void)onJoin:(HMSRoom * _Nonnull)room;
 - (void)onRoom:(HMSRoom * _Nonnull)room update:(enum HMSRoomUpdate)update;
 - (void)onPeer:(HMSPeer * _Nonnull)peer update:(enum HMSPeerUpdate)update;
+- (void)onTrack:(HMSTrack * _Nonnull)track update:(enum HMSTrackUpdate)update peer:(HMSPeer * _Nonnull)peer;
 - (void)onError:(HMSError * _Nonnull)error;
 - (void)onMessage:(HMSMessage * _Nonnull)message;
 @end
@@ -662,6 +664,7 @@ SWIFT_CLASS("_TtC6HMSKit10HMSMessage")
 @property (nonatomic, readonly, copy) NSDate * _Nonnull time;
 @property (nonatomic, readonly) enum HMSMessageType type;
 @property (nonatomic, readonly, copy) NSString * _Nullable message;
+- (nonnull instancetype)initWithSender:(NSString * _Nonnull)sender receiver:(NSString * _Nullable)receiver time:(NSDate * _Nonnull)time type:(enum HMSMessageType)type message:(NSString * _Nullable)message OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -721,14 +724,12 @@ SWIFT_CLASS("_TtC6HMSKit7HMSPeer")
 @end
 
 typedef SWIFT_ENUM(NSInteger, HMSPeerUpdate, open) {
-  HMSPeerUpdateVideoTrackAdded = 0,
-  HMSPeerUpdateVideoTrackRemoved = 1,
-  HMSPeerUpdateAudioTrackAdded = 2,
-  HMSPeerUpdateAudioTrackRemoved = 3,
-  HMSPeerUpdateAudioToggled = 4,
-  HMSPeerUpdateVideoToggled = 5,
-  HMSPeerUpdateRoleUpdated = 6,
-  HMSPeerUpdateDefaultUpdate = 7,
+  HMSPeerUpdatePeerJoined = 0,
+  HMSPeerUpdatePeerLeft = 1,
+  HMSPeerUpdateAudioToggled = 2,
+  HMSPeerUpdateVideoToggled = 3,
+  HMSPeerUpdateRoleUpdated = 4,
+  HMSPeerUpdatePeerKnocked = 5,
 };
 
 
@@ -754,24 +755,27 @@ SWIFT_CLASS("_TtC6HMSKit7HMSRoom")
 @end
 
 typedef SWIFT_ENUM(NSInteger, HMSRoomUpdate, open) {
-  HMSRoomUpdatePeerAdded = 0,
-  HMSRoomUpdatePeerRemoved = 1,
-  HMSRoomUpdatePeerKnocked = 2,
-  HMSRoomUpdateRoomTypeChanged = 3,
-  HMSRoomUpdateMetaDataUpdated = 4,
-  HMSRoomUpdateScreenShareStarted = 5,
-  HMSRoomUpdateScreenShareStopped = 6,
-  HMSRoomUpdateDefaultUpdate = 7,
+  HMSRoomUpdateRoomTypeChanged = 0,
+  HMSRoomUpdateMetaDataUpdated = 1,
+};
+
+typedef SWIFT_ENUM(NSInteger, HMSTrackUpdate, open) {
+  HMSTrackUpdateTrackAdded = 0,
+  HMSTrackUpdateTrackRemove = 1,
+  HMSTrackUpdateTrackMuted = 2,
+  HMSTrackUpdateTrackUnmuted = 3,
+  HMSTrackUpdateTrackDescriptionChanged = 4,
 };
 
 @class HMSError;
 
 SWIFT_PROTOCOL("_TtP6HMSKit17HMSUpdateProtocol_")
 @protocol HMSUpdateProtocol
-@property (nonatomic, strong) HMS * _Nonnull hms;
+@property (nonatomic, strong) HMS * _Nullable hms;
 - (void)onJoin:(HMSRoom * _Nonnull)room;
 - (void)onRoom:(HMSRoom * _Nonnull)room update:(enum HMSRoomUpdate)update;
 - (void)onPeer:(HMSPeer * _Nonnull)peer update:(enum HMSPeerUpdate)update;
+- (void)onTrack:(HMSTrack * _Nonnull)track update:(enum HMSTrackUpdate)update peer:(HMSPeer * _Nonnull)peer;
 - (void)onError:(HMSError * _Nonnull)error;
 - (void)onMessage:(HMSMessage * _Nonnull)message;
 @end
@@ -1059,6 +1063,7 @@ SWIFT_CLASS("_TtC6HMSKit10HMSMessage")
 @property (nonatomic, readonly, copy) NSDate * _Nonnull time;
 @property (nonatomic, readonly) enum HMSMessageType type;
 @property (nonatomic, readonly, copy) NSString * _Nullable message;
+- (nonnull instancetype)initWithSender:(NSString * _Nonnull)sender receiver:(NSString * _Nullable)receiver time:(NSDate * _Nonnull)time type:(enum HMSMessageType)type message:(NSString * _Nullable)message OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1118,14 +1123,12 @@ SWIFT_CLASS("_TtC6HMSKit7HMSPeer")
 @end
 
 typedef SWIFT_ENUM(NSInteger, HMSPeerUpdate, open) {
-  HMSPeerUpdateVideoTrackAdded = 0,
-  HMSPeerUpdateVideoTrackRemoved = 1,
-  HMSPeerUpdateAudioTrackAdded = 2,
-  HMSPeerUpdateAudioTrackRemoved = 3,
-  HMSPeerUpdateAudioToggled = 4,
-  HMSPeerUpdateVideoToggled = 5,
-  HMSPeerUpdateRoleUpdated = 6,
-  HMSPeerUpdateDefaultUpdate = 7,
+  HMSPeerUpdatePeerJoined = 0,
+  HMSPeerUpdatePeerLeft = 1,
+  HMSPeerUpdateAudioToggled = 2,
+  HMSPeerUpdateVideoToggled = 3,
+  HMSPeerUpdateRoleUpdated = 4,
+  HMSPeerUpdatePeerKnocked = 5,
 };
 
 
@@ -1151,24 +1154,27 @@ SWIFT_CLASS("_TtC6HMSKit7HMSRoom")
 @end
 
 typedef SWIFT_ENUM(NSInteger, HMSRoomUpdate, open) {
-  HMSRoomUpdatePeerAdded = 0,
-  HMSRoomUpdatePeerRemoved = 1,
-  HMSRoomUpdatePeerKnocked = 2,
-  HMSRoomUpdateRoomTypeChanged = 3,
-  HMSRoomUpdateMetaDataUpdated = 4,
-  HMSRoomUpdateScreenShareStarted = 5,
-  HMSRoomUpdateScreenShareStopped = 6,
-  HMSRoomUpdateDefaultUpdate = 7,
+  HMSRoomUpdateRoomTypeChanged = 0,
+  HMSRoomUpdateMetaDataUpdated = 1,
+};
+
+typedef SWIFT_ENUM(NSInteger, HMSTrackUpdate, open) {
+  HMSTrackUpdateTrackAdded = 0,
+  HMSTrackUpdateTrackRemove = 1,
+  HMSTrackUpdateTrackMuted = 2,
+  HMSTrackUpdateTrackUnmuted = 3,
+  HMSTrackUpdateTrackDescriptionChanged = 4,
 };
 
 @class HMSError;
 
 SWIFT_PROTOCOL("_TtP6HMSKit17HMSUpdateProtocol_")
 @protocol HMSUpdateProtocol
-@property (nonatomic, strong) HMS * _Nonnull hms;
+@property (nonatomic, strong) HMS * _Nullable hms;
 - (void)onJoin:(HMSRoom * _Nonnull)room;
 - (void)onRoom:(HMSRoom * _Nonnull)room update:(enum HMSRoomUpdate)update;
 - (void)onPeer:(HMSPeer * _Nonnull)peer update:(enum HMSPeerUpdate)update;
+- (void)onTrack:(HMSTrack * _Nonnull)track update:(enum HMSTrackUpdate)update peer:(HMSPeer * _Nonnull)peer;
 - (void)onError:(HMSError * _Nonnull)error;
 - (void)onMessage:(HMSMessage * _Nonnull)message;
 @end
@@ -1452,6 +1458,7 @@ SWIFT_CLASS("_TtC6HMSKit10HMSMessage")
 @property (nonatomic, readonly, copy) NSDate * _Nonnull time;
 @property (nonatomic, readonly) enum HMSMessageType type;
 @property (nonatomic, readonly, copy) NSString * _Nullable message;
+- (nonnull instancetype)initWithSender:(NSString * _Nonnull)sender receiver:(NSString * _Nullable)receiver time:(NSDate * _Nonnull)time type:(enum HMSMessageType)type message:(NSString * _Nullable)message OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1511,14 +1518,12 @@ SWIFT_CLASS("_TtC6HMSKit7HMSPeer")
 @end
 
 typedef SWIFT_ENUM(NSInteger, HMSPeerUpdate, open) {
-  HMSPeerUpdateVideoTrackAdded = 0,
-  HMSPeerUpdateVideoTrackRemoved = 1,
-  HMSPeerUpdateAudioTrackAdded = 2,
-  HMSPeerUpdateAudioTrackRemoved = 3,
-  HMSPeerUpdateAudioToggled = 4,
-  HMSPeerUpdateVideoToggled = 5,
-  HMSPeerUpdateRoleUpdated = 6,
-  HMSPeerUpdateDefaultUpdate = 7,
+  HMSPeerUpdatePeerJoined = 0,
+  HMSPeerUpdatePeerLeft = 1,
+  HMSPeerUpdateAudioToggled = 2,
+  HMSPeerUpdateVideoToggled = 3,
+  HMSPeerUpdateRoleUpdated = 4,
+  HMSPeerUpdatePeerKnocked = 5,
 };
 
 
@@ -1544,24 +1549,27 @@ SWIFT_CLASS("_TtC6HMSKit7HMSRoom")
 @end
 
 typedef SWIFT_ENUM(NSInteger, HMSRoomUpdate, open) {
-  HMSRoomUpdatePeerAdded = 0,
-  HMSRoomUpdatePeerRemoved = 1,
-  HMSRoomUpdatePeerKnocked = 2,
-  HMSRoomUpdateRoomTypeChanged = 3,
-  HMSRoomUpdateMetaDataUpdated = 4,
-  HMSRoomUpdateScreenShareStarted = 5,
-  HMSRoomUpdateScreenShareStopped = 6,
-  HMSRoomUpdateDefaultUpdate = 7,
+  HMSRoomUpdateRoomTypeChanged = 0,
+  HMSRoomUpdateMetaDataUpdated = 1,
+};
+
+typedef SWIFT_ENUM(NSInteger, HMSTrackUpdate, open) {
+  HMSTrackUpdateTrackAdded = 0,
+  HMSTrackUpdateTrackRemove = 1,
+  HMSTrackUpdateTrackMuted = 2,
+  HMSTrackUpdateTrackUnmuted = 3,
+  HMSTrackUpdateTrackDescriptionChanged = 4,
 };
 
 @class HMSError;
 
 SWIFT_PROTOCOL("_TtP6HMSKit17HMSUpdateProtocol_")
 @protocol HMSUpdateProtocol
-@property (nonatomic, strong) HMS * _Nonnull hms;
+@property (nonatomic, strong) HMS * _Nullable hms;
 - (void)onJoin:(HMSRoom * _Nonnull)room;
 - (void)onRoom:(HMSRoom * _Nonnull)room update:(enum HMSRoomUpdate)update;
 - (void)onPeer:(HMSPeer * _Nonnull)peer update:(enum HMSPeerUpdate)update;
+- (void)onTrack:(HMSTrack * _Nonnull)track update:(enum HMSTrackUpdate)update peer:(HMSPeer * _Nonnull)peer;
 - (void)onError:(HMSError * _Nonnull)error;
 - (void)onMessage:(HMSMessage * _Nonnull)message;
 @end

@@ -10,64 +10,64 @@ import UIKit
 
 final class ChatViewController: UIViewController {
 
-//    var hms: HMSInteractor?
+    var interactor: HMSInteractor?
+
+    @IBOutlet private weak var table: UITableView!
+    @IBOutlet private weak var stackView: UIStackView!
+    @IBOutlet private weak var textField: UITextField!
+    @IBOutlet private weak var sendButton: UIButton!
+
+    // MARK: - View Lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        table.tableFooterView = UIView()
+        table.estimatedRowHeight = 64
+        table.rowHeight = UITableView.automaticDimension
+        table.tableFooterView = stackView
+
+        observeBroadcast()
+        handleKeyboard()
+    }
 //
-//    @IBOutlet private weak var table: UITableView!
-//    @IBOutlet private weak var stackView: UIStackView!
-//    @IBOutlet private weak var textField: UITextField!
-//    @IBOutlet private weak var sendButton: UIButton!
-//
-//    // MARK: - View Lifecycle
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        table.tableFooterView = UIView()
-//        table.estimatedRowHeight = 64
-//        table.rowHeight = UITableView.automaticDimension
-//        table.tableFooterView = stackView
-//
-//        observeBroadcast()
-//        handleKeyboard()
-//    }
-//
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        textField.becomeFirstResponder()
-//    }
-//
-//    deinit {
-//        NotificationCenter.default.removeObserver(self)
-//    }
-//
-//    // MARK: - View Modifiers
-//
-//    private func handleKeyboard() {
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
-//                                               name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
-//                                               name: UIResponder.keyboardWillHideNotification, object: nil)
-//    }
-//
-//    @objc private func keyboardWillShow(notification: NSNotification) {
-//
-//        guard let userInfo = notification.userInfo,
-//              var keyboardFrame = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
-//        else { return }
-//
-//        keyboardFrame = view.convert(keyboardFrame, from: nil)
-//
-//        var contentInset = table.contentInset
-//        contentInset.bottom = keyboardFrame.size.height + 30
-//        table.contentInset = contentInset
-//    }
-//
-//    @objc private func keyboardWillHide(notification: NSNotification) {
-//
-//        let contentInset = UIEdgeInsets.zero
-//        table.contentInset = contentInset
-//    }
-//
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        textField.becomeFirstResponder()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    // MARK: - View Modifiers
+
+    private func handleKeyboard() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc private func keyboardWillShow(notification: NSNotification) {
+
+        guard let userInfo = notification.userInfo,
+              var keyboardFrame = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+        else { return }
+
+        keyboardFrame = view.convert(keyboardFrame, from: nil)
+
+        var contentInset = table.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 30
+        table.contentInset = contentInset
+    }
+
+    @objc private func keyboardWillHide(notification: NSNotification) {
+
+        let contentInset = UIEdgeInsets.zero
+        table.contentInset = contentInset
+    }
+
 //    // MARK: - Action Handlers
 //
 //    private func observeBroadcast() {

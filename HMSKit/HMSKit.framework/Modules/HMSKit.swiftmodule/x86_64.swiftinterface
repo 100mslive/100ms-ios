@@ -49,14 +49,20 @@ import Swift
   }
 }
 @objc public enum HMSRoomUpdate : Swift.Int {
-  case peerAdded
-  case peerRemoved
-  case peerKnocked
   case roomTypeChanged
   case metaDataUpdated
-  case screenShareStarted
-  case screenShareStopped
-  case defaultUpdate
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum HMSTrackUpdate : Swift.Int {
+  case trackAdded
+  case trackRemove
+  case trackMuted
+  case trackUnmuted
+  case trackDescriptionChanged
   public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
@@ -71,12 +77,13 @@ import Swift
   @objc override dynamic public init()
   @objc deinit
 }
-@objc @_hasMissingDesignatedInitializers @objcMembers public class HMSMessage : ObjectiveC.NSObject {
+@objc @objcMembers public class HMSMessage : ObjectiveC.NSObject {
   @objc final public let sender: Swift.String
   @objc final public let receiver: Swift.String?
   @objc final public let time: Foundation.Date
   @objc final public let type: HMSKit.HMSMessageType
   @objc final public let message: Swift.String?
+  @objc public init(sender: Swift.String, receiver: Swift.String?, time: Foundation.Date, type: HMSKit.HMSMessageType, message: Swift.String?)
   @objc deinit
   @objc override dynamic public init()
 }
@@ -118,10 +125,11 @@ import Swift
   @objc override dynamic public init()
 }
 @objc public protocol HMSUpdateProtocol {
-  @objc var hms: HMSKit.HMS { get set }
+  @objc var hms: HMSKit.HMS? { get set }
   @objc(onJoin:) func on(join room: HMSKit.HMSRoom)
   @objc(onRoom:update:) func on(room: HMSKit.HMSRoom, update: HMSKit.HMSRoomUpdate)
   @objc(onPeer:update:) func on(peer: HMSKit.HMSPeer, update: HMSKit.HMSPeerUpdate)
+  @objc(onTrack:update:peer:) func on(track: HMSKit.HMSTrack, update: HMSKit.HMSTrackUpdate, for peer: HMSKit.HMSPeer)
   @objc(onError:) func on(error: HMSKit.HMSError)
   @objc(onMessage:) func on(message: HMSKit.HMSMessage)
 }
@@ -153,14 +161,12 @@ import Swift
   @objc override dynamic public init()
 }
 @objc public enum HMSPeerUpdate : Swift.Int {
-  case videoTrackAdded
-  case videoTrackRemoved
-  case audioTrackAdded
-  case audioTrackRemoved
+  case peerJoined
+  case peerLeft
   case audioToggled
   case videoToggled
   case roleUpdated
-  case defaultUpdate
+  case peerKnocked
   public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
@@ -173,6 +179,9 @@ extension HMSKit.HMSMessageType : Swift.RawRepresentable {}
 extension HMSKit.HMSRoomUpdate : Swift.Equatable {}
 extension HMSKit.HMSRoomUpdate : Swift.Hashable {}
 extension HMSKit.HMSRoomUpdate : Swift.RawRepresentable {}
+extension HMSKit.HMSTrackUpdate : Swift.Equatable {}
+extension HMSKit.HMSTrackUpdate : Swift.Hashable {}
+extension HMSKit.HMSTrackUpdate : Swift.RawRepresentable {}
 extension HMSKit.HMSMode : Swift.Equatable {}
 extension HMSKit.HMSMode : Swift.Hashable {}
 extension HMSKit.HMSMode : Swift.RawRepresentable {}
