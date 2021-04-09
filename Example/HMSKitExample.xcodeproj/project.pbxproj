@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		7D7B0B828474C3E4F6B281AB /* Pods_HMSKitExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9684DB90E0EDFA327295D3E /* Pods_HMSKitExampleTests.framework */; };
+		87B4454C042A9725BD82CBED /* libPods-HMSKitExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A642F10850F9CE5BE54F96E3 /* libPods-HMSKitExampleTests.a */; };
+		E62DBE889DDA54261CD23EAC /* libPods-HMSKitExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92389FF222EE2248D2362F8A /* libPods-HMSKitExample.a */; };
 		EC8CEE71261E297F002DC12E /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEE40261E297F002DC12E /* Settings.storyboard */; };
 		EC8CEE72261E297F002DC12E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8CEE42261E297F002DC12E /* SettingsViewController.swift */; };
 		EC8CEE76261E297F002DC12E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEE48261E297F002DC12E /* Login.storyboard */; };
@@ -35,7 +36,6 @@
 		ECA64EF2261E2FCB0077C25A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEE47261E297F002DC12E /* GoogleService-Info.plist */; };
 		ECE1EE42261F277700C8B0B1 /* HMSPeer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE1EE41261F277700C8B0B1 /* HMSPeer+.swift */; };
 		ECF4919C261EED6100E54400 /* Token.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF4919B261EED6100E54400 /* Token.m */; };
-		FA97EAFE7A5F9E6EE35CEE26 /* Pods_HMSKitExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CAC545AF8E781F05235F394 /* Pods_HMSKitExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,16 +50,17 @@
 
 /* Begin PBXFileReference section */
 		0244AC5843648F6E5DA71878 /* HMSKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HMSKit.podspec; path = ../HMSKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		3991E0947B12A0F9E84E1ADB /* Pods-HMSKitExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExample.debug.xcconfig"; path = "../../../../Pods/Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample.debug.xcconfig"; sourceTree = "<group>"; };
+		3991E0947B12A0F9E84E1ADB /* Pods-HMSKitExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExample.debug.xcconfig"; path = "Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* HMSKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMSKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACE51AFB9204008FA782 /* HMSKitExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HMSKitExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		60A89979A8316D24EDB85278 /* Pods-HMSKitExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExampleTests.debug.xcconfig"; path = "../../../../Pods/Target Support Files/Pods-HMSKitExampleTests/Pods-HMSKitExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		734B1D7A6C1764B998A1C53C /* Pods-HMSKitExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExample.release.xcconfig"; path = "../../../../Pods/Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample.release.xcconfig"; sourceTree = "<group>"; };
-		8CAC545AF8E781F05235F394 /* Pods_HMSKitExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HMSKitExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		60A89979A8316D24EDB85278 /* Pods-HMSKitExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-HMSKitExampleTests/Pods-HMSKitExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		734B1D7A6C1764B998A1C53C /* Pods-HMSKitExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExample.release.xcconfig"; path = "Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample.release.xcconfig"; sourceTree = "<group>"; };
+		92389FF222EE2248D2362F8A /* libPods-HMSKitExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HMSKitExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A642F10850F9CE5BE54F96E3 /* libPods-HMSKitExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HMSKitExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BADB1198BD96E24E9BFFB40B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		E9E0A8D04907FE37A898BFF6 /* Pods-HMSKitExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExampleTests.release.xcconfig"; path = "../../../../Pods/Target Support Files/Pods-HMSKitExampleTests/Pods-HMSKitExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		E9E0A8D04907FE37A898BFF6 /* Pods-HMSKitExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExampleTests.release.xcconfig"; path = "Target Support Files/Pods-HMSKitExampleTests/Pods-HMSKitExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		EC7807E7261E2B1C0021903D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EC8CEE41261E297F002DC12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		EC8CEE42261E297F002DC12E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +98,6 @@
 		ECF49199261EED6100E54400 /* HMSKitExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMSKitExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		ECF4919A261EED6100E54400 /* Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
 		ECF4919B261EED6100E54400 /* Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Token.m; sourceTree = "<group>"; };
-		F9684DB90E0EDFA327295D3E /* Pods_HMSKitExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HMSKitExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA97EAFE7A5F9E6EE35CEE26 /* Pods_HMSKitExample.framework in Frameworks */,
+				E62DBE889DDA54261CD23EAC /* libPods-HMSKitExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D7B0B828474C3E4F6B281AB /* Pods_HMSKitExampleTests.framework in Frameworks */,
+				87B4454C042A9725BD82CBED /* libPods-HMSKitExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,8 +123,8 @@
 		1041C860E962BA7C1E0CA76C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8CAC545AF8E781F05235F394 /* Pods_HMSKitExample.framework */,
-				F9684DB90E0EDFA327295D3E /* Pods_HMSKitExampleTests.framework */,
+				92389FF222EE2248D2362F8A /* libPods-HMSKitExample.a */,
+				A642F10850F9CE5BE54F96E3 /* libPods-HMSKitExampleTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -436,33 +436,11 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample-frameworks.sh",
 				"${PODS_ROOT}/GoogleWebRTC/Frameworks/frameworks/WebRTC.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCore-iOS13.0/FirebaseCore.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics-iOS13.0/FirebaseCoreDiagnostics.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCrashlytics-iOS13.0/FirebaseCrashlytics.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseInstallations-iOS13.0/FirebaseInstallations.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleDataTransport-iOS13.0/GoogleDataTransport.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-54e75ca4/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC-iOS13.0/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb-iOS13.0/nanopb.framework",
-				"${BUILT_PRODUCTS_DIR}/Base64-iOS13.0/Base64.framework",
-				"${BUILT_PRODUCTS_DIR}/JWT-iOS13.0/JWT.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseAppDistribution/FirebaseAppDistribution.framework",
 				"${PODS_ROOT}/HMSKit/HMSKit/HMSKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreDiagnostics.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCrashlytics.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseInstallations.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleDataTransport.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Base64.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWT.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAppDistribution.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HMSKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,7 +619,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -703,7 +681,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -736,7 +714,7 @@
 				CODE_SIGN_ENTITLEMENTS = HMSKitExample/SupportingFiles/HMSKitExample.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 5N85PP82A9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HMSKitExample/SupportingFiles/Info.plist;
@@ -768,7 +746,7 @@
 				CODE_SIGN_ENTITLEMENTS = HMSKitExample/SupportingFiles/HMSKitExample.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 5N85PP82A9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HMSKitExample/SupportingFiles/Info.plist;
@@ -795,7 +773,7 @@
 			baseConfigurationReference = 60A89979A8316D24EDB85278 /* Pods-HMSKitExampleTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -821,7 +799,7 @@
 			baseConfigurationReference = E9E0A8D04907FE37A898BFF6 /* Pods-HMSKitExampleTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
