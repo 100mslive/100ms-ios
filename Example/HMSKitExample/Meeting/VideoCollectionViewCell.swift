@@ -50,6 +50,8 @@ final class VideoCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
 
+        Utilities.applyBorder(on: self)
+
 //        _ = NotificationCenter.default.addObserver(forName: Constants.muteALL,
 //                                               object: nil,
 //                                               queue: .main) { [weak self] _ in

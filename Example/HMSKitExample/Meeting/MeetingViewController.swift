@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import HMSKit
 import MediaPlayer
 
 final class MeetingViewController: UIViewController {
@@ -110,7 +109,7 @@ final class MeetingViewController: UIViewController {
     }
 
     private func observeBroadcast() {
-        _ = NotificationCenter.default.addObserver(forName: Constants.broadcastReceived,
+        _ = NotificationCenter.default.addObserver(forName: Constants.messageReceived,
                                                    object: nil,
                                                    queue: .main) { [weak self] _ in
             if let strongSelf = self {
@@ -168,6 +167,8 @@ final class MeetingViewController: UIViewController {
                 .instantiateInitialViewController() as? ChatViewController else {
             return
         }
+
+        viewController.interactor = viewModel.interactor
 
         chatBadgeCount = 0
 

@@ -17,6 +17,8 @@ final class HMSKitInteractor: HMSUpdateProtocol {
 
     private let updateView: () -> Void
 
+    internal var messages = [HMSMessage]()
+
 
     // MARK: - Setup Stream
 
@@ -64,6 +66,9 @@ final class HMSKitInteractor: HMSUpdateProtocol {
     }
 
     func on(message: HMSMessage) {
-        
+
+        messages.append(message)
+
+        NotificationCenter.default.post(name: Constants.messageReceived, object: nil)
     }
 }

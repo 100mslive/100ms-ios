@@ -12,12 +12,7 @@ import QuartzCore
 final class Utilities {
 
     static func applyBorder(on view: UIView, radius: CGFloat = 16) {
-        if #available(iOS 11.0, *) {
-            view.layer.borderColor = UIColor(named: "Border")?.cgColor
-        } else {
-            view.layer.borderColor = UIColor.black.cgColor
-        }
-
+        view.layer.borderColor = UIColor(named: "Border")?.cgColor
         view.layer.borderWidth = 1
         view.layer.cornerRadius = radius
         view.layer.masksToBounds = true

@@ -44,7 +44,7 @@ struct Constants {
 
     static let settingsUpdated = NSNotification.Name("SETTINGS_UPDATED")
 
-    static let broadcastReceived = NSNotification.Name("BROADCAST_RECEIVED")
+    static let messageReceived = NSNotification.Name("MESSAGE_RECEIVED")
 
     static let peersUpdated = NSNotification.Name("PEERS_UPDATED")
 

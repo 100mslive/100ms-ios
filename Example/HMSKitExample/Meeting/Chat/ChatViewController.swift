@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import HMSKit
 
 final class ChatViewController: UIViewController {
 
-    private var interactor: HMSKitInteractor?
+    internal var interactor: HMSKitInteractor?
 
     @IBOutlet private weak var table: UITableView!
     @IBOutlet private weak var stackView: UIStackView!
@@ -73,14 +74,13 @@ final class ChatViewController: UIViewController {
     // MARK: - Action Handlers
 
     private func observeBroadcast() {
-        _ = NotificationCenter.default.addObserver(forName: Constants.broadcastReceived,
+        _ = NotificationCenter.default.addObserver(forName: Constants.messageReceived,
                                                    object: nil,
                                                    queue: .main) { [weak self] _ in
 
-            self?.table.reloadData()
-//            let index = IndexPath(row: (self?.interactor?.hms?.broadcasts.count ?? 1) - 1, section: 0)
-//            self?.table.insertRows(at: [index], with: .automatic)
-//            self?.table.scrollToRow(at: index, at: .top, animated: true)
+            let index = IndexPath(row: (self?.interactor?.messages.count ?? 1) - 1, section: 0)
+            self?.table.insertRows(at: [index], with: .automatic)
+            self?.table.scrollToRow(at: index, at: .top, animated: true)
         }
     }
 
@@ -90,54 +90,57 @@ final class ChatViewController: UIViewController {
 
     @IBAction private func sendTapped(_ sender: UIButton) {
 
-//        if let message = textField.text, !message.isEmpty, let interactor = interactor {
-//
-//            sender.isEnabled = false
-//
-//            let broadcast = [ Constants.chatSenderName: interactor.hms?.localPeer.name,
-//                              Constants.chatMessage: message ]
-//
-//            hms.send(broadcast) { [weak self] in
-//
-//                sender.isEnabled = true
-//                self?.textField.text = nil
-//                hms.broadcasts.append(broadcast)
-//                let index = IndexPath(row: hms.broadcasts.count - 1, section: 0)
-//                self?.table.insertRows(at: [index], with: .automatic)
-//                self?.table.scrollToRow(at: index, at: .top, animated: true)
-//            }
-//        }
+        if let message = textField.text, !message.isEmpty,
+           let interactor = interactor, let peerName = interactor.hms?.localPeer?.name {
+
+            sender.isEnabled = false
+
+            let message = HMSMessage(sender: peerName,
+                                     receiver: nil,
+                                     time: Date(),
+                                     type: .chat,
+                                     message: message)
+
+            interactor.hms?.send(message: message)
+
+            interactor.messages.append(message)
+
+            let index = IndexPath(row: (interactor.messages.count ?? 1) - 1, section: 0)
+            self.table.insertRows(at: [index], with: .automatic)
+            self.table.scrollToRow(at: index, at: .top, animated: true)
+
+            sender.isEnabled = true
+
+            textField.text = ""
+        }
     }
 }
 
 extension ChatViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        hms?.broadcasts.count ?? 0
-        0
+        interactor?.messages.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard //let chat = hms?.broadcasts[indexPath.row],
-//              let sender = chat[Constants.chatSenderName] as? String,
-//              let message = chat[Constants.chatMessage] as? String,
+        guard let message = interactor?.messages[indexPath.row],
               let cell = tableView.dequeueReusableCell(withIdentifier: Constants.resuseIdentifier,
                                                        for: indexPath) as? ChatTableViewCell
         else {
             return UITableViewCell()
         }
 
-//        if sender.lowercased() == hms?.localPeer.name.lowercased() {
-//            cell.nameLabel.textAlignment = .right
-//            cell.messageLabel.textAlignment = .right
-//        } else {
+        if message.sender.lowercased() == interactor?.hms?.localPeer?.name.lowercased() {
+            cell.nameLabel.textAlignment = .right
+            cell.messageLabel.textAlignment = .right
+        } else {
             cell.nameLabel.textAlignment = .left
             cell.messageLabel.textAlignment = .left
-//        }
+        }
 
-//        cell.nameLabel.text = sender
-//        cell.messageLabel.text = message
+        cell.nameLabel.text = message.sender
+        cell.messageLabel.text = message.message
 
         return cell
     }
