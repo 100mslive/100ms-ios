@@ -70,7 +70,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/AppDistribution
   - Firebase/Crashlytics
-  - HMSKit (from `https://github.com/100mslive/100ms-ios.git`, branch `usingSDK2.0`)
+  - HMSKit (from `../HMSKit.podspec`)
   - JWT
 
 SPEC REPOS:
@@ -91,13 +91,7 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   HMSKit:
-    :branch: usingSDK2.0
-    :git: https://github.com/100mslive/100ms-ios.git
-
-CHECKOUT OPTIONS:
-  HMSKit:
-    :commit: 22b8219970c1548f7cd7dae1fd62f3c78a858a68
-    :git: https://github.com/100mslive/100ms-ios.git
+    :path: "../HMSKit.podspec"
 
 SPEC CHECKSUMS:
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
@@ -115,6 +109,6 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
-PODFILE CHECKSUM: aa059cdbdc231a5af290292419a6fca835272ec7
+PODFILE CHECKSUM: d8e1f1399f1967a5eb7315f3d4389652b5afa602
 
 COCOAPODS: 1.10.1

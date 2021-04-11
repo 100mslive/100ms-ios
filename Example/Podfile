@@ -4,7 +4,7 @@ platform :ios, '13.0'
 
 target 'HMSKitExample' do
   # pod 'HMSVideo'#, :path => '../'
-  pod 'HMSKit', :git => 'https://github.com/100mslive/100ms-ios.git', :branch => 'usingSDK2.0'
+  pod 'HMSKit', :path => "../HMSKit.podspec"
   
   pod 'Firebase/Crashlytics'
   pod 'Firebase/AppDistribution'

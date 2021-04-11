@@ -125,7 +125,7 @@ final class MeetingViewModel: NSObject,
 
     private func updateCell(at indexPath: IndexPath, for cell: VideoCollectionViewCell) {
 
-        if let peer = interactor.hms?.room?.peers[indexPath.row] {
+        if let peer = interactor.hms?.room?.peers[indexPath.row] as? Peer {
 
             cell.peer = peer
 
@@ -162,7 +162,7 @@ final class MeetingViewModel: NSObject,
 
         print(#function, indexPath.item)
 
-        if let peer = interactor.hms?.room?.peers[indexPath.item] {
+        if let peer = interactor.hms?.room?.peers[indexPath.item] as? Peer {
             if peer.isPinned {
                 return CGSize(width: collectionView.frame.size.width - widthInsets,
                               height: collectionView.frame.size.height - heightInsets)
