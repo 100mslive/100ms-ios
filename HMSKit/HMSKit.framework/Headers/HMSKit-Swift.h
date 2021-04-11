@@ -388,7 +388,9 @@ SWIFT_PROTOCOL("_TtP6HMSKit17HMSUpdateProtocol_")
 
 SWIFT_CLASS("_TtC6HMSKit12HMSUtilities")
 @interface HMSUtilities : NSObject
-- (NSArray<HMSDevice *> * _Nonnull)getDevices SWIFT_WARN_UNUSED_RESULT;
++ (NSArray<HMSDevice *> * _Nonnull)getDevices SWIFT_WARN_UNUSED_RESULT;
++ (NSArray<HMSVideoTrack *> * _Nonnull)getAllVideoTracksFor:(HMSRoom * _Nonnull)room SWIFT_WARN_UNUSED_RESULT;
++ (NSArray<HMSAudioTrack *> * _Nonnull)getAllAudioTracksFor:(HMSRoom * _Nonnull)room SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -783,7 +785,9 @@ SWIFT_PROTOCOL("_TtP6HMSKit17HMSUpdateProtocol_")
 
 SWIFT_CLASS("_TtC6HMSKit12HMSUtilities")
 @interface HMSUtilities : NSObject
-- (NSArray<HMSDevice *> * _Nonnull)getDevices SWIFT_WARN_UNUSED_RESULT;
++ (NSArray<HMSDevice *> * _Nonnull)getDevices SWIFT_WARN_UNUSED_RESULT;
++ (NSArray<HMSVideoTrack *> * _Nonnull)getAllVideoTracksFor:(HMSRoom * _Nonnull)room SWIFT_WARN_UNUSED_RESULT;
++ (NSArray<HMSAudioTrack *> * _Nonnull)getAllAudioTracksFor:(HMSRoom * _Nonnull)room SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1182,7 +1186,9 @@ SWIFT_PROTOCOL("_TtP6HMSKit17HMSUpdateProtocol_")
 
 SWIFT_CLASS("_TtC6HMSKit12HMSUtilities")
 @interface HMSUtilities : NSObject
-- (NSArray<HMSDevice *> * _Nonnull)getDevices SWIFT_WARN_UNUSED_RESULT;
++ (NSArray<HMSDevice *> * _Nonnull)getDevices SWIFT_WARN_UNUSED_RESULT;
++ (NSArray<HMSVideoTrack *> * _Nonnull)getAllVideoTracksFor:(HMSRoom * _Nonnull)room SWIFT_WARN_UNUSED_RESULT;
++ (NSArray<HMSAudioTrack *> * _Nonnull)getAllAudioTracksFor:(HMSRoom * _Nonnull)room SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1577,7 +1583,9 @@ SWIFT_PROTOCOL("_TtP6HMSKit17HMSUpdateProtocol_")
 
 SWIFT_CLASS("_TtC6HMSKit12HMSUtilities")
 @interface HMSUtilities : NSObject
-- (NSArray<HMSDevice *> * _Nonnull)getDevices SWIFT_WARN_UNUSED_RESULT;
++ (NSArray<HMSDevice *> * _Nonnull)getDevices SWIFT_WARN_UNUSED_RESULT;
++ (NSArray<HMSVideoTrack *> * _Nonnull)getAllVideoTracksFor:(HMSRoom * _Nonnull)room SWIFT_WARN_UNUSED_RESULT;
++ (NSArray<HMSAudioTrack *> * _Nonnull)getAllAudioTracksFor:(HMSRoom * _Nonnull)room SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

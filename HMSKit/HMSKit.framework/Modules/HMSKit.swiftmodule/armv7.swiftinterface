@@ -5,7 +5,7 @@ import Foundation
 @_exported import HMSKit
 import HMSKit_Private
 import Swift
-@objc @_hasMissingDesignatedInitializers @objcMembers public class HMSPeer : ObjectiveC.NSObject {
+@objc @_hasMissingDesignatedInitializers @objcMembers open class HMSPeer : ObjectiveC.NSObject {
   @objc public var name: Swift.String
   @objc final public let isLocal: Swift.Bool
   @objc final public let customerUserID: Swift.String?
@@ -69,7 +69,7 @@ import Swift
     get
   }
 }
-@objc @_hasMissingDesignatedInitializers @objcMembers public class HMSRoom : ObjectiveC.NSObject {
+@objc @_hasMissingDesignatedInitializers @objcMembers open class HMSRoom : ObjectiveC.NSObject {
   @objc final public let id: Swift.String
   @objc final public let name: Swift.String
   @objc final public let metaData: Swift.String?
@@ -88,7 +88,9 @@ import Swift
   @objc override dynamic public init()
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class HMSUtilities : ObjectiveC.NSObject {
-  @objc public func getDevices() -> [HMSKit.HMSDevice]
+  @objc public class func getDevices() -> [HMSKit.HMSDevice]
+  @objc public class func getAllVideoTracks(for room: HMSKit.HMSRoom) -> [HMSKit.HMSVideoTrack]
+  @objc public class func getAllAudioTracks(for room: HMSKit.HMSRoom) -> [HMSKit.HMSAudioTrack]
   @objc deinit
   @objc override dynamic public init()
 }
