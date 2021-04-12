@@ -33,7 +33,7 @@ final class VideoCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var avatarLabel: UILabel! {
         didSet {
-            avatarLabel.layer.cornerRadius = 54
+            avatarLabel.layer.cornerRadius = 32
         }
     }
 

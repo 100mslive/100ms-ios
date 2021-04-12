@@ -45,27 +45,33 @@ final class HMSKitInteractor: HMSUpdateProtocol {
     // MARK: - HMS Update Callbacks
 
     func on(join room: HMSRoom) {
+        print(#function)
         updateView()
     }
 
     func on(room: HMSRoom, update: HMSRoomUpdate) {
+        print(#function, "update:", update.rawValue)
         updateView()
     }
 
     func on(peer: HMSPeer, update: HMSPeerUpdate) {
+        print(#function, "peer:", peer.name, "update:", update.rawValue)
         updateView()
     }
 
     func on(track: HMSTrack, update: HMSTrackUpdate, for peer: HMSPeer) {
+        print(#function, "peer:", peer.name, "track:", track.kind.rawValue, "update:", update.rawValue)
         updateView()
     }
 
     func on(error: HMSError) {
+        print(#function, error.localizedDescription)
         updateView()
     }
 
     func on(message: HMSMessage) {
 
+        print(#function, message)
         messages.append(message)
 
         NotificationCenter.default.post(name: Constants.messageReceived, object: nil)

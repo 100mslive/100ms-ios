@@ -165,6 +165,9 @@ final class MeetingViewModel: NSObject,
 
             cell.avatarLabel.text = Utilities.getAvatarName(from: peer.name)
         }
+        else {
+            print(#function, #line, "Exception!")
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -178,22 +181,29 @@ final class MeetingViewModel: NSObject,
 
         if let peer = interactor.hms?.room?.peers[indexPath.item] {
             if peer.isPinned {
-                return CGSize(width: collectionView.frame.size.width - widthInsets,
-                              height: collectionView.frame.size.height - heightInsets)
+                let size = CGSize(width: collectionView.frame.size.width - widthInsets,
+                                  height: collectionView.frame.size.height - heightInsets)
+
+                print(#function, #line, size.width, size.height)
+                return size
             }
         }
 
         if let count = interactor.hms?.room?.peers.count {
             if count < 5 {
                 let count = CGFloat(count)
-                return CGSize(width: collectionView.frame.size.width - widthInsets,
-                              height: (collectionView.frame.size.height / count) - heightInsets)
+                let size = CGSize(width: collectionView.frame.size.width - widthInsets,
+                                  height: (collectionView.frame.size.height / count) - 2*heightInsets)
+                print(#function, #line, count, size.width, size.height)
+                return size
             }
         }
 
         let rows = UserDefaults.standard.object(forKey: Constants.maximumRows) as? CGFloat ?? 2.0
-        return CGSize(width: (collectionView.frame.size.width / 2) - widthInsets,
-                      height: (collectionView.frame.size.height / rows) - heightInsets)
+        let size = CGSize(width: (collectionView.frame.size.width / 2) - widthInsets,
+                          height: (collectionView.frame.size.height / rows) - 2*heightInsets)
+        print(#function, #line, rows, size.width, size.height)
+        return size
     }
 
     // MARK: - Action Handlers
