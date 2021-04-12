@@ -12,7 +12,7 @@ import QuartzCore
 
 final class VideoCollectionViewCell: UICollectionViewCell {
 
-    weak var peer: Peer?
+    weak var peer: HMSPeer?
 
     @IBOutlet weak var stackView: UIStackView! {
         didSet {
@@ -83,23 +83,22 @@ final class VideoCollectionViewCell: UICollectionViewCell {
     }
 
     @IBAction func pinTapped(_ sender: UIButton) {
-        print(#function, sender.isSelected, peer?.name as Any)
+//        print(#function, sender.isSelected, peer?.name as Any)
         sender.isSelected = !sender.isSelected
         peer?.isPinned = sender.isSelected
         NotificationCenter.default.post(name: Constants.pinTapped,
-                                        object: nil,
-                                        userInfo: [Constants.peerID: peer?.customerUserID as Any])
+                                        object: nil)
     }
 
     @IBAction func muteTapped(_ sender: UIButton) {
-        print(#function, sender.isSelected, peer?.name as Any)
-        peer?.audioTrack?.enabled = sender.isSelected
+//        print(#function, sender.isSelected, peer?.name as Any)
+//        peer?.audioTrack?.enabled = sender.isSelected
         sender.isSelected = !sender.isSelected
     }
 
     @IBAction func stopVideoTapped(_ sender: UIButton) {
-        print(#function, sender.isSelected, peer?.name as Any)
-        peer?.videoTrack?.enabled = sender.isSelected
+//        print(#function, sender.isSelected, peer?.name as Any)
+//        peer?.videoTrack?.enabled = sender.isSelected
         avatarLabel.isHidden = sender.isSelected
         sender.isSelected = !sender.isSelected
     }

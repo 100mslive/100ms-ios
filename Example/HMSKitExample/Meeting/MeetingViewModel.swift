@@ -20,6 +20,20 @@ final class MeetingViewModel: NSObject,
 
     private let sectionInsets = UIEdgeInsets(top: 2.0, left: 4.0, bottom: 2.0, right: 4.0)
 
+    private var peers: [HMSPeer]? {
+        if let allPeers = interactor.hms?.room?.peers {
+            let pinnedPeers = allPeers.filter { (peer) -> Bool in
+                if let isPinned = peer.customerDescription?["isPinned"] as? Bool {
+                    return isPinned
+                }
+                return false
+            }
+            let remainingPeers = Array(Set(allPeers).subtracting(Set(pinnedPeers)))
+            return pinnedPeers + remainingPeers
+        }
+        return nil
+    }
+
     // MARK: - Initializers
 
     init(_ user: String, _ room: String, _ flow: MeetingFlow, _ collectionView: UICollectionView) {
@@ -49,7 +63,7 @@ final class MeetingViewModel: NSObject,
 
     private func observeUserActions() {
 
-        _ = NotificationCenter.default.addObserver(forName: Constants.updatePinnedView,
+        _ = NotificationCenter.default.addObserver(forName: Constants.pinTapped,
                                                    object: nil,
                                                    queue: .main) { [weak self] notification in
 
@@ -104,7 +118,7 @@ final class MeetingViewModel: NSObject,
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        interactor.hms?.room?.peers.count ?? 0
+        peers?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -125,7 +139,7 @@ final class MeetingViewModel: NSObject,
 
     private func updateCell(at indexPath: IndexPath, for cell: VideoCollectionViewCell) {
 
-        if let peer = interactor.hms?.room?.peers[indexPath.row] as? Peer {
+        if let peer = peers?[indexPath.row] {
 
             cell.peer = peer
 
@@ -162,7 +176,7 @@ final class MeetingViewModel: NSObject,
 
         print(#function, indexPath.item)
 
-        if let peer = interactor.hms?.room?.peers[indexPath.item] as? Peer {
+        if let peer = interactor.hms?.room?.peers[indexPath.item] {
             if peer.isPinned {
                 return CGSize(width: collectionView.frame.size.width - widthInsets,
                               height: collectionView.frame.size.height - heightInsets)
@@ -170,7 +184,7 @@ final class MeetingViewModel: NSObject,
         }
 
         if let count = interactor.hms?.room?.peers.count {
-            if count < 4 {
+            if count < 5 {
                 let count = CGFloat(count)
                 return CGSize(width: collectionView.frame.size.width - widthInsets,
                               height: (collectionView.frame.size.height / count) - heightInsets)

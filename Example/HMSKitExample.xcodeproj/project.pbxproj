@@ -10,7 +10,7 @@
 		1F36D68AD2EEE62EA480FB22 /* Pods_HMSKitExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FFBE5B589E563FBA2BCEF7 /* Pods_HMSKitExample.framework */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		A0D1B02088FD6A06E11C727D /* Pods_HMSKitExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F3978FDD1CEC66B6FF625D /* Pods_HMSKitExampleTests.framework */; };
-		EC6918D226235D6700BC1745 /* Peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6918D126235D6700BC1745 /* Peer.swift */; };
+		EC6918D226235D6700BC1745 /* Peer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6918D126235D6700BC1745 /* Peer+.swift */; };
 		EC8CEE71261E297F002DC12E /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEE40261E297F002DC12E /* Settings.storyboard */; };
 		EC8CEE72261E297F002DC12E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8CEE42261E297F002DC12E /* SettingsViewController.swift */; };
 		EC8CEE76261E297F002DC12E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEE48261E297F002DC12E /* Login.storyboard */; };
@@ -61,7 +61,7 @@
 		734B1D7A6C1764B998A1C53C /* Pods-HMSKitExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExample.release.xcconfig"; path = "../../../../Pods/Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample.release.xcconfig"; sourceTree = "<group>"; };
 		BADB1198BD96E24E9BFFB40B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		E9E0A8D04907FE37A898BFF6 /* Pods-HMSKitExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExampleTests.release.xcconfig"; path = "../../../../Pods/Target Support Files/Pods-HMSKitExampleTests/Pods-HMSKitExampleTests.release.xcconfig"; sourceTree = "<group>"; };
-		EC6918D126235D6700BC1745 /* Peer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peer.swift; sourceTree = "<group>"; };
+		EC6918D126235D6700BC1745 /* Peer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Peer+.swift"; sourceTree = "<group>"; };
 		EC7807E7261E2B1C0021903D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EC8CEE41261E297F002DC12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		EC8CEE42261E297F002DC12E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -212,18 +212,18 @@
 		EC8CEE4C261E297F002DC12E /* Meeting */ = {
 			isa = PBXGroup;
 			children = (
+				ECF49199261EED6100E54400 /* HMSKitExample-Bridging-Header.h */,
+				EC8CEE4D261E297F002DC12E /* HMSKitInteractor.swift */,
 				EC8CEE5D261E297F002DC12E /* MeetingViewController.swift */,
 				EC8CEE61261E297F002DC12E /* MeetingViewModel.swift */,
-				EC8CEE4D261E297F002DC12E /* HMSKitInteractor.swift */,
+				EC6918D126235D6700BC1745 /* Peer+.swift */,
 				EC8CEE5F261E297F002DC12E /* RoomService.swift */,
 				EC8CEE60261E297F002DC12E /* VideoCollectionViewCell.swift */,
+				ECF4919A261EED6100E54400 /* Token.h */,
+				ECF4919B261EED6100E54400 /* Token.m */,
 				EC8CEE4A261E297F002DC12E /* Meeting.storyboard */,
 				EC8CEE55261E297F002DC12E /* Chat */,
 				EC8CEE4E261E297F002DC12E /* Participants */,
-				ECF4919A261EED6100E54400 /* Token.h */,
-				ECF4919B261EED6100E54400 /* Token.m */,
-				ECF49199261EED6100E54400 /* HMSKitExample-Bridging-Header.h */,
-				EC6918D126235D6700BC1745 /* Peer.swift */,
 			);
 			path = Meeting;
 			sourceTree = "<group>";
@@ -522,7 +522,7 @@
 				EC8CEE78261E297F002DC12E /* HMSKitInteractor.swift in Sources */,
 				EC8CEE81261E297F002DC12E /* BadgeButton.swift in Sources */,
 				EC8CEE8D261E297F002DC12E /* AppDelegate.swift in Sources */,
-				EC6918D226235D6700BC1745 /* Peer.swift in Sources */,
+				EC6918D226235D6700BC1745 /* Peer+.swift in Sources */,
 				EC8CEE84261E297F002DC12E /* RoomService.swift in Sources */,
 				EC8CEE87261E297F002DC12E /* Constants.swift in Sources */,
 				EC8CEE7A261E297F002DC12E /* ParticipantsViewController.swift in Sources */,

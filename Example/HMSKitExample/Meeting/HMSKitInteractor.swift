@@ -36,8 +36,7 @@ final class HMSKitInteractor: HMSUpdateProtocol {
         let config = HMSConfig(userName: user,
                                userID: UUID().uuidString,
                                roomID: room,
-                               authToken: token,
-                               endPoint: "wss://webrtcv3.100ms.live:8443/ws")
+                               authToken: token)
 
         hms?.join(config: config, delegate: self)
     }
