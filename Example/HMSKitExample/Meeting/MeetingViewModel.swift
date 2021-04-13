@@ -217,7 +217,7 @@ final class MeetingViewModel: NSObject,
         if let peer = peers?[indexPath.item] {
             if peer.isPinned {
                 let size = CGSize(width: collectionView.frame.size.width - widthInsets,
-                                  height: collectionView.frame.size.height - heightInsets)
+                                  height: collectionView.frame.size.height - 2*heightInsets)
 
                 print(#function, #line, size.width, size.height)
                 return size
