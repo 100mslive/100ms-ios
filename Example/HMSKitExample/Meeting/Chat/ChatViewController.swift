@@ -105,7 +105,8 @@ final class ChatViewController: UIViewController {
 
             interactor.messages.append(message)
 
-            let index = IndexPath(row: (interactor.messages.count ?? 1) - 1, section: 0)
+            let row = interactor.messages.count > 0 ? interactor.messages.count - 1 : 0
+            let index = IndexPath(row: row, section: 0)
             self.table.insertRows(at: [index], with: .automatic)
             self.table.scrollToRow(at: index, at: .top, animated: true)
 

@@ -245,11 +245,10 @@ SWIFT_CLASS("_TtC6HMSKit9HMSConfig")
 @property (nonatomic, readonly, copy) NSString * _Nonnull userID;
 @property (nonatomic, readonly, copy) NSString * _Nonnull roomID;
 @property (nonatomic, readonly, copy) NSString * _Nonnull authToken;
-@property (nonatomic, readonly, copy) NSString * _Nonnull endPoint;
 @property (nonatomic, readonly) enum HMSMode joiningMode;
 @property (nonatomic, readonly) BOOL shouldSkipPIIEvents;
-@property (nonatomic, readonly, copy) NSString * _Nullable metaData;
-- (nonnull instancetype)initWithUserName:(NSString * _Nonnull)userName userID:(NSString * _Nonnull)userID roomID:(NSString * _Nonnull)roomID authToken:(NSString * _Nonnull)authToken endPoint:(NSString * _Nonnull)endPoint joiningMode:(enum HMSMode)joiningMode shouldSkipPIIEvents:(BOOL)shouldSkipPIIEvents metaData:(NSString * _Nullable)metaData OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly, copy) NSDictionary * _Nullable metaData;
+- (nonnull instancetype)initWithUserName:(NSString * _Nonnull)userName userID:(NSString * _Nonnull)userID roomID:(NSString * _Nonnull)roomID authToken:(NSString * _Nonnull)authToken joiningMode:(enum HMSMode)joiningMode shouldSkipPIIEvents:(BOOL)shouldSkipPIIEvents metaData:(NSDictionary * _Nullable)metaData OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -318,8 +317,10 @@ SWIFT_CLASS("_TtC6HMSKit7HMSPeer")
 @interface HMSPeer : NSObject
 @property (nonatomic, copy) NSString * _Nonnull name;
 @property (nonatomic, readonly) BOOL isLocal;
+@property (nonatomic) BOOL isDominant;
+@property (nonatomic) BOOL isSpeaking;
 @property (nonatomic, readonly, copy) NSString * _Nullable customerUserID;
-@property (nonatomic, readonly, copy) NSString * _Nullable customerDescription;
+@property (nonatomic, copy) NSDictionary * _Nullable customerDescription;
 @property (nonatomic, strong) HMSAudioTrack * _Nullable audioTrack;
 @property (nonatomic, strong) HMSVideoTrack * _Nullable videoTrack;
 @property (nonatomic, copy) NSArray<HMSTrack *> * _Nullable auxiliaryTracks;
@@ -335,6 +336,11 @@ typedef SWIFT_ENUM(NSInteger, HMSPeerUpdate, open) {
   HMSPeerUpdateVideoToggled = 3,
   HMSPeerUpdateRoleUpdated = 4,
   HMSPeerUpdatePeerKnocked = 5,
+  HMSPeerUpdateBecameDominantSpeaker = 6,
+  HMSPeerUpdateResignedDominantSpeaker = 7,
+  HMSPeerUpdateStartedSpeaking = 8,
+  HMSPeerUpdateStoppedSpeaking = 9,
+  HMSPeerUpdateDefaultUpdate = 10,
 };
 
 
@@ -642,11 +648,10 @@ SWIFT_CLASS("_TtC6HMSKit9HMSConfig")
 @property (nonatomic, readonly, copy) NSString * _Nonnull userID;
 @property (nonatomic, readonly, copy) NSString * _Nonnull roomID;
 @property (nonatomic, readonly, copy) NSString * _Nonnull authToken;
-@property (nonatomic, readonly, copy) NSString * _Nonnull endPoint;
 @property (nonatomic, readonly) enum HMSMode joiningMode;
 @property (nonatomic, readonly) BOOL shouldSkipPIIEvents;
-@property (nonatomic, readonly, copy) NSString * _Nullable metaData;
-- (nonnull instancetype)initWithUserName:(NSString * _Nonnull)userName userID:(NSString * _Nonnull)userID roomID:(NSString * _Nonnull)roomID authToken:(NSString * _Nonnull)authToken endPoint:(NSString * _Nonnull)endPoint joiningMode:(enum HMSMode)joiningMode shouldSkipPIIEvents:(BOOL)shouldSkipPIIEvents metaData:(NSString * _Nullable)metaData OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly, copy) NSDictionary * _Nullable metaData;
+- (nonnull instancetype)initWithUserName:(NSString * _Nonnull)userName userID:(NSString * _Nonnull)userID roomID:(NSString * _Nonnull)roomID authToken:(NSString * _Nonnull)authToken joiningMode:(enum HMSMode)joiningMode shouldSkipPIIEvents:(BOOL)shouldSkipPIIEvents metaData:(NSDictionary * _Nullable)metaData OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -715,8 +720,10 @@ SWIFT_CLASS("_TtC6HMSKit7HMSPeer")
 @interface HMSPeer : NSObject
 @property (nonatomic, copy) NSString * _Nonnull name;
 @property (nonatomic, readonly) BOOL isLocal;
+@property (nonatomic) BOOL isDominant;
+@property (nonatomic) BOOL isSpeaking;
 @property (nonatomic, readonly, copy) NSString * _Nullable customerUserID;
-@property (nonatomic, readonly, copy) NSString * _Nullable customerDescription;
+@property (nonatomic, copy) NSDictionary * _Nullable customerDescription;
 @property (nonatomic, strong) HMSAudioTrack * _Nullable audioTrack;
 @property (nonatomic, strong) HMSVideoTrack * _Nullable videoTrack;
 @property (nonatomic, copy) NSArray<HMSTrack *> * _Nullable auxiliaryTracks;
@@ -732,6 +739,11 @@ typedef SWIFT_ENUM(NSInteger, HMSPeerUpdate, open) {
   HMSPeerUpdateVideoToggled = 3,
   HMSPeerUpdateRoleUpdated = 4,
   HMSPeerUpdatePeerKnocked = 5,
+  HMSPeerUpdateBecameDominantSpeaker = 6,
+  HMSPeerUpdateResignedDominantSpeaker = 7,
+  HMSPeerUpdateStartedSpeaking = 8,
+  HMSPeerUpdateStoppedSpeaking = 9,
+  HMSPeerUpdateDefaultUpdate = 10,
 };
 
 
@@ -1043,11 +1055,10 @@ SWIFT_CLASS("_TtC6HMSKit9HMSConfig")
 @property (nonatomic, readonly, copy) NSString * _Nonnull userID;
 @property (nonatomic, readonly, copy) NSString * _Nonnull roomID;
 @property (nonatomic, readonly, copy) NSString * _Nonnull authToken;
-@property (nonatomic, readonly, copy) NSString * _Nonnull endPoint;
 @property (nonatomic, readonly) enum HMSMode joiningMode;
 @property (nonatomic, readonly) BOOL shouldSkipPIIEvents;
-@property (nonatomic, readonly, copy) NSString * _Nullable metaData;
-- (nonnull instancetype)initWithUserName:(NSString * _Nonnull)userName userID:(NSString * _Nonnull)userID roomID:(NSString * _Nonnull)roomID authToken:(NSString * _Nonnull)authToken endPoint:(NSString * _Nonnull)endPoint joiningMode:(enum HMSMode)joiningMode shouldSkipPIIEvents:(BOOL)shouldSkipPIIEvents metaData:(NSString * _Nullable)metaData OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly, copy) NSDictionary * _Nullable metaData;
+- (nonnull instancetype)initWithUserName:(NSString * _Nonnull)userName userID:(NSString * _Nonnull)userID roomID:(NSString * _Nonnull)roomID authToken:(NSString * _Nonnull)authToken joiningMode:(enum HMSMode)joiningMode shouldSkipPIIEvents:(BOOL)shouldSkipPIIEvents metaData:(NSDictionary * _Nullable)metaData OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1116,8 +1127,10 @@ SWIFT_CLASS("_TtC6HMSKit7HMSPeer")
 @interface HMSPeer : NSObject
 @property (nonatomic, copy) NSString * _Nonnull name;
 @property (nonatomic, readonly) BOOL isLocal;
+@property (nonatomic) BOOL isDominant;
+@property (nonatomic) BOOL isSpeaking;
 @property (nonatomic, readonly, copy) NSString * _Nullable customerUserID;
-@property (nonatomic, readonly, copy) NSString * _Nullable customerDescription;
+@property (nonatomic, copy) NSDictionary * _Nullable customerDescription;
 @property (nonatomic, strong) HMSAudioTrack * _Nullable audioTrack;
 @property (nonatomic, strong) HMSVideoTrack * _Nullable videoTrack;
 @property (nonatomic, copy) NSArray<HMSTrack *> * _Nullable auxiliaryTracks;
@@ -1133,6 +1146,11 @@ typedef SWIFT_ENUM(NSInteger, HMSPeerUpdate, open) {
   HMSPeerUpdateVideoToggled = 3,
   HMSPeerUpdateRoleUpdated = 4,
   HMSPeerUpdatePeerKnocked = 5,
+  HMSPeerUpdateBecameDominantSpeaker = 6,
+  HMSPeerUpdateResignedDominantSpeaker = 7,
+  HMSPeerUpdateStartedSpeaking = 8,
+  HMSPeerUpdateStoppedSpeaking = 9,
+  HMSPeerUpdateDefaultUpdate = 10,
 };
 
 
@@ -1440,11 +1458,10 @@ SWIFT_CLASS("_TtC6HMSKit9HMSConfig")
 @property (nonatomic, readonly, copy) NSString * _Nonnull userID;
 @property (nonatomic, readonly, copy) NSString * _Nonnull roomID;
 @property (nonatomic, readonly, copy) NSString * _Nonnull authToken;
-@property (nonatomic, readonly, copy) NSString * _Nonnull endPoint;
 @property (nonatomic, readonly) enum HMSMode joiningMode;
 @property (nonatomic, readonly) BOOL shouldSkipPIIEvents;
-@property (nonatomic, readonly, copy) NSString * _Nullable metaData;
-- (nonnull instancetype)initWithUserName:(NSString * _Nonnull)userName userID:(NSString * _Nonnull)userID roomID:(NSString * _Nonnull)roomID authToken:(NSString * _Nonnull)authToken endPoint:(NSString * _Nonnull)endPoint joiningMode:(enum HMSMode)joiningMode shouldSkipPIIEvents:(BOOL)shouldSkipPIIEvents metaData:(NSString * _Nullable)metaData OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly, copy) NSDictionary * _Nullable metaData;
+- (nonnull instancetype)initWithUserName:(NSString * _Nonnull)userName userID:(NSString * _Nonnull)userID roomID:(NSString * _Nonnull)roomID authToken:(NSString * _Nonnull)authToken joiningMode:(enum HMSMode)joiningMode shouldSkipPIIEvents:(BOOL)shouldSkipPIIEvents metaData:(NSDictionary * _Nullable)metaData OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1513,8 +1530,10 @@ SWIFT_CLASS("_TtC6HMSKit7HMSPeer")
 @interface HMSPeer : NSObject
 @property (nonatomic, copy) NSString * _Nonnull name;
 @property (nonatomic, readonly) BOOL isLocal;
+@property (nonatomic) BOOL isDominant;
+@property (nonatomic) BOOL isSpeaking;
 @property (nonatomic, readonly, copy) NSString * _Nullable customerUserID;
-@property (nonatomic, readonly, copy) NSString * _Nullable customerDescription;
+@property (nonatomic, copy) NSDictionary * _Nullable customerDescription;
 @property (nonatomic, strong) HMSAudioTrack * _Nullable audioTrack;
 @property (nonatomic, strong) HMSVideoTrack * _Nullable videoTrack;
 @property (nonatomic, copy) NSArray<HMSTrack *> * _Nullable auxiliaryTracks;
@@ -1530,6 +1549,11 @@ typedef SWIFT_ENUM(NSInteger, HMSPeerUpdate, open) {
   HMSPeerUpdateVideoToggled = 3,
   HMSPeerUpdateRoleUpdated = 4,
   HMSPeerUpdatePeerKnocked = 5,
+  HMSPeerUpdateBecameDominantSpeaker = 6,
+  HMSPeerUpdateResignedDominantSpeaker = 7,
+  HMSPeerUpdateStartedSpeaking = 8,
+  HMSPeerUpdateStoppedSpeaking = 9,
+  HMSPeerUpdateDefaultUpdate = 10,
 };
 
 

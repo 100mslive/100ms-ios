@@ -12,6 +12,7 @@ import QuartzCore
 final class Utilities {
 
     static func applyBorder(on view: UIView, radius: CGFloat = 16) {
+
         view.layer.borderColor = UIColor(named: "Border")?.cgColor
         view.layer.borderWidth = 1
         view.layer.cornerRadius = radius
@@ -23,14 +24,17 @@ final class Utilities {
         view.layer.masksToBounds = true
     }
 
-    static func applySpeakerBorder(on view: UIView) {
-
-        if #available(iOS 13.0, *) {
-            view.layer.borderColor = UIColor.link.cgColor
-        } else {
-            view.layer.borderColor = UIColor.blue.cgColor
-        }
+    static func applyDominantSpeakerBorder(on view: UIView) {
+        view.layer.borderColor = UIColor.link.cgColor
         view.layer.borderWidth = 4
+        view.layer.cornerRadius = 16
+        view.layer.masksToBounds = true
+    }
+
+    static func applySpeakingBorder(on view: UIView) {
+
+        view.layer.borderColor = UIColor.link.withAlphaComponent(0.5).cgColor
+        view.layer.borderWidth = 2
         view.layer.cornerRadius = 16
         view.layer.masksToBounds = true
     }

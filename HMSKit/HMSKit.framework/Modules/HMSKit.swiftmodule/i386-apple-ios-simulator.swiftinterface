@@ -5,11 +5,13 @@ import Foundation
 @_exported import HMSKit
 import HMSKit_Private
 import Swift
-@objc @_hasMissingDesignatedInitializers @objcMembers open class HMSPeer : ObjectiveC.NSObject {
+@objc @_hasMissingDesignatedInitializers @objcMembers public class HMSPeer : ObjectiveC.NSObject {
   @objc public var name: Swift.String
   @objc final public let isLocal: Swift.Bool
+  @objc public var isDominant: Swift.Bool
+  @objc public var isSpeaking: Swift.Bool
   @objc final public let customerUserID: Swift.String?
-  @objc final public let customerDescription: Swift.String?
+  @objc public var customerDescription: [Swift.AnyHashable : Any]?
   @objc public var audioTrack: HMSKit.HMSAudioTrack?
   @objc public var videoTrack: HMSKit.HMSVideoTrack?
   @objc public var auxiliaryTracks: [HMSKit.HMSTrack]?
@@ -69,7 +71,7 @@ import Swift
     get
   }
 }
-@objc @_hasMissingDesignatedInitializers @objcMembers open class HMSRoom : ObjectiveC.NSObject {
+@objc @_hasMissingDesignatedInitializers @objcMembers public class HMSRoom : ObjectiveC.NSObject {
   @objc final public let id: Swift.String
   @objc final public let name: Swift.String
   @objc final public let metaData: Swift.String?
@@ -118,11 +120,10 @@ import Swift
   @objc final public let userID: Swift.String
   @objc final public let roomID: Swift.String
   @objc final public let authToken: Swift.String
-  @objc final public let endPoint: Swift.String
   @objc final public let joiningMode: HMSKit.HMSMode
   @objc final public let shouldSkipPIIEvents: Swift.Bool
-  @objc final public let metaData: Swift.String?
-  @objc public init(userName: Swift.String = "iOS User", userID: Swift.String, roomID: Swift.String, authToken: Swift.String, endPoint: Swift.String, joiningMode: HMSKit.HMSMode = .publishAndSubscribe, shouldSkipPIIEvents: Swift.Bool = false, metaData: Swift.String? = nil)
+  @objc final public let metaData: [Swift.AnyHashable : Any]?
+  @objc public init(userName: Swift.String = "iOS User", userID: Swift.String, roomID: Swift.String, authToken: Swift.String, joiningMode: HMSKit.HMSMode = .publishAndSubscribe, shouldSkipPIIEvents: Swift.Bool = false, metaData: [Swift.AnyHashable : Any]? = nil)
   @objc deinit
   @objc override dynamic public init()
 }
@@ -169,6 +170,11 @@ import Swift
   case videoToggled
   case roleUpdated
   case peerKnocked
+  case becameDominantSpeaker
+  case resignedDominantSpeaker
+  case startedSpeaking
+  case stoppedSpeaking
+  case defaultUpdate
   public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {

@@ -14,6 +14,26 @@ final class VideoCollectionViewCell: UICollectionViewCell {
 
     weak var peer: HMSPeer?
 
+    var isDominant = false {
+        didSet {
+            if isDominant {
+                Utilities.applyDominantSpeakerBorder(on: self.videoView)
+            } else {
+                Utilities.applyBorder(on: self.videoView)
+            }
+        }
+    }
+
+    var isSpeaking = false {
+        didSet {
+            if isSpeaking {
+                Utilities.applySpeakingBorder(on: self.videoView)
+            } else {
+                Utilities.applyBorder(on: self.videoView)
+            }
+        }
+    }
+
     @IBOutlet weak var stackView: UIStackView! {
         didSet {
             Utilities.applyBorder(on: stackView)
@@ -34,16 +54,6 @@ final class VideoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var avatarLabel: UILabel! {
         didSet {
             avatarLabel.layer.cornerRadius = 32
-        }
-    }
-
-    var isSpeaker = false {
-        didSet {
-            if isSpeaker {
-                Utilities.applySpeakerBorder(on: videoView)
-            } else {
-                Utilities.applyBorder(on: videoView)
-            }
         }
     }
 

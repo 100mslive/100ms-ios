@@ -21,6 +21,7 @@ final class MeetingViewModel: NSObject,
     private let sectionInsets = UIEdgeInsets(top: 2.0, left: 4.0, bottom: 2.0, right: 4.0)
 
     private var peers: [HMSPeer]? {
+        print(#function, screenSharePeers?.count as Any)
         if let allPeers = interactor.hms?.room?.peers {
             let pinnedPeers = allPeers.filter { (peer) -> Bool in
                 if let isPinned = peer.customerDescription?["isPinned"] as? Bool {
@@ -28,10 +29,23 @@ final class MeetingViewModel: NSObject,
                 }
                 return false
             }
+            if pinnedPeers.count == 0 {
+                return allPeers
+            }
             let remainingPeers = Array(Set(allPeers).subtracting(Set(pinnedPeers)))
             return pinnedPeers + remainingPeers
         }
+
         return nil
+    }
+
+    private var screenSharePeers: [HMSPeer]? {
+        return interactor.hms?.room?.peers.filter({ (peer) -> Bool in
+            if let count = peer.auxiliaryTracks?.count, count > 0, let tracks = peer.auxiliaryTracks {
+                return tracks.filter({ $0.kind == .screen }).count > 0
+            }
+            return false
+        })
     }
 
     // MARK: - Initializers
@@ -59,6 +73,8 @@ final class MeetingViewModel: NSObject,
         collectionView.delegate = self
 
         self.collectionView = collectionView
+
+//        collectionView.register(VideoCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
     }
 
     private func observeUserActions() {
@@ -117,6 +133,23 @@ final class MeetingViewModel: NSObject,
 //        }
     }
 
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        screenSharePeers?.count ?? 0
+//        1
+//    }
+
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        switch kind {
+//        case UICollectionView.elementKindSectionHeader:
+//            let view = UIView()
+//            view.backgroundColor = .orange
+//            return view
+//
+//        default:
+//            return UICollectionReusableView()
+//        }
+//    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         peers?.count ?? 0
     }
@@ -126,7 +159,7 @@ final class MeetingViewModel: NSObject,
 
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.resuseIdentifier,
                                                             for: indexPath) as? VideoCollectionViewCell,
-              let count = interactor.hms?.room?.peers.count,
+              let count = peers?.count,
               indexPath.item < count
         else {
             return UICollectionViewCell()
@@ -147,7 +180,9 @@ final class MeetingViewModel: NSObject,
 
             cell.nameLabel.text = peer.name
 
-    //        cell.isSpeaker = model.isCurrentSpeaker
+            cell.isDominant = peer.isDominant
+
+            cell.isSpeaking = peer.isSpeaking
 
             cell.pinButton.isSelected = peer.isPinned
 
@@ -179,7 +214,7 @@ final class MeetingViewModel: NSObject,
 
         print(#function, indexPath.item)
 
-        if let peer = interactor.hms?.room?.peers[indexPath.item] {
+        if let peer = peers?[indexPath.item] {
             if peer.isPinned {
                 let size = CGSize(width: collectionView.frame.size.width - widthInsets,
                                   height: collectionView.frame.size.height - heightInsets)
@@ -189,7 +224,7 @@ final class MeetingViewModel: NSObject,
             }
         }
 
-        if let count = interactor.hms?.room?.peers.count {
+        if let count = peers?.count {
             if count < 5 {
                 let count = CGFloat(count)
                 let size = CGSize(width: collectionView.frame.size.width - widthInsets,
