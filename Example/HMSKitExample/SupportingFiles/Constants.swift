@@ -16,7 +16,7 @@ struct Constants {
 //    "https://ms-services-server-token-17sgcgfb18ow.runkit.sh/"
 //    https://100ms-services.vercel.app/api/room_token
 
-    static let endpoint = UserDefaults.standard.string(forKey: socketEndpointKey) ?? "wss://prod-in.100ms.live/ws"
+    static let endpoint = "wss://qa-in.100ms.live/ws" //UserDefaults.standard.string(forKey: socketEndpointKey) ?? "wss://prod-in.100ms.live/ws"
 
     static let tokenQuery = UserDefaults.standard.string(forKey: tokenQueryKey) ?? "api/token"
     //    static let getToken = server + "?api=token"

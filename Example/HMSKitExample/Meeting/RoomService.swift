@@ -67,7 +67,6 @@ struct RoomService {
                                      _ roomID: String,
                                      completion: @escaping (String?, Error?) -> Void) {
 
-        /*
         if let request = createRequest(for: Constants.getTokenURL, user, roomID) {
 
             URLSession.shared.dataTask(with: request) { data, response, error in
@@ -85,9 +84,6 @@ struct RoomService {
                 }
             }.resume()
         }
-         */
-
-        completion(Token.getWith(roomID), nil)
     }
 
     // MARK: - Create Room

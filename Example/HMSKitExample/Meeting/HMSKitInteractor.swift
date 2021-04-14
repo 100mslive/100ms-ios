@@ -26,7 +26,16 @@ final class HMSKitInteractor: HMSUpdateProtocol {
 
         self.updateView = callback
 
-        let token = Token.getWith(room)
+        RoomService.setup(for: flow, user, room) { [weak self] token, aRoom in
+            guard let token = token else {
+                print(#function, "error fetching token")
+                return
+            }
+            self?.setup(for: user, in: aRoom ?? room, token: token)
+        }
+    }
+    
+    func setup(for user: String, in room: String, token: String) {
 
         hms = HMS.build(block: { (hms) in
             hms.logLevel = .verbose
