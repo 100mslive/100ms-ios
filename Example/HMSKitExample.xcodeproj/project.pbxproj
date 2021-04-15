@@ -51,16 +51,16 @@
 /* Begin PBXFileReference section */
 		0244AC5843648F6E5DA71878 /* HMSKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HMSKit.podspec; path = ../HMSKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		38EF7F4F75EB6D76D986372C /* libPods-HMSKitExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HMSKitExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3991E0947B12A0F9E84E1ADB /* Pods-HMSKitExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExample.debug.xcconfig"; path = "Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample.debug.xcconfig"; sourceTree = "<group>"; };
+		3991E0947B12A0F9E84E1ADB /* Pods-HMSKitExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExample.debug.xcconfig"; path = "../../../../Pods/Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample.debug.xcconfig"; sourceTree = "<group>"; };
 		49FBE287025A8A07AE542E38 /* libPods-HMSKitExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HMSKitExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* HMSKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMSKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACE51AFB9204008FA782 /* HMSKitExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HMSKitExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		60A89979A8316D24EDB85278 /* Pods-HMSKitExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-HMSKitExampleTests/Pods-HMSKitExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		734B1D7A6C1764B998A1C53C /* Pods-HMSKitExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExample.release.xcconfig"; path = "Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample.release.xcconfig"; sourceTree = "<group>"; };
+		60A89979A8316D24EDB85278 /* Pods-HMSKitExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExampleTests.debug.xcconfig"; path = "../../../../Pods/Target Support Files/Pods-HMSKitExampleTests/Pods-HMSKitExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		734B1D7A6C1764B998A1C53C /* Pods-HMSKitExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExample.release.xcconfig"; path = "../../../../Pods/Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample.release.xcconfig"; sourceTree = "<group>"; };
 		BADB1198BD96E24E9BFFB40B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		E9E0A8D04907FE37A898BFF6 /* Pods-HMSKitExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExampleTests.release.xcconfig"; path = "Target Support Files/Pods-HMSKitExampleTests/Pods-HMSKitExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		E9E0A8D04907FE37A898BFF6 /* Pods-HMSKitExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMSKitExampleTests.release.xcconfig"; path = "../../../../Pods/Target Support Files/Pods-HMSKitExampleTests/Pods-HMSKitExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		EC6918D126235D6700BC1745 /* Peer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Peer+.swift"; sourceTree = "<group>"; };
 		EC7807E7261E2B1C0021903D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EC8CEE41261E297F002DC12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
@@ -436,7 +436,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HMSKitExample/Pods-HMSKitExample-frameworks.sh",
 				"${PODS_ROOT}/GoogleWebRTC/Frameworks/frameworks/WebRTC.framework",
-				"${PODS_ROOT}/../../HMSKit/HMSKit.framework",
+				"${PODS_ROOT}/HMSKit/HMSKit/HMSKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (

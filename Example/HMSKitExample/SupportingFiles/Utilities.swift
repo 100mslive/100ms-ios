@@ -26,7 +26,7 @@ final class Utilities {
 
     static func applyDominantSpeakerBorder(on view: UIView) {
         view.layer.borderColor = UIColor.link.cgColor
-        view.layer.borderWidth = 4
+        view.layer.borderWidth = 6
         view.layer.cornerRadius = 16
         view.layer.masksToBounds = true
     }

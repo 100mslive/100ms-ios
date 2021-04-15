@@ -17,9 +17,9 @@ final class VideoCollectionViewCell: UICollectionViewCell {
     var isDominant = false {
         didSet {
             if isDominant {
-                Utilities.applyDominantSpeakerBorder(on: self.videoView)
+                Utilities.applyDominantSpeakerBorder(on: self)
             } else {
-                Utilities.applyBorder(on: self.videoView)
+                Utilities.applyBorder(on: self)
             }
         }
     }
@@ -27,9 +27,9 @@ final class VideoCollectionViewCell: UICollectionViewCell {
     var isSpeaking = false {
         didSet {
             if isSpeaking {
-                Utilities.applySpeakingBorder(on: self.videoView)
+                Utilities.applySpeakingBorder(on: self)
             } else {
-                Utilities.applyBorder(on: self.videoView)
+                Utilities.applyBorder(on: self)
             }
         }
     }

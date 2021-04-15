@@ -103,7 +103,7 @@ final class MeetingViewModel: NSObject,
 
         print(#function)
 
-        collectionView?.reloadData()
+        self.collectionView?.reloadData()
 
 //        switch state {
 //

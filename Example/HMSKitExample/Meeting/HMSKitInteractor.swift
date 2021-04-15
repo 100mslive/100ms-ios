@@ -59,17 +59,17 @@ final class HMSKitInteractor: HMSUpdateProtocol {
     }
 
     func on(room: HMSRoom, update: HMSRoomUpdate) {
-        print(#function, "update:", update.rawValue)
+        print(#function, "update:", update.description)
         updateView()
     }
 
     func on(peer: HMSPeer, update: HMSPeerUpdate) {
-        print(#function, "peer:", peer.name, "update:", update.rawValue)
+        print(#function, "peer:", peer.name, "update:", update.description)
         updateView()
     }
 
     func on(track: HMSTrack, update: HMSTrackUpdate, for peer: HMSPeer) {
-        print(#function, "peer:", peer.name, "track:", track.kind.rawValue, "update:", update.rawValue)
+        print(#function, "peer:", peer.name, "track:", track.kind.rawValue, "update:", update.description)
         updateView()
     }
 
