@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-extern NSString *const kHMSVideoErrorDomain;
+extern NSString * _Nonnull const kHMSVideoErrorDomain;
 
 typedef NS_ENUM(NSInteger, HMSErrorCode) {
 		
@@ -69,6 +69,8 @@ typedef NS_ENUM(NSInteger, HMSErrorCode) {
 	kHMSInvalidServerResponseErrorCode = 4102,
 	// Failed to establish RTCPeerConnection 
 	kHMSPeerConnectionFailedErrorCode = 4103,
+	// Can't unpublish a stream that is not published 
+	kHMSUnpublishCalledBeforePublishErrorCode = 4104,
 		
 	// Generic Errors 
 		
@@ -87,7 +89,7 @@ typedef NS_ENUM(NSInteger, HMSErrorCode) {
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HMSError : NSError
-
+@property (nonatomic, readonly) BOOL canRetry;
 @end
 
 NS_ASSUME_NONNULL_END

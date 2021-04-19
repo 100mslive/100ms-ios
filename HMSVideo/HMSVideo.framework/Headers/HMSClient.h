@@ -37,6 +37,7 @@ typedef void (^HMSStreamResultHandler)(HMSStream * _Nullable stream, NSError * _
 
 
 @property(nonatomic, assign) HMSLogLevel logLevel;
+@property(nonatomic, assign) HMSLogLevel rtcLogLevel;
 @property(nonatomic, strong, nullable) NSObject<HMSLogger> *logger;
 
 - (instancetype)initWithPeer:(HMSPeer *)peer;
