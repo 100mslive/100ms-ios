@@ -25,7 +25,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 - Added network quality monitoring
-- Added analytics events repoting
+- Added analytics events reporting
 
 ## [0.10.1] - 2021-02-19
 

@@ -21,6 +21,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/100mslive/100ms-ios.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '10.0'
+  s.cocoapods_version = '>= 1.7.5'
 
   s.source_files = 'HMSVideo/HMSVideo.framework/Headers/*.h'
   s.public_header_files = 'HMSVideo/HMSVideo.framework/Headers/*.h'

@@ -1,4 +1,15 @@
-# 100ms Sample iOS App in Swift
+<p align="center" >
+  <a href="https://100ms.live/">
+  <img src="https://raw.githubusercontent.com/100mslive/100ms-ios/featuredSampleApp/100ms-logo.png" title="100ms logo" float=left>
+</p>
+
+[![Version](https://img.shields.io/cocoapods/v/HMSVideo.svg?style=flat)](http://cocoapods.org/pods/HMSVideo)
+[![Release Date](https://img.shields.io/github/release-date-pre/100mslive/100ms-ios)](https://github.com/100mslive/100ms-ios/releases)
+[![Documentation](https://img.shields.io/badge/Read-Documentation-yellow)](https://docs.100ms.live/)
+[![Platform](https://img.shields.io/cocoapods/p/HMSVideo.svg?style=flat)](http://cocoapods.org/pods/HMSVideo)
+[![License](https://img.shields.io/cocoapods/l/HMSVideo.svg?style=flat)](http://cocoapods.org/pods/HMSVideo)
+[![Slack](https://img.shields.io/badge/Community-Join%20on%20Slack-yellow)](https://join.slack.com/t/100mslive/shared_invite/zt-llwdnz11-vkb2RzptwacwXHO7UeY0CQ)
+[![Email](https://img.shields.io/badge/Contact-Know%20More-yellow)](mailto:founders@100ms.live)
 
 ## **Setup**
 
@@ -7,8 +18,9 @@ This repository contains example code written in Swift.
 ### **CocoaPods**
 
 1. Install [CocoaPods 1.7.5 or newer](https://guides.cocoapods.org/using/getting-started.html).
-2. Run `pod install` from the root directory of this project. CocoaPods will install `HMSVideo.framework` and then set up an `xcworkspace`.
-3. Open `HMSVideoExample.xcworkspace`.
+2. Add `pod 'HMSVideo'` to Podfile
+3. Run `pod install` from the root directory of this project. CocoaPods will install `HMSVideo.framework` and then set up an `xcworkspace`.
+4. Open `HMSVideoExample.xcworkspace`.
 
 Note: You may need to update the CocoaPods [Master Spec Repo](https://github.com/CocoaPods/Specs) by running `pod repo update master` in order to fetch the latest specs for HMSVideo.
 

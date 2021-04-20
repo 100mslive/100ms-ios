@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    fastlane-plugin-firebase_app_distribution (0.2.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  fastlane-plugin-firebase_app_distribution
+
+BUNDLED WITH
+   2.2.15
